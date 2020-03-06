@@ -1,0 +1,85 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	font-size: $defaultFontSize
+	min-width: 320px
+	position: relative
+	font-family: $default-font
+	overflow-x: hidden
+img 
+	max-width: 100%
+::selection
+	background-color: $accent
+	color: #fff
+
+.heading
+	text-align: center
+	font-size: $headingFontSize
+	line-height: $headingLineHeight
+	text-transform: capitalize
+	font-family: $default-font
+.text
+	font-size: $defaultFontSize
+	line-height: $defaultLineHeight
+	font-family: $defaultLineHeight
+.button
+	width: 200px
+	height: 50px
+	display: block
+	background: pink
+	text-align: center
+	font-size: $defaultFontSize
+	line-height: 50px
+	font-family: $default-font
+	text-transform: capitalize
+	border-radius: 45px
+	text-decoration: none
+	box-shadow: 0 0 5px #e6e6e6
+	&:hover
+		background: yellow
+
+
+
+
+
+
+@import "media" // Всегда в конце
