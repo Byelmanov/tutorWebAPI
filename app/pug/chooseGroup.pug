@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include includes/head.pug
+    body
+        include includes/header.pug
+
+        section.container.chooseGroup
+            div.choose__alert#chooseAlert Упс, что-то пошло не так( <span id="chooseAlertCross">X</span>
+            .chooseGroup__window
+                h2.chooseGroup__heading Выбирите группу:
+                form(action="", name="chooseGroup", class="chooseGroup__form")
+                    label.chooseGroup__item
+                        p.chooseGroup__text ТМ-71
+                        input(type="radio", name="chooseGroupInput", class="chooseGroup__input", value="")
+                    label.chooseGroup__item
+                        p.chooseGroup__text ТМ-72
+                        input(type="radio", name="chooseGroupInput", class="chooseGroup__input", value="")
+                    label.chooseGroup__item
+                        p.chooseGroup__text ТР-71
+                        input(type="radio", name="chooseGroupInput", class="chooseGroup__input", value="")
+                    label.chooseGroup__item
+                        p.chooseGroup__text ТР-72
+                        input(type="radio", name="chooseGroupInput", class="chooseGroup__input", value="")
+
+
+        script(src="js/chooseGroup.js")

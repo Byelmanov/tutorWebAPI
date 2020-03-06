@@ -4,11 +4,22 @@ html(lang="en")
     body
         include includes/header.pug
 
-        
+        section.container.choose
+            div.choose__alert#chooseAlert Упс, что-то пошло не так( <span id="chooseAlertCross">X</span>
+            div.choose__window
+                h2.choose__heading Вы:
+                form(action="", name="whoAmI", class="choose__form")
+                    label.choose__item
+                        p.choose__text Преводователь
+                        input(type="radio", name="whoAmIinput", class="choose__input", value="tutor")
+                    label.choose__item
+                        p.choose__text Староста
+                        input(type="radio", name="whoAmIinput", class="choose__input", value="monitor")
+                    label.choose__item
+                        p.choose__text Студент
+                        input(type="radio", name="whoAmIinput", class="choose__input", value="student")
 
 
-
-        include includes/footer.pug
         script(src="js/scripts.min.js")
         
             

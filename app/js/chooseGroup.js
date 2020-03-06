@@ -1,16 +1,16 @@
 'use strict';
 
-let arrayOfRadioButtons = document.querySelectorAll('.choose__input');
+let arrayOfRadioButtons = document.querySelectorAll('.chooseGroup__input');
 
 for (let i = 0; i < arrayOfRadioButtons.length; i++) {
-    arrayOfRadioButtons[i].addEventListener('change', sendAjaxFromWhoAmIForm);
+    arrayOfRadioButtons[i].addEventListener('change', sendAjaxChooseGroupForm);
 }
 
-function sendAjaxFromWhoAmIForm() {
-    let xhr = new XMLHttpRequest();
-    let form = document.forms['whoAmI'];
+function sendAjaxChooseGroupForm() {
+    let form = document.forms['chooseGroup'];
     let formData = new FormData(form);
     let action = form.getAttribute('action');
+    let xhr = new XMLHttpRequest();
 
     try {
 
@@ -24,15 +24,15 @@ function sendAjaxFromWhoAmIForm() {
                     } else {
                         throw new Error('cant find link');
                     }
-
                 } else {
                     document.getElementById('chooseAlert').style.display = 'block';
                 }
             }
         }
 
-        xhr.open("POST", action);
+        xhr.open('POST', action);
         xhr.send(formData);
+
     } catch (e) {
         console.log(e);
     }
