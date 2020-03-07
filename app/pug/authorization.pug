@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include includes/head.pug
+    body
+        include includes/header.pug
+        section.container.authorization
+            .authorization__alert#alert
+                p.authorization__alert-text#alertText
+                div.authorization__alert-cross#alertCross X
+            div.authorization__window
+                h2.authorization__heading Вход:
+                form(action="", name="authorization", class="authorization__form")
+                    label.authorization__item
+                        p.authorization__text Логин
+                        input(type="text", name="login", class="authorization__input", autocomplete="nickname", id="login")
+                    label.authorization__item
+                        p.authorization__text Пароль
+                        input(type="password", name="login", class="authorization__input", autocomplete="current-password", id="password")
+                        p.authorization__captureWarning Пароль должен содержать не менее 4 символов.
+                    button(type="submit", class="authorization__submit" id="submit") Готово
+
+
+
+        script(src="js/authorization.js")
