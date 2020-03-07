@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <meta name="description" content=""/>
+      <meta name="theme-color" content="#000"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="#000"/>
+      <title>Tutor Web API</title>
+      <link rel="shortcut icon" href="" type="image/png"/>
+      <link rel="stylesheet" href="css/main.min.css"/>
+    </head>
+  </head>
+  <body>
+    <header class="container-fluid">
+      <div class="container header__content"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
+        <h1 class="header__heading">Tutor's WEB API</h1>
+      </div>
+    </header>
+    <section class="container chooseGroup">
+      <div class="choose__alert" id="chooseAlert">Упс, что-то пошло не так( <span id="chooseAlertCross">X</span></div>
+      <div class="chooseGroup__window">
+        <h2 class="chooseGroup__heading">Выбирите группу:</h2>
+        <form class="chooseGroup__form" action="" name="chooseGroup">
+          <label class="chooseGroup__item">
+            <p class="chooseGroup__text">ТМ-71</p>
+            <input class="chooseGroup__input" type="radio" name="chooseGroupInput" value=""/>
+          </label>
+          <label class="chooseGroup__item">
+            <p class="chooseGroup__text">ТМ-72</p>
+            <input class="chooseGroup__input" type="radio" name="chooseGroupInput" value=""/>
+          </label>
+          <label class="chooseGroup__item">
+            <p class="chooseGroup__text">ТР-71</p>
+            <input class="chooseGroup__input" type="radio" name="chooseGroupInput" value=""/>
+          </label>
+          <label class="chooseGroup__item">
+            <p class="chooseGroup__text">ТР-72</p>
+            <input class="chooseGroup__input" type="radio" name="chooseGroupInput" value=""/>
+          </label>
+        </form>
+      </div>
+    </section>
+    <script src="js/chooseGroup.js"></script>
+  </body>
+</html>

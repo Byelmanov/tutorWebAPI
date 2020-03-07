@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include includes/head.pug
+    body
+        include includes/header.pug
+
+        section.container-fluid.journal
+            h1.journal__heading TM-71
+            div.journal__addStudentPopUp
+                h2.journal__addStudentPopUp-heading Введите имя студента
+                input(type="text", id="nameOfNewStudent", class="journal__addStudentPopUp-input")
+                button.journal__addStudentPopUp-button#submitNewStudentName Готово
+                div.journal__addStudentPopUp-cross#crossAddNewStudent X
+            div.journal__addColumn#addColumn Добавить колонку
+            form(action="", name="journal")
+                div.journal__table
+                    div.journal__table-line
+                        div.journal__table-item ФИО
+                        div.journal__table-item
+                            input(type="text", name="", class="date", value="31.02")
+                        div.journal__table-item
+                            input(type="text", name="", class="date", value="31.02")
+                        div.journal__table-item
+                            input(type="text", name="", class="date", value="31.02")
+                        div.journal__table-item
+                            input(type="text", name="", class="date", value="31.02")
+                        div.journal__table-item
+                            input(type="text", name="", class="date", value="31.02")
+                        div.journal__table-item
+                            input(type="text", name="", class="date", value="31.02")
+                        div.journal__table-item
+                            input(type="text", name="", class="date", value="31.02")
+                    div.journal__table-line
+                        div.journal__table-item 1. Yelmanov Bohdan
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                    div.journal__table-line
+                        div.journal__table-item 2. Kovalenko Maxim
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="")
+                    div.journal__table-line
+                        div.journal__table-item 3. Tymoshenko Ivan
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="н")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="")
+
+                .journal__buttons
+                    button(type="submit", class="journal__submit") сохранить
+                    div.journal__addStudent#addStudent Добавить студента
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        script(src="js/journal.js")
+                        
+                    
+                

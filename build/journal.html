@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <meta name="description" content=""/>
+      <meta name="theme-color" content="#000"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="#000"/>
+      <title>Tutor Web API</title>
+      <link rel="shortcut icon" href="" type="image/png"/>
+      <link rel="stylesheet" href="css/main.min.css"/>
+    </head>
+  </head>
+  <body>
+    <header class="container-fluid">
+      <div class="container header__content"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
+        <h1 class="header__heading">Tutor's WEB API</h1>
+      </div>
+    </header>
+    <section class="container-fluid journal">
+      <h1 class="journal__heading">TM-71</h1>
+      <div class="journal__addStudentPopUp">
+        <h2 class="journal__addStudentPopUp-heading">Введите имя студента</h2>
+        <input class="journal__addStudentPopUp-input" type="text" id="nameOfNewStudent"/>
+        <button class="journal__addStudentPopUp-button" id="submitNewStudentName">Готово</button>
+        <div class="journal__addStudentPopUp-cross" id="crossAddNewStudent">X</div>
+      </div>
+      <div class="journal__addColumn" id="addColumn">Добавить колонку</div>
+      <form action="" name="journal">
+        <div class="journal__table">
+          <div class="journal__table-line">
+            <div class="journal__table-item">ФИО</div>
+            <div class="journal__table-item">
+              <input class="date" type="text" name="" value="31.02"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="date" type="text" name="" value="31.02"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="date" type="text" name="" value="31.02"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="date" type="text" name="" value="31.02"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="date" type="text" name="" value="31.02"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="date" type="text" name="" value="31.02"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="date" type="text" name="" value="31.02"/>
+            </div>
+          </div>
+          <div class="journal__table-line">
+            <div class="journal__table-item">1. Yelmanov Bohdan</div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value=""/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value=""/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+          </div>
+          <div class="journal__table-line">
+            <div class="journal__table-item">2. Kovalenko Maxim</div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value=""/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value=""/>
+            </div>
+          </div>
+          <div class="journal__table-line">
+            <div class="journal__table-item">3. Tymoshenko Ivan</div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value=""/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value=""/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value=""/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="н"/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value=""/>
+            </div>
+          </div>
+        </div>
+        <div class="journal__buttons">
+          <button class="journal__submit" type="submit">сохранить</button>
+          <div class="journal__addStudent" id="addStudent">Добавить студента</div>
+        </div>
+      </form>
+    </section>
+    <script src="js/journal.js"></script>
+  </body>
+</html>
