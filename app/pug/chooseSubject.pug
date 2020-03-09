@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include includes/head.pug
+    body
+        include includes/header.pug
+
+        section.container.chooseSubject
+            div.choose__alert#chooseAlert Упс, что-то пошло не так( <span id="chooseAlertCross">X</span>
+            .chooseSubject__window
+                h2.chooseSubject__heading Выберите предмет
+                form(action="", class="chooseSubject__form", name="chooseSubject")
+                    label.chooseSubject__item
+                        p.chooseSubject__text SUBJECT
+                        input(type="radio", name="chooseSubjectInput", class="chooseSubject__input", value="")
+                    label.chooseSubject__item
+                        p.chooseSubject__text SUBJECT
+                        input(type="radio", name="chooseSubjectInput", class="chooseSubject__input", value="")
+                    label.chooseSubject__item
+                        p.chooseSubject__text SUBJECT
+                        input(type="radio", name="chooseSubjectInput", class="chooseSubject__input", value="")
