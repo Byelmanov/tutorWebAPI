@@ -3,279 +3,473 @@
 @import "vars"
 
 *
-	-webkit-box-sizing: border-box
-	-moz-box-sizing: border-box
-	box-sizing: border-box
-	margin: 0
-	padding: 0
-	&:before, &:after
-		-webkit-box-sizing: border-box
-		-moz-box-sizing: border-box
-		box-sizing: border-box
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    &:before, &:after
+        -webkit-box-sizing: border-box
+        -moz-box-sizing: border-box
+        box-sizing: border-box
 
 *::-webkit-input-placeholder
-	color: #666
-	opacity: 1
+    color: #666
+    opacity: 1
 
 *:-moz-placeholder
-	color: #666
-	opacity: 1
+    color: #666
+    opacity: 1
 
 *::-moz-placeholder
-	color: #666
-	opacity: 1
+    color: #666
+    opacity: 1
 
 *:-ms-input-placeholder
-	color: #666
-	opacity: 1
+    color: #666
+    opacity: 1
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid
-	color: #666
+    color: #666
 body input:required:valid,
 body textarea:required:valid
-	color: #666
+    color: #666
 
 html, body
-	height: 100%
+    height: 100%
 
 body
-	font-size: $defaultFontSize
-	min-width: 320px
-	position: relative
-	font-family: $default-font
-	overflow-x: hidden
+    font-size: $defaultFontSize
+    min-width: 320px
+    position: relative
+    font-family: $default-font
+    overflow-x: hidden
 img 
-	max-width: 100%
+    max-width: 100%
 ::selection
-	background-color: $accent
-	color: #fff
+    background-color: $accent
+    color: #fff
 
 .heading
-	text-align: center
-	font-size: $headingFontSize
-	line-height: $headingLineHeight
-	text-transform: capitalize
-	font-family: $default-font
+    text-align: center
+    font-size: $headingFontSize
+    line-height: $headingLineHeight
+    text-transform: capitalize
+    font-family: $default-font
 .text
-	font-size: $defaultFontSize
-	line-height: $defaultLineHeight
-	font-family: $defaultLineHeight
+    font-size: $defaultFontSize
+    line-height: $defaultLineHeight
+    font-family: $defaultLineHeight
 .button
-	width: 200px
-	height: 50px
-	display: block
-	background: pink
-	text-align: center
-	font-size: $defaultFontSize
-	line-height: 50px
-	font-family: $default-font
-	text-transform: capitalize
-	border-radius: 45px
-	text-decoration: none
-	box-shadow: 0 0 5px #e6e6e6
-	&:hover
-		background: yellow
+    width: 200px
+    height: 50px
+    display: block
+    background: pink
+    text-align: center
+    font-size: $defaultFontSize
+    line-height: 50px
+    font-family: $default-font
+    text-transform: capitalize
+    border-radius: 45px
+    text-decoration: none
+    box-shadow: 0 0 5px #e6e6e6
+    &:hover
+        background: yellow
 
 .header
-	&__content
-		padding-top: 20px
-		padding-bottom: 20px
-		display: flex
-		align-items: center
-		justify-content: flex-start
-	&__logo
-		width: 50px
-		height: auto
-		margin-right: 40px
-	&__heading
-		font-size: 50px
-		line-height: 50px
-		font-weight: 300
+    &__content
+        padding-top: 20px
+        padding-bottom: 20px
+        display: flex
+        align-items: center
+        justify-content: flex-start
+    &__logo
+        width: 50px
+        height: auto
+        margin-right: 40px
+    &__heading
+        font-size: 50px
+        line-height: 50px
+        font-weight: 300
 .choose
-	padding-top: 150px
-	padding-bottom: 50px
-	&__window
-		max-width: 500px
-		width: 100%
-		height: auto
-		min-height: 300px
-		margin: auto
-		border-radius: 10px
-		box-shadow: 0 0 5px #ccc
-		padding-bottom: 40px
-	&__heading
-		font-size: 30px
-		text-align: center
-		line-height: 80px
-		font-weight: 400
-		color: #fff
-		background: linear-gradient(80.53deg,rgb(66, 133, 244) 0,rgb(241, 154, 74) 99.61%)
-		border-radius: 10px 10px 0 0
-	&__text
-		width: 80%
-		text-align: center
-		background: #fff
-		margin: auto
-		margin-top: 30px
-		font-size: 20px
-		line-height: 40px
-		border-radius: 20px
-		box-shadow: 0 0 5px #ccc
-		&:hover
-			box-shadow: 0 0 10px $accent
-	&__input
-		display: none
-	&__alert
-		width: 250px
-		height: 50px
-		box-shadow: 0 0 10px red
-		line-height: 50px
-		text-align: center
-		border-radius: 30px
-		font-size: 15px
-		margin: auto
-		margin-bottom: 50px
-		display: none
-		span
-			background: #000
-			color: #fff
-			width: 25px
-			height: 25px
-			display: inline-block
-			line-height: 25px
-			border-radius: 50%
-			margin-left: 10px
-			cursor: pointer
+    padding-top: 150px
+    padding-bottom: 50px
+    &__window
+        max-width: 500px
+        width: 100%
+        height: auto
+        min-height: 300px
+        margin: auto
+        border-radius: 10px
+        box-shadow: 0 0 5px #ccc
+        padding-bottom: 40px
+    &__heading
+        font-size: 30px
+        text-align: center
+        line-height: 80px
+        font-weight: 400
+        color: #fff
+        background: linear-gradient(80.53deg,rgb(66, 133, 244) 0,rgb(241, 154, 74) 99.61%)
+        border-radius: 10px 10px 0 0
+    &__text
+        width: 80%
+        text-align: center
+        background: #fff
+        margin: auto
+        margin-top: 30px
+        font-size: 20px
+        line-height: 40px
+        border-radius: 20px
+        box-shadow: 0 0 5px #ccc
+        &:hover
+            box-shadow: 0 0 10px $accent
+    &__input
+        display: none
+    &__alert
+        width: 250px
+        height: 50px
+        box-shadow: 0 0 10px red
+        line-height: 50px
+        text-align: center
+        border-radius: 30px
+        font-size: 15px
+        margin: auto
+        margin-bottom: 50px
+        display: none
+        span
+            background: #000
+            color: #fff
+            width: 25px
+            height: 25px
+            display: inline-block
+            line-height: 25px
+            border-radius: 50%
+            margin-left: 10px
+            cursor: pointer
 
 .chooseGroup
-	padding-top: 150px
-	padding-bottom: 50px
-	&__window
-		max-width: 500px
-		width: 100%
-		height: auto
-		min-height: 300px
-		max-height: 500px
-		margin: auto
-		border-radius: 10px
-		box-shadow: 0 0 5px #ccc
-		padding-bottom: 40px
-	&__heading
-		font-size: 30px
-		text-align: center
-		line-height: 80px
-		font-weight: 400
-		color: #fff
-		background: linear-gradient(80.53deg,rgb(66, 133, 244) 0,rgb(241, 154, 74) 99.61%)
-		border-radius: 10px 10px 0 0
-	&__form
-		overflow-y: scroll
-		max-height: 400px
-		padding-bottom: 20px
-	&__text
-		width: 80%
-		text-align: center
-		background: #fff
-		margin: auto
-		margin-top: 30px
-		font-size: 20px
-		line-height: 40px
-		border-radius: 20px
-		box-shadow: 0 0 5px #ccc
-		&:hover
-			box-shadow: 0 0 10px $accent
-	&__input
-		display: none
+    padding-top: 150px
+    padding-bottom: 50px
+    &__window
+        max-width: 500px
+        width: 100%
+        height: auto
+        min-height: 300px
+        max-height: 500px
+        margin: auto
+        border-radius: 10px
+        box-shadow: 0 0 5px #ccc
+        padding-bottom: 40px
+    &__heading
+        font-size: 30px
+        text-align: center
+        line-height: 80px
+        font-weight: 400
+        color: #fff
+        background: linear-gradient(80.53deg,rgb(66, 133, 244) 0,rgb(241, 154, 74) 99.61%)
+        border-radius: 10px 10px 0 0
+    &__form
+        overflow-y: scroll
+        max-height: 400px
+        padding-bottom: 20px
+    &__text
+        width: 80%
+        text-align: center
+        background: #fff
+        margin: auto
+        margin-top: 30px
+        font-size: 20px
+        line-height: 40px
+        border-radius: 20px
+        box-shadow: 0 0 5px #ccc
+        &:hover
+            box-shadow: 0 0 10px $accent
+    &__input
+        display: none
 
 .authorization
-	padding-top: 150px
-	padding-bottom: 50px
-	&__window
-		max-width: 500px
-		width: 100%
-		height: auto
-		min-height: 300px
-		max-height: 500px
-		margin: auto
-		border-radius: 10px
-		box-shadow: 0 0 5px #ccc
-		padding-bottom: 30px
-	&__heading
-		font-size: 30px
-		text-align: center
-		line-height: 80px
-		font-weight: 400
-		color: #fff
-		background: linear-gradient(80.53deg,rgb(66, 133, 244) 0,rgb(241, 154, 74) 99.61%)
-		border-radius: 10px 10px 0 0
-	&__form
-		padding: 50px 40px 20px 40px
-	&__text
-		font-size: 21px
-		color: #262626
-		line-height: 25px
-		margin-bottom: 5px
-		font-weight: 600
-	&__input
-		width: 100%
-		height: 40px
-		line-height: 40px
-		border-radius: 5px
-		outline: none
-		border: none
-		box-shadow: 0 0 5px #666
-		margin-bottom: 30px
-		color: #262626
-		font-size: 17px
-		padding: 0 10px
-	&__item
-		&:last-of-type
-			.authorization__input
-				margin-bottom: 10px
-	&__captureWarning
-		color: red
-		text-align: center
-		visibility: hidden
-	&__submit
-		width: 200px
-		height: 50px
-		font-size: 25px
-		font-family: $default-font
-		margin: auto
-		display: block
-		border-radius: 5px
-		border: none
-		background: #fdf7cb
-		margin-top: 40px
-		outline: none
-		cursor: pointer
-	&__alert
-		max-width: 350px
-		width: 100%
-		height: 50px
-		box-shadow: 0 0 10px red
-		line-height: 50px
-		text-align: center
-		border-radius: 30px
-		font-size: 15px
-		margin: auto
-		margin-bottom: 50px
-		position: relative
-		display: none
-		&-cross
-			background: #000
-			color: #fff
-			width: 25px
-			height: 25px
-			display: inline-block
-			line-height: 25px
-			border-radius: 50%
-			margin-left: 10px
-			cursor: pointer
-			position: absolute
-			right: 5px
-			top: 12px
+    padding-top: 150px
+    padding-bottom: 50px
+    &__window
+        max-width: 500px
+        width: 100%
+        height: auto
+        min-height: 300px
+        max-height: 500px
+        margin: auto
+        border-radius: 10px
+        box-shadow: 0 0 5px #ccc
+        padding-bottom: 30px
+    &__heading
+        font-size: 30px
+        text-align: center
+        line-height: 80px
+        font-weight: 400
+        color: #fff
+        background: linear-gradient(80.53deg,rgb(66, 133, 244) 0,rgb(241, 154, 74) 99.61%)
+        border-radius: 10px 10px 0 0
+    &__form
+        padding: 50px 40px 20px 40px
+    &__text
+        font-size: 21px
+        color: #262626
+        line-height: 25px
+        margin-bottom: 5px
+        font-weight: 600
+    &__input
+        width: 100%
+        height: 40px
+        line-height: 40px
+        border-radius: 5px
+        outline: none
+        border: none
+        box-shadow: 0 0 5px #666
+        margin-bottom: 30px
+        color: #262626
+        font-size: 17px
+        padding: 0 10px
+    &__item
+        &:last-of-type
+            .authorization__input
+                margin-bottom: 10px
+    &__captureWarning
+        color: red
+        text-align: center
+        visibility: hidden
+    &__submit
+        width: 200px
+        height: 50px
+        font-size: 25px
+        font-family: $default-font
+        margin: auto
+        display: block
+        border-radius: 5px
+        border: none
+        background: #fdf7cb
+        margin-top: 40px
+        outline: none
+        cursor: pointer
+    &__alert
+        max-width: 350px
+        width: 100%
+        height: 50px
+        box-shadow: 0 0 10px red
+        line-height: 50px
+        text-align: center
+        border-radius: 30px
+        font-size: 15px
+        margin: auto
+        margin-bottom: 50px
+        position: relative
+        display: none
+        &-cross
+            background: #000
+            color: #fff
+            width: 25px
+            height: 25px
+            display: inline-block
+            line-height: 25px
+            border-radius: 50%
+            margin-left: 10px
+            cursor: pointer
+            position: absolute
+            right: 5px
+            top: 12px
+
+.registration
+    margin-top: 50px
+.register
+    max-width: 950px
+    width: 100%
+    min-height: 500px
+    height: auto
+    font-family: $default-font
+    position: relative
+    margin: auto
+    z-index: 5
+    background: #fff
+    border-radius: 10px
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    &__heading
+        font-size: 25px
+        line-height: 95px
+        background: linear-gradient(80.53deg,rgb(66, 133, 244) 0,rgb(241, 154, 74) 99.61%)
+        border-radius: 10px 10px 0px 0px
+        text-align: center
+        color: #fff
+    &__enter
+        font-size: 17px
+        line-height: 21px
+        color: $black
+        text-decoration: none
+        position: absolute
+        top: 38px
+        left: 38px
+        z-index: 5
+        cursor: pointer
+        &:before
+            content: ''
+            display: block
+            height: 1px
+            background: $black
+            width: 100%
+            position: absolute
+            bottom: 0px
+            right: 0
+            left: 0 
+        &:after
+            content: ''
+            background-image: url('../img/user.svg')
+            background-size: contain
+            width: 20px
+            height: 20px
+            display: block
+            position: absolute
+            right: -25px
+            top: 0px
+    &__form
+        display: flex
+        width: 100%
+        height: 100%
+        flex-flow: column nowrap
+        justify-content: flex-start
+        align-items: center
+        padding: 140px 170px 160px 170px
+    &__emailLabel
+        position: relative
+        width: 100%
+    &__text
+        font-size: 15px
+        line-height: 18px
+        color: #C2BDBD
+        margin-bottom: 5px
+        text-align: left
+        visibility: hidden
+    input
+        width: 100%
+        height: 50px
+        border: none
+        border-bottom: 1px solid #E5E5E5
+        display: block
+        font-size: 25px
+        line-height: 50px
+        color: $black
+        outline: none
+        position: relative
+        margin-bottom: 10px
+        padding-left: 2px
+        &::placeholder
+            color: #C2BDBD
+    &__wrapUnderInput
+        display: flex
+        align-items: flex-start
+        justify-content: space-between
+    &__capture
+        font-family: $default-font
+        font-weight: 500
+        font-size: 13px
+        line-height: 16px
+        color: #D1D0D0
+        padding-left: 13px
+        position: relative
+        &:before
+            content: ''
+            background-image: url('../img/lock 1.svg')
+            background-size: contain
+            background-repeat: no-repeat
+            height: 13px
+            width: 12px
+            display: block
+            position: absolute
+            left: 0
+            top: 1px
+    &__nextButton
+        width: 95px
+        height: 40px
+        line-height: 40px
+        background: #FDF7CB
+        border-radius: 5px
+        text-align: center
+        cursor: pointer
+    &__warning
+        font-family: $default-font
+        font-size: 13px
+        line-height: 16px
+        color: #A02515
+        display: none
+    &__tick--email
+        width: 20px
+        height: 20px
+        background-color: #37B422
+        border-radius: 50%
+        background-image: url('../img/tick 1.svg')
+        background-size: 13px
+        background-position: center
+        background-repeat: no-repeat
+        position: absolute
+        right: -35px
+        top: 6px
+        display: none
+    &__emailLabel--small
+        width: 60%
+        min-width: 300px
+        margin-bottom: 35px
+        .register__tick--email
+            display: block
+        .register__wrapUnderInput--email
+            display: flex
+            visibility: 'hidden'
+            justify-content: flex-start
+        .register__nextButton
+            display: none
+        input
+            height: 30px
+            font-size: 15px
+            line-height: 30px
+            padding-left: 10px
+    &__passwordLabel
+        display: none
+        width: 100%
+        position: relative
+    &__tick--password
+        width: 20px
+        height: 20px
+        background-color: #37B422
+        border-radius: 50%
+        background-image: url('../img/tick 1.svg')
+        background-size: 13px
+        background-position: center
+        background-repeat: no-repeat
+        position: absolute
+        right: -35px
+        top: 42px
+        display: none
+    &__wrapUnderInput--password
+        display: flex
+        justify-content: space-between
+    &__warning--password
+        display: block
+        color: #D1D0D0
+    &__submitButton
+        width: 125px
+        height: 40px
+        line-height: 40px
+        font-family: $default-font
+        text-align: center
+        background: #FDF7CB
+        border-radius: 5px
+        outline: none
+        cursor: pointer
+        border: none
+        font-size: 15px
+        letter-spacing: 0.05em
+        color: $black
+        &--validated
+            background: $yellow
+    &__passwordLabel--small
+        .register__tick--password
+            display: block
 
 
 

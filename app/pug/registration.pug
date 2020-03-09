@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include includes/head.pug
+    body
+        include includes/header.pug
+
+        section.registration.container
+            .authorization__alert#alert
+                    p.authorization__alert-text#alertText
+                    div.authorization__alert-cross#alertCross X
+            div.register#registerWindow
+                h2.register__heading Создать аккаунт
+                a(href="", class="register__enter")#registerLinkToEnter вход
+                form(action="" method="post" name="registerForm", class="register__form", id="registartionForm")
+                    label.register__emailLabel#registerEmailLabel
+                        p.register__text#registerTextEmail Email
+                        input(type="email", name="registerEmail", placeholder="Email", id="registerEmail", required, autocomplete="email")
+                        div.register__tick--email
+                        div.register__wrapUnderInput.register__wrapUnderInput--email
+                            p.register__capture#registerCapture Мы не будем отправлять Вам спам или передавать базу данных
+                            p.register__warning.register__warning--email#registerWarningEmail Заполните это поле, пожалуйста
+                            div.register__nextButton#registerNextButton Далее
+                    label.register__passwordLabel#registerPasswordLabel
+                        p.register__text#registerTextPassword Password
+                        input(type="password", name="registerPassword", placeholder="Password", id="registerPassword", autocomplete="new-password")
+                        div.register__tick--password
+                        div.register__wrapUnderInput.register__wrapUnderInput--password
+                            p.register__warning.register__warning--password#registerWarningPassword Пароль должен содержать не менее 4 символов.
+                            button(type="submit").register__submitButton#registerSubmit Создать
+                        
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+        script(src="js/registration.js")

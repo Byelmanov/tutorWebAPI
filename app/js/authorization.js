@@ -20,8 +20,9 @@ function sendAuthorizationAjax() {
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
-                let arrayJSON = JSON.parse(xhr.responseText);
+
                 if (xhr.status == 200) {
+                    let arrayJSON = JSON.parse(xhr.responseText);
 
                     if (arrayJSON.result == 'ok') {
                         let linkToRedirect = arrayJSON.link;
@@ -37,15 +38,8 @@ function sendAuthorizationAjax() {
                     }
 
                 } else {
-
-                    let error = arrayJSON.error;
-                    if (error) {
-                        putTextInAlertAndShowIt(error);
-                    } else {
-                        putTextInAlertAndShowIt('Что-то пошло не так(');
-                        throw new Error('cant find error in JSON');
-                    }
-
+                    putTextInAlertAndShowIt('Что-то пошло не так(');
+                    throw new Error('cant find error in JSON');
                 }
             }
         }
