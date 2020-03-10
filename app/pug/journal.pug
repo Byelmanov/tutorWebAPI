@@ -3,10 +3,21 @@ html(lang="en")
     head
         include includes/head.pug
     body
-        include includes/header.pug
+        header.container-fluid
+            .container.header__content
+                a(href="/")
+                    img(src="img/logo.svg", alt="logo", class="header__logo")
+                h1.header__heading Tutor's WEB API
+
+                form(action="", method="POST", name="journalSignOut", class="journal__signOut")
+                    input(type="hidden", name="_token", value="")
+                    label
+                        img(src="img/signOut.svg", alt="Sign Out", class="journal__signOut-img")
+                        input(type="submit", value="", class="journal__signOut-submit")
 
         section.container-fluid.journal
             h1.journal__heading TM-71
+
             div.journal__addStudentPopUp
                 h2.journal__addStudentPopUp-heading Введите имя студента
                 input(type="text", id="nameOfNewStudent", class="journal__addStudentPopUp-input")
