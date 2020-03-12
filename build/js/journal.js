@@ -57,8 +57,12 @@ function addColumn() {
     let arrayOfLines = document.querySelectorAll('.journal__table-line');
 
     let itemWithDate = document.createElement("div");
-    itemWithDate.className = 'journal__table-item';
-    itemWithDate.innerHTML = '<input class="date" type="text" name="" value=""/>';
+    itemWithDate.className = 'journal__table-item journal__table-item--date';
+    let currDate = new Date();
+    let currDay = String(currDate.getDate());
+    let currMonth = String(currDate.getMonth() + 1);
+    currMonth = currMonth.length == 1 ? "0" + currMonth : currMonth;
+    itemWithDate.innerText = currDay + "." + currMonth;
 
     arrayOfLines[0].append(itemWithDate);
 
