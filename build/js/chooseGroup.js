@@ -18,7 +18,7 @@ function sendAjaxChooseGroupForm() {
             if (xhr.readyState === 4) {
                 if (xhr.status == 200) {
                     let arrayJSON = JSON.parse(xhr.responseText);
-                    let linkToRedirect = arrayJSON.link;
+                    let linkToRedirect = arrayJSON.redirect;
                     if (linkToRedirect) {
                         window.location.href = linkToRedirect;
                     } else {
@@ -35,6 +35,7 @@ function sendAjaxChooseGroupForm() {
 
     } catch (e) {
         console.log(e);
+        document.getElementById('chooseAlert').style.display = 'block';
     }
 }
 

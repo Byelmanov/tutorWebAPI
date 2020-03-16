@@ -21,25 +21,29 @@ function sendAuthorizationAjax() {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
 
+                if (xhr.status == 404) {
+                    throw new Error('404 server not found');
+                }
+
+                let arrayJSON = JSON.parse(xhr.responseText);
+
                 if (xhr.status == 200) {
-                    let arrayJSON = JSON.parse(xhr.responseText);
-
-                    if (arrayJSON.result == 'ok') {
-                        let linkToRedirect = arrayJSON.link;
-
-                        if (linkToRedirect) {
-                            window.location.href = linkToRedirect;
-                        } else {
-                            throw new Error('cant find link');
-                        }
-
+                    let linkToRedirect = arrayJSON.redirect;
+                    if (linkToRedirect) {
+                        window.location.href = linkToRedirect;
                     } else {
-                        putTextInAlertAndShowIt(arrayJSON.result);
+                        throw new Error('cant find link');
                     }
 
                 } else {
-                    putTextInAlertAndShowIt('Что-то пошло не так(');
-                    throw new Error('cant find error in JSON');
+                    let arrayOfErrors = arrayJSON.errors;
+                    let strWithErrors = '';
+
+                    for (let error in arrayOfErrors) {
+                        strWithErrors += error + '\n';
+                    }
+
+                    putTextInAlertAndShowIt(strWithErrors);
                 }
             }
         }
@@ -51,6 +55,7 @@ function sendAuthorizationAjax() {
 
     } catch (e) {
         console.log(e);
+        putTextInAlertAndShowIt('Что-то пошло не так(');
     }
 }
 
