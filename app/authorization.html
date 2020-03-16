@@ -28,14 +28,14 @@
         <h2 class="authorization__heading">Вход</h2>
         <form class="authorization__form" action="" name="authorization">
           <label class="authorization__item">
-            <p class="authorization__text">Логин</p>
-            <input class="authorization__input" type="text" name="login" autocomplete="nickname" id="login"/>
+            <p class="authorization__text">Email</p>
+            <input class="authorization__input" type="email" name="login" autocomplete="email" id="login"/>
           </label>
           <label class="authorization__item">
             <p class="authorization__text">Пароль</p>
             <input class="authorization__input" type="password" name="login" autocomplete="current-password" id="password"/>
             <p class="authorization__captureWarning">Пароль должен содержать не менее 4 символов.</p>
-          </label>
+          </label><a class="authorization__forgetPassword" href="">Забыли пароль?</a>
           <button class="authorization__submit" type="submit" id="submit">Готово</button>
         </form>
       </div>

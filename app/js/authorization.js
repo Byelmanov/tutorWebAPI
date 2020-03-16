@@ -64,7 +64,7 @@ function sendAuthorizationAjax() {
 function checkAllInputsAreEmpty() {
     let login = document.getElementById('login').value;
     let password = document.getElementById('password').value;
-    if (checkStringIsEmpty(login) && checkStringIsEmpty(password) && checkPasswordLength(password)) {
+    if (checkStringIsEmpty(login) && checkEmail(login) && checkStringIsEmpty(password) && checkPasswordLength(password)) {
         return true;
     } else {
         return false;
@@ -84,6 +84,17 @@ function checkPasswordLength(str) {
         return false;
     } else {
         return true;
+    }
+}
+
+function checkEmail(str) {
+    str = str.toString();
+    var regExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+    if (regExp.test(str)) {
+        return true;
+    } else {
+        return false;
     }
 }
 

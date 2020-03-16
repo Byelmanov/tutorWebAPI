@@ -321,6 +321,10 @@ img
             position: absolute
             right: 5px
             top: 12px
+    &__forgetPassword
+        color: #666666
+        text-align: right
+        display: block
 
 .registration
     margin-top: 50px
@@ -517,8 +521,178 @@ img
         .register__tick--password
             display: block
 
+.forgetPassword
+    padding-top: 100px
+    padding-bottom: 50px
+    &__window
+        max-width: 500px
+        width: 100%
+        height: auto
+        min-height: 300px
+        max-height: 500px
+        margin: auto
+        border-radius: 10px
+        box-shadow: 0 0 5px #ccc
+        padding-bottom: 30px
+    &__heading
+        font-size: 30px
+        text-align: center
+        line-height: 80px
+        font-weight: 400
+        color: #fff
+        background: linear-gradient(80.53deg,rgb(66, 133, 244) 0,rgb(241, 154, 74) 99.61%)
+        border-radius: 10px 10px 0 0
+    &__form
+        padding: 50px 40px 20px 40px
+    &__text
+        font-size: 21px
+        color: #262626
+        line-height: 25px
+        margin-bottom: 5px
+        font-weight: 600
+    &__input
+        width: 100%
+        height: 40px
+        line-height: 40px
+        border-radius: 5px
+        outline: none
+        border: none
+        box-shadow: 0 0 5px #666
+        margin-bottom: 30px
+        color: #262626
+        font-size: 17px
+        padding: 0 10px
+    &__submit
+        width: 200px
+        height: 50px
+        font-size: 25px
+        font-family: $default-font
+        margin: auto
+        display: block
+        border-radius: 5px
+        border: none
+        background: #fdf7cb
+        margin-top: 40px
+        outline: none
+        cursor: pointer
+    &__alert
+        max-width: 350px
+        width: 100%
+        height: 50px
+        box-shadow: 0 0 10px red
+        line-height: 50px
+        text-align: center
+        border-radius: 30px
+        font-size: 15px
+        margin: auto
+        margin-bottom: 50px
+        position: relative
+        display: none
+        &-cross
+            background: #000
+            color: #fff
+            width: 25px
+            height: 25px
+            display: inline-block
+            line-height: 25px
+            border-radius: 50%
+            margin-left: 10px
+            cursor: pointer
+            position: absolute
+            right: 5px
+            top: 12px
+    &__success
+        max-width: 350px
+        width: 100%
+        height: 50px
+        box-shadow: 0 0 10px green
+        line-height: 50px
+        text-align: center
+        border-radius: 30px
+        font-size: 15px
+        margin: auto
+        margin-bottom: 50px
+        position: relative
+        display: none
+        &-cross
+            background: #000
+            color: #fff
+            width: 25px
+            height: 25px
+            display: inline-block
+            line-height: 25px
+            border-radius: 50%
+            margin-left: 10px
+            cursor: pointer
+            position: absolute
+            right: 5px
+            top: 12px
 
-
+.setNewPassword
+    padding-top: 100px
+    padding-bottom: 50px
+    &__window
+        max-width: 500px
+        width: 100%
+        height: auto
+        min-height: 300px
+        max-height: 600px
+        margin: auto
+        border-radius: 10px
+        box-shadow: 0 0 5px #ccc
+        padding-bottom: 30px
+    &__heading
+        font-size: 30px
+        text-align: center
+        line-height: 80px
+        font-weight: 400
+        color: #fff
+        background: linear-gradient(80.53deg,rgb(66, 133, 244) 0,rgb(241, 154, 74) 99.61%)
+        border-radius: 10px 10px 0 0
+    &__form
+        padding: 50px 40px 20px 40px
+    &__text
+        font-size: 21px
+        color: #262626
+        line-height: 25px
+        margin-bottom: 5px
+        font-weight: 600
+    &__input
+        width: 100%
+        height: 40px
+        line-height: 40px
+        border-radius: 5px
+        outline: none
+        border: none
+        box-shadow: 0 0 5px #666
+        margin-bottom: 5px
+        color: #262626
+        font-size: 17px
+        padding: 0 10px
+    &__item
+        &:first-child
+            .setNewPassword__input
+                margin-bottom: 30px
+                opacity: 0.6
+    &__submit
+        width: 200px
+        height: 50px
+        font-size: 25px
+        font-family: $default-font
+        margin: auto
+        display: block
+        border-radius: 5px
+        border: none
+        background: #fdf7cb
+        margin-top: 40px
+        outline: none
+        cursor: pointer
+    &__capture
+        margin-bottom: 20px
+        font-size: 13px
+        font-weight: 100
+        color: red
+        visibility: hidden
 
 @import "journal"
 
