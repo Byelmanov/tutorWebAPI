@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include includes/head.pug
+    body
+        include includes/header.pug
+
+        section.container.emailVerification
+            .emailVerification__alert.emailVerification__alert--error#alertError
+                p#alertErrorText
+                div#alertErrorCross &#9587;
+            .emailVerification__alert.emailVerification__alert--success#alertSuccess
+                p#alertSuccessText 
+                div#alertSuccessCross &#9587;
+            div.emailVerification__window
+                h2.emailVerification__heading Подтверждение Email
+                div.emailVerification__textBlock
+                    div.emailVerification__alertInText
+                        p.emailVerification__alertInText-text.emailVerification__alertInText-text--bold Ваш Email не подтвержен!
+                        p.emailVerification__alertInText-text Пожалуйста, подтвердите свой Email.
+                    p.emailVerification__text Мы отправили письмо для верификации на <a href="">example@gmail.com</a>. Если вы не можете найти <a href="">письмо для верификации</a>, пожалуйста, проверьте корзину и спам.
+                    p.emailVerification__text Если вы не получили <a href="">письмо для верификации</a>, пожалуйста, нажмите на кнопку "Отправить снова" ниже.
+                form(action="", name="sendVerificationEmailAgain")
+                    button(type="submit").emailVerification__button Отправить снова
+        script(src="js/emailVerification.js")

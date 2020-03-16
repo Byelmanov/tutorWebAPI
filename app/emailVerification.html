@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <meta name="description" content=""/>
+      <meta name="theme-color" content="#000"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="#000"/>
+      <title>Tutor Web API</title>
+      <link rel="shortcut icon" href="" type="image/png"/>
+      <link rel="stylesheet" href="css/main.min.css"/>
+    </head>
+  </head>
+  <body>
+    <header class="container-fluid">
+      <div class="container header__content"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
+        <h1 class="header__heading">Tutor's WEB API</h1>
+      </div>
+    </header>
+    <section class="container emailVerification">
+      <div class="emailVerification__alert emailVerification__alert--error" id="alertError">
+        <p id="alertErrorText"></p>
+        <div id="alertErrorCross">&#9587;</div>
+      </div>
+      <div class="emailVerification__alert emailVerification__alert--success" id="alertSuccess">
+        <p id="alertSuccessText"> </p>
+        <div id="alertSuccessCross">&#9587;</div>
+      </div>
+      <div class="emailVerification__window">
+        <h2 class="emailVerification__heading">Подтверждение Email</h2>
+        <div class="emailVerification__textBlock">
+          <div class="emailVerification__alertInText">
+            <p class="emailVerification__alertInText-text emailVerification__alertInText-text--bold">Ваш Email не подтвержен!</p>
+            <p class="emailVerification__alertInText-text">Пожалуйста, подтвердите свой Email.</p>
+          </div>
+          <p class="emailVerification__text">Мы отправили письмо для верификации на <a href="">example@gmail.com</a>. Если вы не можете найти <a href="">письмо для верификации</a>, пожалуйста, проверьте корзину и спам.</p>
+          <p class="emailVerification__text">Если вы не получили <a href="">письмо для верификации</a>, пожалуйста, нажмите на кнопку "Отправить снова" ниже.</p>
+        </div>
+        <form action="" name="sendVerificationEmailAgain">
+          <button class="emailVerification__button" type="submit">Отправить снова</button>
+        </form>
+      </div>
+    </section>
+    <script src="js/emailVerification.js"></script>
+  </body>
+</html>
