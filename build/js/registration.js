@@ -152,6 +152,7 @@ function sendAjaxWithRegisterData() {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status == 404) {
+                    putTextInAlertAndShowIt('Что-то пошло не так(');
                     throw new Error('404 server not found');
                 }
                 let arrayJSON = JSON.parse(xhr.responseText);
@@ -161,6 +162,7 @@ function sendAjaxWithRegisterData() {
                     if (linkToRedirect) {
                         window.location.href = linkToRedirect;
                     } else {
+                        putTextInAlertAndShowIt('Что-то пошло не так(');
                         throw new Error('cant find link');
                     }
                 } else {
@@ -176,12 +178,11 @@ function sendAjaxWithRegisterData() {
             }
         }
 
-        xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.open("POST", action);
+        xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(formData);
 
     } catch (e) {
-        putTextInAlertAndShowIt('Что-то пошло не так(');
         console.log(e);
     }
 }

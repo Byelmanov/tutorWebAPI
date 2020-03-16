@@ -674,6 +674,41 @@ img
             .setNewPassword__input
                 margin-bottom: 30px
                 opacity: 0.6
+    &__alert
+        width: 100%
+        max-width: 500px
+        border-radius: 40px
+        min-height: 40px
+        margin: auto
+        padding: 0 10px
+        position: relative
+        margin-bottom: 20px
+        display: none
+        p 
+            line-height: 40px
+            text-align: center
+            font-weight: bold
+            font-weight: 400
+        div
+            position: absolute
+            top: 6px
+            right: 10px
+            font-size: 20px
+            font-weight: 500
+            cursor: pointer
+        &--error
+            border: 2px solid red
+            p
+                color: red
+            div
+                color: red
+        &--success
+            border: 2px solid green
+            p
+                color: green
+            div
+                color: green
+                
     &__submit
         width: 200px
         height: 50px

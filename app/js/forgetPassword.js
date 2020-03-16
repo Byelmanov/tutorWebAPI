@@ -45,9 +45,6 @@ function sendAjaxForgetPassword() {
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
-                if (xhr.status == 404) {
-                    throw new Error(xhr.status + ": " + xhr.statusText);
-                }
                 if (xhr.status == 200) {
                     putTextInSuccessAlertAndShowIt('Успешно отправлено');
                 } else {
@@ -56,8 +53,9 @@ function sendAjaxForgetPassword() {
             }
         }
 
-        xhr.setRequestHeader('Content-Type', 'application/json');
+
         xhr.open('POST', action);
+        xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(formData);
 
     } catch (e) {

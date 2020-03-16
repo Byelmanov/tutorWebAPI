@@ -15,9 +15,6 @@ function sendAjax() {
     try {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
-                if (xhr.status == 404) {
-                    throw new Error(xhr.status + ": " + xhr.statusText);
-                }
                 if (xhr.status == 200) {
                     let arrayJSON = JSON.parse(xhr.responseText);
                     let linkToRedirect = arrayJSON.redirect;
@@ -37,13 +34,13 @@ function sendAjax() {
             }
         }
 
-        xhr.setRequestHeader("Content-Type", "application/json");
+
         xhr.open("POST", action);
+        xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(formData);
 
     } catch (e) {
         console.log(e);
-        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
     }
 }
 
