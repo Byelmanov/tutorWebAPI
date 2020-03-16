@@ -4,10 +4,10 @@ html(lang="en")
         include includes/head.pug
     body
         header.container-fluid
-            .container.header__content
+            .container.journalHeader__content
                 a(href="/")
-                    img(src="img/logo.svg", alt="logo", class="header__logo")
-                h1.header__heading Tutor's WEB API
+                    img(src="img/logo.svg", alt="logo", class="journalHeader__logo")
+                h1.journalHeader__heading Tutor's WEB API
 
                 form(action="", method="POST", name="journalSignOut", class="journal__signOut")
                     input(type="hidden", name="_token", value="")
@@ -15,8 +15,16 @@ html(lang="en")
                         img(src="img/signOut.svg", alt="Sign Out", class="journal__signOut-img")
                         input(type="submit", value="", class="journal__signOut-submit")
 
+        section.container
+            div.journal__alert.journal__alert--error#journalAlert
+                p.journal__alert-text.journal__alert-text--error#journalAlertText some text of errro
+                div.journal__alert-cross.journal__alert-cross--error &#9587;
+            div.journal__alert.journal__alert--success#journalSuccessAlert
+                p.journal__alert-text.journal__alert-text--success#journalSuccessAlertText some text of okay
+                div.journal__alert-cross.journal__alert-cross--success &#9587;
+
         section.container-fluid.journal
-            h1.journal__heading TM-71
+            h2.journal__heading TM-71 <span class="journal__heading-subject">Схемотехника (лекция)</span>
 
             div.journal__addStudentPopUp
                 h2.journal__addStudentPopUp-heading Введите имя студента

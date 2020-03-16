@@ -15,8 +15,8 @@
   </head>
   <body>
     <header class="container-fluid">
-      <div class="container header__content"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
-        <h1 class="header__heading">Tutor's WEB API</h1>
+      <div class="container journalHeader__content"><a href="/"><img class="journalHeader__logo" src="img/logo.svg" alt="logo"/></a>
+        <h1 class="journalHeader__heading">Tutor's WEB API</h1>
         <form class="journal__signOut" action="" method="POST" name="journalSignOut">
           <input type="hidden" name="_token" value=""/>
           <label><img class="journal__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
@@ -25,8 +25,18 @@
         </form>
       </div>
     </header>
+    <section class="container">
+      <div class="journal__alert journal__alert--error" id="journalAlert">
+        <p class="journal__alert-text journal__alert-text--error" id="journalAlertText">some text of errro</p>
+        <div class="journal__alert-cross journal__alert-cross--error">&#9587;</div>
+      </div>
+      <div class="journal__alert journal__alert--success" id="journalSuccessAlert">
+        <p class="journal__alert-text journal__alert-text--success" id="journalSuccessAlertText">some text of okay</p>
+        <div class="journal__alert-cross journal__alert-cross--success">&#9587;</div>
+      </div>
+    </section>
     <section class="container-fluid journal">
-      <h1 class="journal__heading">TM-71</h1>
+      <h2 class="journal__heading">TM-71 <span class="journal__heading-subject">Схемотехника (лекция)</span></h2>
       <div class="journal__addStudentPopUp">
         <h2 class="journal__addStudentPopUp-heading">Введите имя студента</h2>
         <input class="journal__addStudentPopUp-input" type="text" id="nameOfNewStudent"/>

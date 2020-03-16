@@ -3,14 +3,32 @@
 .journal
     padding-top: 20px
     position: relative
+    &Header
+        &__content
+            padding-top: 20px
+            padding-bottom: 20px
+            display: flex
+            align-items: center
+            justify-content: flex-start
+            position: relative
+        &__logo
+            width: 40px
+            height: auto
+            margin-right: 40px
+        &__heading
+            font-size: 25px
+            line-height: 30px
+            font-weight: 300
     &__heading
         font-size: 35px
         color: #262626
         font-weight: 400
         margin-bottom: 20px
+        &-subject
+            font-size: 20px
     &__signOut
         position: absolute
-        top: 30px
+        top: 25px
         right: 0
         &-img
             width: 30px
@@ -31,7 +49,7 @@
             font-size: 15px
             .journal__table-item
                 &:first-child
-                    width: 170px
+                    width: 250px
                     min-width: 170px
                     text-align-last: left
                     padding-left: 5px
@@ -48,7 +66,7 @@
                 border: 1px solid #262626
                 font-size: 15px
                 text-align: center
-                overflow: scroll
+                overflow: hidden
                 font-weight: 500
                 font-style: italic
                 color: #262626
@@ -61,7 +79,7 @@
                 font-size: 17px
                 text-transform: lowercase
                 margin: auto
-                overflow: scroll
+                overflow: hidden
                 text-align: center
     &__buttons
         display: flex
@@ -167,6 +185,40 @@
             line-height: 20px
             border-radius: 50%
             cursor: pointer
+    &__alert
+        width: 100%
+        max-width: 500px
+        border-radius: 40px
+        min-height: 40px
+        margin: auto
+        padding: 0 10px
+        position: relative
+        margin-bottom: 10px
+        &--error
+            border: 2px solid red
+        &--success
+            border: 2px solid green
+        &-text
+            line-height: 40px
+            text-align: center
+            font-weight: bold
+            font-weight: 400
+            &--error
+                color: red
+            &--success 
+                color: green
+        &-cross
+            position: absolute
+            top: 6px
+            right: 10px
+            font-size: 20px
+            font-weight: 500
+            cursor: pointer
+            &--error
+                color: red
+            &--success
+                color: green
+
 
 
 
