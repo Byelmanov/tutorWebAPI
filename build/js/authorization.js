@@ -47,6 +47,7 @@ function sendAuthorizationAjax() {
                 }
             }
         }
+        xhr.setRequestHeader('Content-Type', 'application/json');
 
         xhr.open('POST', action);
         xhr.send(formData);
