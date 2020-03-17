@@ -44,7 +44,7 @@ function sendAjaxWithJournalData() {
     }
 
     xhr.open('POST', action);
-    xhr.setRequestHeader('Content-Type', 'application/json')
+    xhr.setRequestHeader('Accept', 'application/json')
     xhr.send(formData);
 }
 
