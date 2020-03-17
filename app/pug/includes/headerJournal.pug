@@ -1,0 +1,11 @@
+header.container-fluid
+    .container.journalHeader__content
+        a(href="/")
+            img(src="img/logo.svg", alt="logo", class="journalHeader__logo")
+        h1.journalHeader__heading Tutor's WEB API
+
+        form(action="", method="POST", name="journalSignOut", class="journal__signOut")
+            input(type="hidden", name="_token", value="")
+            label
+                img(src="img/signOut.svg", alt="Sign Out", class="journal__signOut-img")
+                input(type="submit", value="", class="journal__signOut-submit")

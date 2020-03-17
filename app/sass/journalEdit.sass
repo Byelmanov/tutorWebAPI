@@ -1,0 +1,152 @@
+@import "vars"
+
+.journalEdit
+    padding-top: 20px
+    position: relative
+    &__heading
+        display: flex
+        flex-flow: row wrap
+        align-items: center
+        justify-content: flex-start
+    &__group
+        font-size: 35px
+        font-weight: 400
+        width: 150px
+        height: 35px
+        line-height: 35px
+        margin-bottom: 20px
+        font-family: $default-font
+        color: #262626
+        text-align: center
+        outline: none
+        border-radius: 5px
+        border: none
+        box-shadow: 0 0 5px #ccc
+        margin-right: 15px
+        display: block
+    &__subject
+        outline: none
+        color: #262626
+        border-radius: 5px
+        border: none
+        box-shadow: 0 0 5px #ccc
+        font-size: 20px
+        font-family: $default-font
+        font-weight: 400
+        width: 500px
+        height: 35px
+        line-height: 35px
+        margin-bottom: 20px
+        padding-left: 5px
+        overflow: scroll
+        display: block
+    &__table
+        border: 1px solid #262626
+        overflow-x: scroll
+        display: flex
+        flex-flow: column nowrap
+        margin-bottom: 20px
+        &-line
+            display: flex
+            flex-flow: row nowrap
+            align-items: center
+            justify-content: flex-start
+            font-size: 15px
+            &:first-child
+                .journalEdit__table-item
+                    &:first-child
+                        padding-left: 5px
+            .journalEdit__table-item
+                &:first-child
+                    width: 320px
+                    min-width: 170px
+                    text-align-last: left
+                    font-size: 16px
+        &-item
+            width: 50px
+            height: 35px
+            min-width: 50px
+            line-height: 35px
+            text-align: center
+            border: 1px solid #262626
+            font-size: 16px
+            position: relative
+            &--date
+                border: 1px solid #262626
+                font-size: 15px
+                text-align: center
+                overflow: hidden
+                font-weight: 500
+                font-style: italic
+                color: #262626
+                text-align: center
+            // FOR INPUT
+            // .absent
+            //     width: 98%
+            //     height: 30px
+            //     line-height: 30px
+            //     border: none
+            //     font-size: 17px
+            //     text-transform: lowercase
+            //     margin: auto
+            //     overflow: hidden
+            //     text-align: center
+            //
+            // FOR DIV
+            .absent
+                width: 100%
+                height: 100%
+                line-height: 30px
+                font-size: 17px
+                text-transform: lowercase
+                text-align: center
+            .name
+                width: 85%
+                height: 27px
+                margin-left: 5px
+                margin-top: 3px
+                display: block
+                font-size: 16px
+                font-family: $default-font
+                border: 1px solid #ccc
+                border-radius: 5px
+                padding-left: 5px
+            &-delete
+                position: absolute
+                right: 8px
+                top: 1px
+                font-size: 35px
+                line-height: 30px
+                cursor: pointer
+    &__submit
+        width: 200px
+        height: 50px
+        line-height: 50px
+        text-align: center
+        border: none
+        border-radius: 5px
+        background: #f9e547
+        font-weight: 600
+        font-size: 15px
+        text-transform: uppercase
+        cursor: pointer
+        letter-spacing: .1em
+        margin-right: 50px
+    &__addStudent
+        margin-bottom: 50px
+        margin-left: 5px
+        width: 190px
+        height: 35px
+        line-height: 30px
+        text-align: left
+        font-size: 17px
+        cursor: pointer
+        font-weight: 400
+        &:before
+            content: '\2295'
+            font-size: 30px
+            line-height: 30px
+            display: inline-block
+            position: relative
+            top: 2px
+            margin-right: 5px
