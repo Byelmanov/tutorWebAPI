@@ -6,7 +6,9 @@ html(lang="en")
         include includes/header.pug
 
         section.container.chooseSubject
-            div.choose__alert#chooseAlert Упс, что-то пошло не так( <span id="chooseAlertCross">&#9587;</span>
+
+            include includes/alerts.pug
+            
             .chooseSubject__window
                 h2.chooseSubject__heading Выберите предмет
                 form(action="", class="chooseSubject__form", name="chooseSubject")
@@ -19,4 +21,5 @@ html(lang="en")
                     label.chooseSubject__item
                         p.chooseSubject__text SUBJECT
                         input(type="radio", name="chooseSubjectInput", class="chooseSubject__input", value="")
+        script(src="js/alerts.js")
         script(src="js/chooseSubject.js")

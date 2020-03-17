@@ -62,22 +62,3 @@ function sendAjaxForgetPassword() {
         console.log(e);
     }
 }
-
-
-function putTextInAlertAndShowIt(text) {
-    document.getElementById('alertText').innerText = text;
-    document.getElementById('alert').style.display = 'block';
-}
-
-function putTextInSuccessAlertAndShowIt(text) {
-    document.getElementById('successText').innerText = text;
-    document.getElementById('success').style.display = 'block';
-}
-
-document.getElementById('alertCross').addEventListener('click', function () {
-    document.getElementById('alert').style.display = 'none';
-});
-
-document.getElementById('successCross').addEventListener('click', function () {
-    document.getElementById('success').style.display = 'none';
-});

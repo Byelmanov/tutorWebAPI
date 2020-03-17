@@ -5,9 +5,9 @@ html(lang="en")
     body
         include includes/header.pug
         section.container.authorization
-            .authorization__alert#alert
-                p.authorization__alert-text#alertText
-                div.authorization__alert-cross#alertCross &#9587;
+        
+            include includes/alerts.pug
+
             div.authorization__window
                 h2.authorization__heading Вход
                 form(action="", name="authorization", class="authorization__form")
@@ -22,5 +22,5 @@ html(lang="en")
                     button(type="submit", class="authorization__submit" id="submit") Готово
 
 
-
+        script(src="js/alerts.js")
         script(src="js/authorization.js")

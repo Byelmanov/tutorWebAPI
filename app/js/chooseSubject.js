@@ -21,10 +21,11 @@ function sendAjaxChooseSubjectForm() {
                     if (linkToRedirect) {
                         window.location.href = linkToRedirect;
                     } else {
+                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
                         throw new Error('cant find link');
                     }
                 } else {
-                    document.getElementById('chooseAlert').style.display = 'block';
+                    putTextInAlertAndShowIt('Упс, что-то пошло не так(');
                 }
             }
         }
@@ -36,11 +37,5 @@ function sendAjaxChooseSubjectForm() {
 
     } catch (e) {
         console.log(e);
-        document.getElementById('chooseAlert').style.display = 'block';
     }
 }
-
-
-document.getElementById('chooseAlertCross').addEventListener('click', function () {
-    document.getElementById('chooseAlert').style.display = 'none';
-});

@@ -22,7 +22,7 @@ function sendAuthorizationAjax() {
             if (xhr.readyState === 4) {
 
                 if (xhr.status == 404) {
-                    putTextInAlertAndShowIt('Что-то пошло не так(');
+                    putTextInAlertAndShowIt('Упс, что-то пошло не так(');
                     throw new Error('404 server not found');
                 }
 
@@ -33,7 +33,7 @@ function sendAuthorizationAjax() {
                     if (linkToRedirect) {
                         window.location.href = linkToRedirect;
                     } else {
-                        putTextInAlertAndShowIt('Что-то пошло не так(');
+                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
                         throw new Error('cant find link');
                     }
 
@@ -46,19 +46,16 @@ function sendAuthorizationAjax() {
                         }
                         putTextInAlertAndShowIt(strWithErrors);
                     } else {
-                        putTextInAlertAndShowIt('Что-то пошло не так(');
+                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
                     }
 
                 }
             }
         }
 
-
         xhr.open('POST', action);
         xhr.setRequestHeader('Accept', 'application/json');
         xhr.send(formData);
-
-
 
     } catch (e) {
         console.log(e);
@@ -131,13 +128,4 @@ document.getElementById('password').addEventListener('input', function () {
             submitButton.style.background = '#fdf7cb';
         }
     }
-});
-
-function putTextInAlertAndShowIt(text) {
-    document.getElementById('alertText').innerText = text;
-    document.getElementById('alert').style.display = 'block';
-}
-
-document.getElementById('alertCross').addEventListener('click', function () {
-    document.getElementById('alert').style.display = 'none';
 });

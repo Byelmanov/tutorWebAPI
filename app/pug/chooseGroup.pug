@@ -6,7 +6,9 @@ html(lang="en")
         include includes/header.pug
 
         section.container.chooseGroup
-            div.choose__alert#chooseAlert Упс, что-то пошло не так( <span id="chooseAlertCross">&#9587;</span>
+        
+            include includes/alerts.pug
+
             .chooseGroup__window
                 h2.chooseGroup__heading Выберите группу
                 form(action="", name="chooseGroup", class="chooseGroup__form")
@@ -23,5 +25,5 @@ html(lang="en")
                         p.chooseGroup__text ТР-72
                         input(type="radio", name="chooseGroupInput", class="chooseGroup__input", value="")
 
-
+        script(src="js/alerts.js")
         script(src="js/chooseGroup.js")

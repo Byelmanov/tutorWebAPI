@@ -1,0 +1,36 @@
+@import "vars"
+
+.alert
+    width: 100%
+    max-width: 500px
+    border-radius: 40px
+    min-height: 40px
+    margin: auto
+    padding: 0 10px
+    position: relative
+    margin-bottom: 10px
+    display: none
+    &--error
+        border: 2px solid red
+    &--success
+        border: 2px solid green
+    &__text
+        line-height: 40px
+        text-align: center
+        font-weight: bold
+        font-weight: 400
+        &--error
+            color: red
+        &--success 
+            color: green
+    &__cross
+        position: absolute
+        top: 6px
+        right: 10px
+        font-size: 20px
+        font-weight: 500
+        cursor: pointer
+        &--error
+            color: red
+        &--success
+            color: green

@@ -6,9 +6,9 @@ html(lang="en")
         include includes/header.pug
 
         section.registration.container
-            .authorization__alert#alert
-                    p.authorization__alert-text#alertText
-                    div.authorization__alert-cross#alertCross &#9587;
+            
+            include includes/alerts.pug
+
             div.register#registerWindow
                 h2.register__heading Создать аккаунт
                 a(href="", class="register__enter")#registerLinkToEnter вход
@@ -30,4 +30,5 @@ html(lang="en")
                             button(type="submit").register__submitButton#registerSubmit Далее
                         
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+        script(src="js/alerts.js")
         script(src="js/registration.js")
