@@ -1,12 +1,12 @@
 'use strict';
 
-let form = document.forms['journalEdit'];
+let form = document.forms['groupEdit'];
 form.addEventListener('submit', function (e) {
     e.preventDefault();
-    sendAjaxJournalEdit();
+    sendAjaxgroupEdit();
 });
 
-function sendAjaxJournalEdit() {
+function sendAjaxgroupEdit() {
     let formData = new FormData(form);
     let action = form.getAttribute('action');
     let xhr = new XMLHttpRequest();
@@ -36,25 +36,14 @@ function sendAjaxJournalEdit() {
 document.getElementById('addStudentButton').addEventListener('click', addStudent);
 
 function addStudent() {
-    let lineElem = document.createElement("div");
-    lineElem.className = "journalEdit__table-line";
+    let item = document.createElement('div')
+    item.className = 'groupEdit__table-item';
+    item.innerHTML = `<input class="name" type="text" name="new[][firstname]" value=""/>
+    <input class="name" type="text" name="new[][lastname]" value=""/>
+    <input class="name" type="text" name="new[][fathername]" value=""/>
+    <div class="groupEdit__table-item-delete">&#8854;</div>`;
 
-    let tdWithName = document.createElement('div');
-    tdWithName.className = 'journalEdit__table-item';
-    tdWithName.innerHTML = `<input type="text" name="" class="name" value=""> <div class="journalEdit__table-item-delete">&#8854;</div>`;
-    lineElem.append(tdWithName);
-
-    let lengthOfTd = document.querySelector('.journalEdit__table-line').children.length;
-
-    for (let i = 1; i < lengthOfTd; i++) {
-        let tdItem = document.createElement('div');
-        tdItem.className = "journalEdit__table-item";
-        tdItem.innerHTML = `<div class="absent"></div>`;
-        lineElem.append(tdItem);
-    }
-
-    //append it to table
-    document.querySelector('.journalEdit__table').append(lineElem);
+    document.querySelector('.groupEdit__table').append(item);
 
     setHandlerForDeleteButtons();
 }
@@ -62,7 +51,7 @@ function addStudent() {
 // delete student
 
 function setHandlerForDeleteButtons() {
-    let arrayOfDeleteButtons = document.querySelectorAll('.journalEdit__table-item-delete');
+    let arrayOfDeleteButtons = document.querySelectorAll('.groupEdit__table-item-delete');
     for (let i = 0; i < arrayOfDeleteButtons.length; i++) {
         arrayOfDeleteButtons[i].addEventListener('click', deleteStudent);
     }
@@ -71,8 +60,25 @@ function setHandlerForDeleteButtons() {
 window.addEventListener('load', setHandlerForDeleteButtons);
 
 
-
 function deleteStudent(e) {
-    let elemToDelete = e.target.parentElement.parentElement;
-    elemToDelete.remove();
+    let targetElem = e.target;
+    let parent = targetElem.parentElement;
+    let childInputName = parent.children[0].getAttribute('name');
+    let deleteId = getIdFromNameAttr(childInputName);
+
+    let hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', `delete[{${deleteId}}]`);
+
+    document.forms['groupEdit'].append(hiddenInput);
+
+    parent.remove();
+}
+
+function getIdFromNameAttr(str) {
+    for (let i in str) {
+        if (!isNaN(parseInt(str[i]))) {
+            return str[i];
+        }
+    }
 }

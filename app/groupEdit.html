@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <meta name="description" content=""/>
+      <meta name="theme-color" content="#000"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="#000"/>
+      <title>Tutor Web API</title>
+      <link rel="shortcut icon" href="" type="image/png"/>
+      <link rel="stylesheet" href="css/main.min.css"/>
+    </head>
+  </head>
+  <body>
+    <header class="container-fluid">
+      <div class="container journalHeader__content"><a href="/"><img class="journalHeader__logo" src="img/logo.svg" alt="logo"/></a>
+        <h1 class="journalHeader__heading">Tutor's WEB API</h1>
+        <form class="journal__signOut" action="" method="POST" name="journalSignOut">
+          <input type="hidden" name="_token" value=""/>
+          <label><img class="journal__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
+            <input class="journal__signOut-submit" type="submit" value=""/>
+          </label>
+        </form>
+      </div>
+    </header>
+    <section class="container">
+      <div class="alert alert--error" id="alertError">
+        <p class="alert__text alert__text--error" id="alertErrorText"> </p>
+        <div class="alert__cross alert__cross--error" id="alertErrorCross">&#9587;</div>
+      </div>
+      <div class="alert alert--success" id="alertSuccess">
+        <p class="alert__text alert__text--success" id="alertSuccessText"> </p>
+        <div class="alert__cross alert__cross--success" id="alertSuccessCross">&#9587;</div>
+      </div>
+    </section>
+    <section class="container-fluid groupEdit">
+      <form action="" name="groupEdit">
+        <div class="groupEdit__heading">
+          <input class="groupEdit__group" type="text" name="groupEditGroup" value="TM-71"/>
+        </div>
+        <div class="groupEdit__table">
+          <div class="groupEdit__table-item groupEdit__table-item--heading">ФИО</div>
+          <div class="groupEdit__table-item"> 
+            <input class="name" type="text" name="student[1][lastname]" value="Hui"/>
+            <input class="name" type="text" name="student[1][firstname]" value="Sobachiy"/>
+            <input class="name" type="text" name="student[1][fathername]" value="Dog"/>
+            <div class="groupEdit__table-item-delete">&#8854;</div>
+          </div>
+          <div class="groupEdit__table-item"> 
+            <input class="name" type="text" name="student[2][lastname]" value="Yelmanov"/>
+            <input class="name" type="text" name="student[2][firstname]" value="Bohdan"/>
+            <input class="name" type="text" name="student[2][fathername]" value="Hui"/>
+            <div class="groupEdit__table-item-delete">&#8854;</div>
+          </div>
+          <div class="groupEdit__table-item"> 
+            <input class="name" type="text" name="student[3][lastname]" value="Kovalenko"/>
+            <input class="name" type="text" name="student[3][firstname]" value="Maxim"/>
+            <input class="name" type="text" name="student[3][fathername]" value="Pisos"/>
+            <div class="groupEdit__table-item-delete">&#8854;</div>
+          </div>
+        </div>
+        <div class="groupEdit__addStudent" id="addStudentButton">Добавить студента</div>
+        <button class="groupEdit__submit" type="submit">Сохранить</button>
+      </form>
+    </section>
+    <script src="js/alerts.js"></script>
+    <script src="js/groupEdit.js"></script>
+  </body>
+</html>

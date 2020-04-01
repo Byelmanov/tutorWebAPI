@@ -36,15 +36,19 @@
       </div>
     </section>
     <section class="container-fluid journal">
-      <h2 class="journal__heading">TM-71 <span class="journal__heading-subject">Схемотехника (лекция)</span></h2>
-      <div class="journal__addStudentPopUp">
-        <h2 class="journal__addStudentPopUp-heading">Введите имя студента</h2>
-        <input class="journal__addStudentPopUp-input" type="text" id="nameOfNewStudent"/>
-        <button class="journal__addStudentPopUp-button" id="submitNewStudentName">Готово</button>
-        <div class="journal__addStudentPopUp-cross" id="crossAddNewStudent">X</div>
-      </div>
-      <div class="journal__addColumn" id="addColumn">Добавить колонку</div>
       <form action="" name="journal">
+        <div class="journal__headings">
+          <h2 class="journal__headings-heading">TM-71 </h2>
+          <p class="journal__headings-subject">Схемотехника (лекция)</p>
+          <!--input(type="text", name="subject", value="Схемотехника (лекция)", class="journal__headings-subjectInput")-->
+        </div>
+        <div class="journal__addStudentPopUp">
+          <h2 class="journal__addStudentPopUp-heading">Введите имя студента</h2>
+          <input class="journal__addStudentPopUp-input" type="text" id="nameOfNewStudent"/>
+          <button class="journal__addStudentPopUp-button" id="submitNewStudentName">Готово</button>
+          <div class="journal__addStudentPopUp-cross" id="crossAddNewStudent">X</div>
+        </div>
+        <div class="journal__addColumn" id="addColumn">Добавить колонку</div>
         <div class="journal__table">
           <div class="journal__table-line">
             <div class="journal__table-item">ФИО</div>
@@ -57,7 +61,7 @@
             <div class="journal__table-item journal__table-item--date">31.02</div>
           </div>
           <div class="journal__table-line">
-            <div class="journal__table-item">1. Yelmanov Bohdan</div>
+            <div class="journal__table-item" data-id="1">1. Yelmanov Bohdan</div>
             <div class="journal__table-item">
               <input class="absent" type="text" name="" value="н"/>
             </div>
@@ -81,7 +85,7 @@
             </div>
           </div>
           <div class="journal__table-line">
-            <div class="journal__table-item">2. Kovalenko Maxim</div>
+            <div class="journal__table-item" data-id="1">2. Kovalenko Maxim</div>
             <div class="journal__table-item">
               <input class="absent" type="text" name="" value="н"/>
             </div>
@@ -105,7 +109,7 @@
             </div>
           </div>
           <div class="journal__table-line">
-            <div class="journal__table-item">3. Tymoshenko Ivan</div>
+            <div class="journal__table-item" data-id="1">3. Tymoshenko Ivan</div>
             <div class="journal__table-item">
               <input class="absent" type="text" name="" value="н"/>
             </div>
