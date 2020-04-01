@@ -68,9 +68,10 @@ function addColumn() {
     arrayOfLines[0].append(itemWithDate);
 
     for (let i = 1; i < arrayOfLines.length; i++) {
+        let studentId = arrayOfLines[i].children[0].getAttribute('data-id');
         let itemWithN = document.createElement('div');
         itemWithN.className = 'journal__table-item';
-        itemWithN.innerHTML = '<input class="absent" type="text" name="" value=""/>';
+        itemWithN.innerHTML = `<input class="absent" type="text" name="new[${studentId}]" value=""/>`;
         arrayOfLines[i].append(itemWithN);
     }
     setHandlerForAbsentInputs();

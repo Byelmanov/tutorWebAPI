@@ -38,9 +38,10 @@ document.getElementById('addStudentButton').addEventListener('click', addStudent
 function addStudent() {
     let item = document.createElement('div')
     item.className = 'groupEdit__table-item';
-    item.innerHTML = `<input class="name" type="text" name="new[][firstname]" value=""/>
-    <input class="name" type="text" name="new[][lastname]" value=""/>
-    <input class="name" type="text" name="new[][fathername]" value=""/>
+    item.innerHTML = `
+    <input class="name" type="text" name="new[][lastname]" placeholder="Фамилия" value=""/>
+    <input class="name" type="text" name="new[][firstname]" placeholder="Имя" value=""/>
+    <input class="name" type="text" name="new[][fathername]" placeholder="Отчество" value=""/>
     <div class="groupEdit__table-item-delete">&#8854;</div>`;
 
     document.querySelector('.groupEdit__table').append(item);
