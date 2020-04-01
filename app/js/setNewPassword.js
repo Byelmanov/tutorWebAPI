@@ -85,7 +85,10 @@ function sendAjaxSetNewPassword() {
     try {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
-                if (xhr.status == 200) {
+                if (xhr.status == 422) {
+                    putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+                    throw new Error(xhr.status + ": " + xhr.statusText);
+                } else if (xhr.status == 200) {
                     let linkToRedirect = JSON.parse(xhr.responseText).redirect;
                     if (linkToRedirect) {
                         window.location.href = linkToRedirect;
