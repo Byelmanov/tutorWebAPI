@@ -42,7 +42,7 @@ function sendAuthorizationAjax() {
                     if (arrayOfErrors) {
                         let strWithErrors = '';
                         for (let error in arrayOfErrors) {
-                            strWithErrors += error + '\n';
+                            strWithErrors += error[0] + '\n';
                         }
                         putTextInAlertAndShowIt(strWithErrors);
                     } else {
