@@ -3,7 +3,12 @@
 let form = document.forms['groupEdit'];
 form.addEventListener('submit', function (e) {
     e.preventDefault();
-    sendAjaxgroupEdit();
+    if (checkAllInputsAreEmpty()) {
+        sendAjaxgroupEdit();
+    } else {
+        putTextInAlertAndShowIt('Пожауйлста, заполните все поля!');
+    }
+
 });
 
 function sendAjaxgroupEdit() {
@@ -30,6 +35,18 @@ function sendAjaxgroupEdit() {
     } catch (e) {
         console.log(e);
     }
+}
+
+function checkAllInputsAreEmpty() {
+    let inputs = form.elements;
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].nodeName === 'INPUT' && inputs[i].type === "text") {
+            if (inputs[i].value == '' || inputs[i].value == undefined || inputs[i].value == null) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 // add new student
@@ -67,12 +84,9 @@ function deleteStudent(e) {
     let childInputName = parent.children[0].getAttribute('name');
     let deleteId = getIdFromNameAttr(childInputName);
 
-    let hiddenInput = document.createElement('input');
-    hiddenInput.setAttribute('type', 'hidden');
-    hiddenInput.setAttribute('name', `delete[{${deleteId}}]`);
-
-    document.forms['groupEdit'].append(hiddenInput);
-
+    if (deleteId !== undefined) {
+        createHiddenInputAndInsertId(deleteId);
+    }
     parent.remove();
 }
 
@@ -82,4 +96,11 @@ function getIdFromNameAttr(str) {
             return str[i];
         }
     }
+}
+
+function createHiddenInputAndInsertId(id) {
+    let hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', `delete[{${id}}]`);
+    document.forms['groupEdit'].append(hiddenInput);
 }
