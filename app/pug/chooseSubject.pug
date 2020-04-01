@@ -11,15 +11,9 @@ html(lang="en")
             
             .chooseSubject__window
                 h2.chooseSubject__heading Выберите предмет
-                form(action="", class="chooseSubject__form", name="chooseSubject")
-                    label.chooseSubject__item
-                        p.chooseSubject__text SUBJECT
-                        input(type="radio", name="chooseSubjectInput", class="chooseSubject__input", value="")
-                    label.chooseSubject__item
-                        p.chooseSubject__text SUBJECT
-                        input(type="radio", name="chooseSubjectInput", class="chooseSubject__input", value="")
-                    label.chooseSubject__item
-                        p.chooseSubject__text SUBJECT
-                        input(type="radio", name="chooseSubjectInput", class="chooseSubject__input", value="")
-        script(src="js/alerts.js")
-        script(src="js/chooseSubject.js")
+                div.chooseSubject__items
+                    a(href="").chooseSubject__item SUBJECT
+                    a(href="").chooseSubject__item SUBJECT1
+                    a(href="").chooseSubject__item SUBJECT2
+                    a(href="").chooseSubject__item SUBJECT3
+                    

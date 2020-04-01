@@ -6,24 +6,11 @@ html(lang="en")
         include includes/header.pug
 
         section.container.chooseGroup
-        
-            include includes/alerts.pug
-
             .chooseGroup__window
                 h2.chooseGroup__heading Выберите группу
-                form(action="", name="chooseGroup", class="chooseGroup__form")
-                    label.chooseGroup__item
-                        p.chooseGroup__text ТМ-71
-                        input(type="radio", name="chooseGroupInput", class="chooseGroup__input", value="")
-                    label.chooseGroup__item
-                        p.chooseGroup__text ТМ-72
-                        input(type="radio", name="chooseGroupInput", class="chooseGroup__input", value="")
-                    label.chooseGroup__item
-                        p.chooseGroup__text ТР-71
-                        input(type="radio", name="chooseGroupInput", class="chooseGroup__input", value="")
-                    label.chooseGroup__item
-                        p.chooseGroup__text ТР-72
-                        input(type="radio", name="chooseGroupInput", class="chooseGroup__input", value="")
-
-        script(src="js/alerts.js")
-        script(src="js/chooseGroup.js")
+                div.chooseGroup__items
+                    a(href="").chooseGroup__item ТМ-71
+                    a(href="").chooseGroup__item ТМ-72
+                    a(href="").chooseGroup__item ТМ-73
+                    a(href="").chooseGroup__item ТМ-74
+                    
