@@ -40,21 +40,26 @@
         <div class="groupEdit__heading">
           <input class="groupEdit__group" type="text" name="groupEditGroup" value="TM-71"/>
         </div>
+        <label class="groupEdit__monitor-label" for="groupEditMonitor">Выберите старосту</label>
+        <select class="groupEdit__monitor" name="groupEditMonitor" id="groupEditMonitor">
+          <option value="{{ monitor-&gt;id }}" selected="selected">{{ monitor name }}</option>
+          <option value="{{ $student-&gt;id }">2. {{ $student-firstname $student-lastname $student-fathername }}</option>
+        </select>
         <div class="groupEdit__table">
           <div class="groupEdit__table-item groupEdit__table-item--heading">ФИО</div>
-          <div class="groupEdit__table-item"> 
+          <div class="groupEdit__table-item" data-id="1"> 
             <input class="name" type="text" name="student[1][lastname]" placeholder="Фамилия" value="Hui"/>
             <input class="name" type="text" name="student[1][firstname]" placeholder="Имя" value="Sobachiy"/>
             <input class="name" type="text" name="student[1][fathername]" placeholder="Отчество" value="Dog"/>
             <div class="groupEdit__table-item-delete">&#8854;</div>
           </div>
-          <div class="groupEdit__table-item"> 
+          <div class="groupEdit__table-item" data-id="2"> 
             <input class="name" type="text" name="student[2][lastname]" placeholder="Фамилия" value="Yelmanov"/>
             <input class="name" type="text" name="student[2][firstname]" placeholder="Имя" value="Bohdan"/>
             <input class="name" type="text" name="student[2][fathername]" value="Hui"/>
             <div class="groupEdit__table-item-delete">&#8854;</div>
           </div>
-          <div class="groupEdit__table-item"> 
+          <div class="groupEdit__table-item" data-id="3"> 
             <input class="name" type="text" name="student[3][lastname]" placeholder="Фамилия" value="Kovalenko"/>
             <input class="name" type="text" name="student[3][firstname]" placeholder="Имя" value="Maxim"/>
             <input class="name" type="text" name="student[3][fathername]" placeholder="Отчество" value="Pisos"/>

@@ -50,19 +50,23 @@ function checkAllInputsAreEmpty() {
 }
 
 // add new student
+
+let counterForNewStudentId = 1;
+
 document.getElementById('addStudentButton').addEventListener('click', addStudent);
 
 function addStudent() {
     let item = document.createElement('div')
     item.className = 'groupEdit__table-item';
     item.innerHTML = `
-    <input class="name" type="text" name="new[][lastname]" placeholder="Фамилия" value=""/>
-    <input class="name" type="text" name="new[][firstname]" placeholder="Имя" value=""/>
-    <input class="name" type="text" name="new[][fathername]" placeholder="Отчество" value=""/>
+    <input class="name" type="text" name="new[${counterForNewStudentId}][lastname]" placeholder="Фамилия" value=""/>
+    <input class="name" type="text" name="new[${counterForNewStudentId}][firstname]" placeholder="Имя" value=""/>
+    <input class="name" type="text" name="new[${counterForNewStudentId}][fathername]" placeholder="Отчество" value=""/>
     <div class="groupEdit__table-item-delete">&#8854;</div>`;
 
     document.querySelector('.groupEdit__table').append(item);
 
+    counterForNewStudentId++;
     setHandlerForDeleteButtons();
 }
 
@@ -81,26 +85,18 @@ window.addEventListener('load', setHandlerForDeleteButtons);
 function deleteStudent(e) {
     let targetElem = e.target;
     let parent = targetElem.parentElement;
-    let childInputName = parent.children[0].getAttribute('name');
-    let deleteId = getIdFromNameAttr(childInputName);
+    let deleteId = parent.getAttribute('data-id');
 
-    if (deleteId !== undefined) {
+    if (deleteId !== null) {
         createHiddenInputAndInsertId(deleteId);
     }
     parent.remove();
 }
 
-function getIdFromNameAttr(str) {
-    for (let i in str) {
-        if (!isNaN(parseInt(str[i]))) {
-            return str[i];
-        }
-    }
-}
 
 function createHiddenInputAndInsertId(id) {
     let hiddenInput = document.createElement('input');
     hiddenInput.setAttribute('type', 'hidden');
-    hiddenInput.setAttribute('name', `delete[{${id}}]`);
+    hiddenInput.setAttribute('name', `delete[${id}]`);
     document.forms['groupEdit'].append(hiddenInput);
 }

@@ -12,19 +12,25 @@ html(lang="en")
             form(action="", name="groupEdit")
                 div.groupEdit__heading
                     input(type="text", name="groupEditGroup", class="groupEdit__group", value="TM-71")
+                label(for="groupEditMonitor", class="groupEdit__monitor-label") Выберите старосту
+                select(name="groupEditMonitor", class="groupEdit__monitor", id="groupEditMonitor")
+                    option(value="{{ monitor->id }}", selected) {{ monitor name }}
+                    option(value="{{ $student->id }") 2. {{ $student-firstname $student-lastname $student-fathername }}
+
+
                 div.groupEdit__table
                     div.groupEdit__table-item.groupEdit__table-item--heading ФИО
-                    div.groupEdit__table-item 
+                    div(data-id="1").groupEdit__table-item 
                         input(type="text", name="student[1][lastname]", class="name", placeholder="Фамилия", value="Hui")
                         input(type="text", name="student[1][firstname]", class="name", placeholder="Имя", value="Sobachiy")
                         input(type="text", name="student[1][fathername]", class="name", placeholder="Отчество", value="Dog")
                         div.groupEdit__table-item-delete &#8854;
-                    div.groupEdit__table-item 
+                    div(data-id="2").groupEdit__table-item 
                         input(type="text", name="student[2][lastname]", class="name", placeholder="Фамилия", value="Yelmanov")
                         input(type="text", name="student[2][firstname]", class="name", placeholder="Имя", value="Bohdan")
                         input(type="text", name="student[2][fathername]", class="name", value="Hui")
                         div.groupEdit__table-item-delete &#8854;
-                    div.groupEdit__table-item 
+                    div(data-id="3").groupEdit__table-item 
                         input(type="text", name="student[3][lastname]", class="name", placeholder="Фамилия", value="Kovalenko")
                         input(type="text", name="student[3][firstname]", class="name", placeholder="Имя", value="Maxim")
                         input(type="text", name="student[3][fathername]", class="name", placeholder="Отчество", value="Pisos")
