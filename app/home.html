@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <meta name="description" content=""/>
+      <meta name="theme-color" content="#000"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="#000"/>
+      <title>Tutor Web API</title>
+      <link rel="shortcut icon" href="" type="image/png"/>
+      <link rel="stylesheet" href="css/main.min.css"/>
+    </head>
+  </head>
+  <body>
+    <header class="container-fluid">
+      <div class="container header__content"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
+        <h1 class="header__heading">Tutor's WEB APP</h1>
+      </div>
+    </header>
+    <section class="home">
+      <div class="alert alert--error" id="alertError">
+        <p class="alert__text alert__text--error" id="alertErrorText"> </p>
+        <div class="alert__cross alert__cross--error" id="alertErrorCross">&#9587;</div>
+      </div>
+      <div class="alert alert--success" id="alertSuccess">
+        <p class="alert__text alert__text--success" id="alertSuccessText"> </p>
+        <div class="alert__cross alert__cross--success" id="alertSuccessCross">&#9587;</div>
+      </div>
+      <div class="home__window">
+        <h2 class="home__heading">Профиль</h2>
+        <p class="home__role">Вы вошли как преподователь</p>
+        <div class="home__email">
+          <p class="home__email-text">testemail@gmail.com</p><img class="home__email-img" src="img/profileEdit.svg" alt="Редактировать" id="editEmailButton"/>
+        </div>
+        <div class="home__password">
+          <p class="home__password-text">●●●●●●●●●●</p><img class="home__password-img" src="img/profileEdit.svg" alt="Редактировать" id="editPasswordButton"/>
+        </div>
+        <div class="home__links"><a class="home__link" href="">Смотреть журнал</a><a class="home__link" href="">Выбрать группу</a><a class="home__link" href="">Выбрать предмет</a></div>
+      </div>
+    </section>
+    <section class="editEmail" id="editEmailSection">
+      <div class="editEmail__window">
+        <h2 class="editEmail__heading">Редактировать Email</h2>
+        <form class="editEmail__form" action="" name="editEmail">
+          <label>
+            <p class="editEmail__label">Email</p>
+            <input class="editEmail__input" type="email" name="email" id="editEmailInput" value="example@gmail.com"/>
+          </label>
+          <button class="editEmail__submit" type="submit">Готово</button>
+        </form>
+        <div class="editEmail__cross" id="editEmailCross">&#9587</div>
+      </div>
+    </section>
+    <section class="editPassword" id="editPasswordSection">
+      <div class="editPassword__window">
+        <h2 class="editPassword__heading">Редактировать пароль</h2>
+        <form class="editPassword__form" action="" name="editPassword">
+          <label class="editPassword__item">
+            <p class="editPassword__text">Новый пароль</p>
+            <input class="editPassword__input" type="password" name="password" id="passwordInput" autocomplete="new-password"/>
+            <p class="editPassword__capture" id="passwordLength">Пароль должен содержать не менее 4 символов.</p>
+          </label>
+          <label class="editPassword__item">
+            <p class="editPassword__text">Повторите новый пароль</p>
+            <input class="editPassword__input" type="password" name="passwordRepeat" id="passwordRepeatInput" autocomplete="new-password"/>
+            <p class="editPassword__capture" id="passwordsAreNotTheSame">Пароли не совпадают.</p>
+          </label>
+          <button class="editPassword__submit" type="submit">Готово</button>
+        </form>
+        <div class="editPassword__cross" id="editPasswordCross">&#9587</div>
+      </div>
+    </section>
+    <script src="js/alerts.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>

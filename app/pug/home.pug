@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include includes/head.pug
+    body
+        include includes/header.pug
+
+        section.home
+            include includes/alerts.pug
+
+            div.home__window
+                h2.home__heading Профиль
+                p.home__role Вы вошли как преподователь
+                .home__email
+                    p.home__email-text testemail@gmail.com
+                    img(src="img/profileEdit.svg", alt="Редактировать").home__email-img#editEmailButton
+                .home__password
+                    p.home__password-text ●●●●●●●●●●
+                    img(src="img/profileEdit.svg", alt="Редактировать").home__password-img#editPasswordButton
+                .home__links
+                    a(href="").home__link Смотреть журнал
+                    a(href="").home__link Выбрать группу
+                    a(href="").home__link Выбрать предмет
+        section.editEmail#editEmailSection
+            div.editEmail__window
+                h2.editEmail__heading Редактировать Email
+                form(action="", name="editEmail", class='editEmail__form')
+                    label
+                        p.editEmail__label Email
+                        input(type="email", name="email", class="editEmail__input", id="editEmailInput", value="example@gmail.com")
+                    button(type="submit").editEmail__submit Готово
+                div.editEmail__cross#editEmailCross &#9587
+        section.editPassword#editPasswordSection
+            div.editPassword__window
+                h2.editPassword__heading Редактировать пароль
+                form(action="", name="editPassword", class="editPassword__form")
+                    label.editPassword__item
+                        p.editPassword__text Новый пароль
+                        input(type="password", name="password", class="editPassword__input", id="passwordInput", autocomplete="new-password")
+                        p.editPassword__capture#passwordLength Пароль должен содержать не менее 4 символов.
+                    label.editPassword__item
+                        p.editPassword__text Повторите новый пароль
+                        input(type="password", name="passwordRepeat", class="editPassword__input", id="passwordRepeatInput", autocomplete="new-password")
+                        p.editPassword__capture#passwordsAreNotTheSame Пароли не совпадают.
+                    button(type="submit", class="editPassword__submit") Готово
+                div.editPassword__cross#editPasswordCross &#9587
+
+
+
+
+
+
+
+
+                    
+                
+
+
+
+        script(src="js/alerts.js")
+        script(src="js/home.js")
