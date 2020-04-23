@@ -15,8 +15,16 @@
   </head>
   <body>
     <header class="container-fluid">
-      <div class="container header__content"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
-        <h1 class="header__heading">Tutor's WEB APP</h1>
+      <div class="container journalHeader__content">
+        <div class="journalHeader__main"><a href="/"><img class="journalHeader__logo" src="img/logo.svg" alt="logo"/></a>
+          <h1 class="journalHeader__heading">Tutor's WEB APP</h1>
+        </div><a href=""><img src="img/home.svg" alt="home"/></a>
+        <form class="journal__signOut" action="" method="POST" name="journalSignOut">
+          <input type="hidden" name="_token" value=""/>
+          <label><img class="journal__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
+            <input class="journal__signOut-submit" type="submit" value=""/>
+          </label>
+        </form>
       </div>
     </header>
     <section class="home">
