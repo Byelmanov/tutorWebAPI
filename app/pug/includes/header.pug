@@ -4,11 +4,13 @@ header.container-fluid
             a(href="/")
                 img(src="img/logo.svg", alt="logo", class="header__logo")
             h1.header__heading Tutor's WEB APP
-        a(href="")
-            img(src="img/home.svg", alt="home").header__home
+        div.header__buttons
+            a(href="")
+                img(src="img/home.svg", alt="home").header__home
+            form(action="", method="POST", name="journalSignOut", class="header__signOut")
+                input(type="hidden", name="_token", value="")
+                label
+                    img(src="img/signOut.svg", alt="Sign Out", class="header__signOut-img")
+                    input(type="submit", value="", class="header__signOut-submit")
 
-             
-            
-            
-            
-            
+        

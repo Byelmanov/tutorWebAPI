@@ -3,7 +3,7 @@ html(lang="en")
     head
         include includes/head.pug
     body
-        include includes/headerJournal.pug
+        include includes/header.pug
 
         section.home
             include includes/alerts.pug
@@ -37,7 +37,7 @@ html(lang="en")
                     label.editPassword__item
                         p.editPassword__text Новый пароль
                         input(type="password", name="password", class="editPassword__input", id="passwordInput", autocomplete="new-password")
-                        p.editPassword__capture#passwordLength Пароль должен содержать не менее 4 символов.
+                        p.editPassword__capture#passwordLength Пароль должен содержать не менее 8 символов.
                     label.editPassword__item
                         p.editPassword__text Повторите новый пароль
                         input(type="password", name="passwordRepeat", class="editPassword__input", id="passwordRepeatInput", autocomplete="new-password")

@@ -4,7 +4,7 @@ html(lang="en")
         include includes/head.pug
     body
         
-        include includes/headerJournal.pug
+        include includes/header.pug
 
         section.container
             include includes/alerts.pug
@@ -15,13 +15,6 @@ html(lang="en")
                     h2.journal__headings-heading TM-71 
                     p.journal__headings-subject Схемотехника (лекция)
                     //input(type="text", name="subject", value="Схемотехника (лекция)", class="journal__headings-subjectInput")
-
-                div.journal__addStudentPopUp
-                    h2.journal__addStudentPopUp-heading Введите имя студента
-                    input(type="text", id="nameOfNewStudent", class="journal__addStudentPopUp-input")
-                    button.journal__addStudentPopUp-button#submitNewStudentName Готово
-                    div.journal__addStudentPopUp-cross#crossAddNewStudent X
-                div.journal__addColumn#addColumn Добавить колонку
                 div.journal__table
                     div.journal__table-line
                         div.journal__table-item ФИО
@@ -32,6 +25,9 @@ html(lang="en")
                         div.journal__table-item.journal__table-item--date 31.02
                         div.journal__table-item.journal__table-item--date 31.02
                         div.journal__table-item.journal__table-item--date 31.02
+                        
+                        div.journal__addColumn#addColumn
+                            img(src="img/plusSign.svg", alt="add")
                     div.journal__table-line
                         div(data-id="1").journal__table-item 1. Yelmanov Bohdan
                         div.journal__table-item
@@ -83,13 +79,7 @@ html(lang="en")
 
                 .journal__buttons
                     button(type="submit", class="journal__submit") сохранить
-        
-        
-        
-        
-        
-        
-        
+                    div.journal__reload#reloadButton отменить
         
         
         script(src="js/alerts.js")

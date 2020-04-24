@@ -5,15 +5,20 @@ html(lang="en")
     body
         include includes/header.pug
 
-        section.container.chooseSubject
+        section.container-fluid.chooseSubject
 
             include includes/alerts.pug
             
             .chooseSubject__window
                 h2.chooseSubject__heading Выберите предмет
                 div.chooseSubject__items
-                    a(href="").chooseSubject__item SUBJECT
-                    a(href="").chooseSubject__item SUBJECT1
-                    a(href="").chooseSubject__item SUBJECT2
+                    //добавь класс в зависимости от типа предмета
+                    a(href="").chooseSubject__item.lecture Правове забезпечення провової діяльності (лекція)
+                    a(href="").chooseSubject__item.laboratory Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem ex ullam dolores, impedit qui perferendis corrupti aliquid alias eaque id fugiat, quo, vel veritatis quidem vero esse quos dolor blanditiis?
+                    a(href="").chooseSubject__item.practic SUBJECT2
+                    a(href="").chooseSubject__item.seminar SUBJECT3
                     a(href="").chooseSubject__item SUBJECT3
+                    a(href="").chooseSubject__item SUBJECT3
+                    //p.chooseSubject__null У этой группы пока нет предметов
+                a(href="").chooseSubject__back Назад
                     

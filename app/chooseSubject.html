@@ -18,10 +18,18 @@
       <div class="container header__content">
         <div class="header__main"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
           <h1 class="header__heading">Tutor's WEB APP</h1>
-        </div><a href=""><img class="header__home" src="img/home.svg" alt="home"/></a>
+        </div>
+        <div class="header__buttons"><a href=""><img class="header__home" src="img/home.svg" alt="home"/></a>
+          <form class="header__signOut" action="" method="POST" name="journalSignOut">
+            <input type="hidden" name="_token" value=""/>
+            <label><img class="header__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
+              <input class="header__signOut-submit" type="submit" value=""/>
+            </label>
+          </form>
+        </div>
       </div>
     </header>
-    <section class="container chooseSubject">
+    <section class="container-fluid chooseSubject">
       <div class="alert alert--error" id="alertError">
         <p class="alert__text alert__text--error" id="alertErrorText"> </p>
         <div class="alert__cross alert__cross--error" id="alertErrorCross">&#9587;</div>
@@ -32,7 +40,10 @@
       </div>
       <div class="chooseSubject__window">
         <h2 class="chooseSubject__heading">Выберите предмет</h2>
-        <div class="chooseSubject__items"><a class="chooseSubject__item" href="">SUBJECT</a><a class="chooseSubject__item" href="">SUBJECT1</a><a class="chooseSubject__item" href="">SUBJECT2</a><a class="chooseSubject__item" href="">SUBJECT3</a></div>
+        <div class="chooseSubject__items">
+          <!--добавь класс в зависимости от типа предмета--><a class="chooseSubject__item lecture" href="">Правове забезпечення провової діяльності (лекція)</a><a class="chooseSubject__item laboratory" href="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem ex ullam dolores, impedit qui perferendis corrupti aliquid alias eaque id fugiat, quo, vel veritatis quidem vero esse quos dolor blanditiis?</a><a class="chooseSubject__item practic" href="">SUBJECT2</a><a class="chooseSubject__item seminar" href="">SUBJECT3</a><a class="chooseSubject__item" href="">SUBJECT3</a><a class="chooseSubject__item" href="">SUBJECT3</a>
+          <!--p.chooseSubject__null У этой группы пока нет предметов-->
+        </div><a class="chooseSubject__back" href="">Назад</a>
       </div>
     </section>
   </body>

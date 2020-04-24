@@ -146,7 +146,7 @@ function checkEmail(str) {
     }
 }
 function checkPassword(str) {
-    if (str.length < 4 || str == "" || str == null || str == undefined) {
+    if (str.length < 8 || str == "" || str == null || str == undefined) {
         return false;
     } else {
         return true;
@@ -158,9 +158,9 @@ document.getElementById('editEmailInput').addEventListener('input', function () 
     let value = this.value;
     let button = document.querySelector('.editEmail__submit');
     if (checkEmail(value)) {
-        button.style.background = '#f9e547';
+        button.classList.add('editEmail__submit--active');
     } else {
-        button.style.background = '#fdf7cb';
+        button.classList.remove('editEmail__submit--active');
     }
 });
 
@@ -171,7 +171,7 @@ document.getElementById('passwordInput').addEventListener('input', function () {
         capture.style.visibility = "hidden";
     } else {
         capture.style.visibility = 'visible';
-        document.querySelector('.editPassword__submit').style.background = '#fdf7cb';
+        document.querySelector('.editPassword__submit').classList.remove('editPassword__submit--active');
     }
 
     if (checkAllInputs()) {
@@ -188,7 +188,7 @@ document.getElementById('passwordRepeatInput').addEventListener('input', functio
         capture.style.visibility = "hidden";
     } else {
         capture.style.visibility = 'visible';
-        document.querySelector('.editPassword__submit').style.background = '#fdf7cb';
+        document.querySelector('.editPassword__submit').classList.remove('editPassword__submit--active');
     }
 
     if (checkAllInputs()) {
@@ -210,5 +210,5 @@ function checkAllInputs() {
 function allDataIsValid() {
     document.getElementById('passwordLength').style.visibility = "hidden";
     document.getElementById('passwordsAreNotTheSame').style.visibility = "hidden";
-    document.querySelector('.editPassword__submit').style.background = '#f9e547';
+    document.querySelector('.editPassword__submit').classList.add('editPassword__submit--active');
 }

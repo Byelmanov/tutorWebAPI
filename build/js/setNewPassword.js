@@ -1,7 +1,7 @@
 'use strict';
 
 function checkPassword(str) {
-    if (str.length < 4 || str == "" || str == null || str == undefined) {
+    if (str.length < 8 || str == "" || str == null || str == undefined) {
         return false;
     } else {
         return true;
@@ -25,7 +25,7 @@ document.getElementById('passwordInput').addEventListener('input', function () {
         capture.style.visibility = "hidden";
     } else {
         capture.style.visibility = 'visible';
-        document.querySelector('.setNewPassword__submit').style.background = '#fdf7cb';
+        document.querySelector('.setNewPassword__submit').classList.remove('setNewPassword__submit--active');
     }
 
     if (checkAllInputs()) {
@@ -43,7 +43,7 @@ document.getElementById('passwordRepeatInput').addEventListener('input', functio
         capture.style.visibility = "hidden";
     } else {
         capture.style.visibility = 'visible';
-        document.querySelector('.setNewPassword__submit').style.background = '#fdf7cb';
+        document.querySelector('.setNewPassword__submit').classList.remove('setNewPassword__submit--active');
     }
 
     if (checkAllInputs()) {
@@ -54,7 +54,7 @@ document.getElementById('passwordRepeatInput').addEventListener('input', functio
 function allDataIsValid() {
     document.getElementById('passwordLength').style.visibility = "hidden";
     document.getElementById('passwordsAreNotTheSame').style.visibility = "hidden";
-    document.querySelector('.setNewPassword__submit').style.background = '#f9e547';
+    document.querySelector('.setNewPassword__submit').classList.add('setNewPassword__submit--active');
 
 }
 

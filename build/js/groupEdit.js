@@ -20,6 +20,7 @@ function sendAjaxgroupEdit() {
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
+                window.scroll(0, 0);
                 if (xhr.status == 200) {
                     putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
                 } else {
@@ -62,7 +63,7 @@ function addStudent() {
     <input class="name" type="text" name="new[${counterForNewStudentId}][lastname]" placeholder="Фамилия" value=""/>
     <input class="name" type="text" name="new[${counterForNewStudentId}][firstname]" placeholder="Имя" value=""/>
     <input class="name" type="text" name="new[${counterForNewStudentId}][fathername]" placeholder="Отчество" value=""/>
-    <div class="groupEdit__table-item-delete">&#8854;</div>`;
+    <img class="groupEdit__table-item-delete" src="img/bin.svg" alt="delete">`;
 
     document.querySelector('.groupEdit__table').append(item);
 
@@ -151,6 +152,7 @@ function sendAjaxEditEmail() {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 hideEditEmailSection();
+                window.scroll(0, 0);
                 if (xhr.status == 200) {
                     putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
                 } else {
@@ -201,6 +203,7 @@ function sendAjaxEditPassword() {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 hideEditPasswordSection();
+                window.scroll(0, 0);
                 if (xhr.status == 200) {
                     putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
                 } else {
@@ -244,7 +247,7 @@ function checkEmail(str) {
     }
 }
 function checkPassword(str) {
-    if (str.length < 4 || str == "" || str == null || str == undefined) {
+    if (str.length < 8 || str == "" || str == null || str == undefined) {
         return false;
     } else {
         return true;
@@ -256,9 +259,9 @@ document.getElementById('editEmailInput').addEventListener('input', function () 
     let value = this.value;
     let button = document.querySelector('.groupData__editEmail-submit');
     if (checkEmail(value)) {
-        button.style.background = '#f9e547';
+        button.classList.add('groupData__editEmail-submit--active');
     } else {
-        button.style.background = '#fdf7cb';
+        button.classList.remove('groupData__editEmail-submit--active');
     }
 });
 
@@ -269,7 +272,7 @@ document.getElementById('passwordInput').addEventListener('input', function () {
         capture.style.visibility = "hidden";
     } else {
         capture.style.visibility = 'visible';
-        document.querySelector('.groupData__editPassword-submit').style.background = '#fdf7cb';
+        document.querySelector('.groupData__editPassword-submit').classList.remove('groupData__editPassword-submit--active');
     }
 
     if (checkAllInputs()) {
@@ -286,7 +289,7 @@ document.getElementById('passwordRepeatInput').addEventListener('input', functio
         capture.style.visibility = "hidden";
     } else {
         capture.style.visibility = 'visible';
-        document.querySelector('.groupData__editPassword-submit').style.background = '#fdf7cb';
+        document.querySelector('.groupData__editPassword-submit').classList.remove('groupData__editPassword-submit--active');
     }
 
     if (checkAllInputs()) {
@@ -308,5 +311,5 @@ function checkAllInputs() {
 function allDataIsValid() {
     document.getElementById('passwordLength').style.visibility = "hidden";
     document.getElementById('passwordsAreNotTheSame').style.visibility = "hidden";
-    document.querySelector('.groupData__editPassword-submit').style.background = '#f9e547';
+    document.querySelector('.groupData__editPassword-submit').classList.add('groupData__editPassword-submit--active');
 }

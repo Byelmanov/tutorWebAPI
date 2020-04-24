@@ -3,6 +3,10 @@
 .groupEdit
     padding-top: 20px
     position: relative
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    flex-flow: row wrap
     &__heading
         display: flex
         flex-flow: row wrap
@@ -19,11 +23,11 @@
         color: #262626
         text-align: center
         outline: none
-        border-radius: 5px
-        border: none
-        box-shadow: 0 0 5px #ccc
+        border-radius: 20px
+        border: 1px solid #000
         margin-right: 15px
         display: block
+        background: #f4f6fb     
     &__monitor
         margin-bottom: 20px
         max-width: 350px
@@ -34,27 +38,33 @@
             font-size: 15px
             display: block
             margin-bottom: 8px
+    &__form
+        flex: 0 0 55%
     &__table
         display: flex
         flex-flow: column nowrap
         margin-bottom: 20px
+        max-height: calc(100vh - 410px)
+        overflow-y: scroll
         &-item
             width: 700px
             height: 45px
             min-width: 50px
             line-height: 35px
             text-align: center
-            border: 1px solid #262626
+            border: 1px solid $tableBorderColor
             font-size: 16px
             position: relative
             display: flex
             align-items: center
             justify-content: flex-start
+            padding: 8px 0
             &--heading
                 text-align: center
                 display: block
                 font-size: 20px
                 line-height: 45px
+                padding: 0
             .name
                 min-width: 100px
                 flex: 0 0 30.5%
@@ -63,15 +73,15 @@
                 display: block
                 font-size: 16px
                 font-family: $default-font
-                border: 1px solid #ccc
-                border-radius: 5px
-                padding-left: 5px
+                border: 1px solid #000
+                border-radius: 20px
+                padding-left: 8px
+                background: #f4f6fb
             &-delete
                 position: absolute
-                right: 8px
-                top: 5px
-                font-size: 35px
-                line-height: 30px
+                width: 15px
+                right: 14px
+                top: 12px
                 cursor: pointer
     &__submit
         width: 200px
@@ -80,34 +90,33 @@
         text-align: center
         border: none
         border-radius: 5px
-        background: #f9e547
+        background: #31d5d4
         font-weight: 600
         font-size: 15px
         text-transform: uppercase
         cursor: pointer
         letter-spacing: .1em
         margin-right: 50px
+        color: #fff
     &__addStudent
-        margin-bottom: 50px
-        margin-left: 5px
-        width: 190px
-        height: 35px
-        line-height: 30px
-        text-align: left
-        font-size: 17px
+        width: 30px
+        min-width: 30px
+        max-width: 30px
+        display: flex
+        height: 30px
+        border-radius: 50%
+        background: $gradient
         cursor: pointer
-        font-weight: 400
-        &:before
-            content: '\2295'
-            font-size: 30px
-            line-height: 30px
-            display: inline-block
-            position: relative
-            top: 2px
-            margin-right: 5px
+        margin-left: 5px
+        margin-bottom: 50px
+        img
+            margin: auto
+            width: 15px
+            height: 15px
 .groupData
     padding-top: 50px 
     padding-bottom: 30px
+    flex: 0 0 20%
     &__heading
         font-size: 20px
         line-height: 25px
@@ -137,34 +146,37 @@
             max-width: 500px
             background: #fff
             min-height: 200px
-            box-shadow: 0 0 5px #ccc
-            border-radius: 10px
+            box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25)
+            border-radius: 20px
             margin: auto
             padding-bottom: 30px
             position: relative
         &-heading
             font-size: 23px
             text-align: center
-            line-height: 55px
+            line-height: 60px
             font-weight: 400
             color: #fff
-            background: linear-gradient(92.53deg, #33B3DF 8.34%, #31D5D4 92.56%)
-            border-radius: 10px 10px 0 0
+            background: $gradient
+            border-radius: 20px 20px 0 0
         &-form
             padding: 30px 30px 0 30px
         &-label
             font-size: 17px
-            font-weight: 600
+            font-weight: 500
             margin-bottom: 10px
+            margin-left: 10px
         &-input
-            height: 30px
-            line-height: 30px
-            font-size: 17px
-            border: none
-            box-shadow: 0 0 5px #ccc
-            padding-left: 5px
-            border-radius: 5px
             width: 100%
+            height: 40px
+            line-height: 40px
+            border-radius: 20px
+            background: #f4f6fb
+            outline: none
+            border: none
+            color: #262626
+            font-size: 17px
+            padding: 0 10px
         &-submit
             width: 200px
             height: 40px
@@ -173,10 +185,12 @@
             margin-top: 40px
             outline: none
             border: none
-            backgrouncenter
             font-size: 20px
             border-radius: 15px
             cursor: pointer
+            background: #f4f6fb
+            &--active
+                background: #31d5d4
         &-cross
             position: absolute
             top: 10px
@@ -200,19 +214,19 @@
             max-width: 500px
             background: #fff
             min-height: 200px
-            box-shadow: 0 0 5px #ccc
-            border-radius: 10px
+            box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25)
+            border-radius: 20px
             margin: auto
             padding-bottom: 30px
             position: relative
         &-heading
             font-size: 23px
             text-align: center
-            line-height: 55px
+            line-height: 60px
             font-weight: 400
             color: #fff
-            background: linear-gradient(92.53deg, #33B3DF 8.34%, #31D5D4 92.56%)
-            border-radius: 10px 10px 0 0
+            background: $gradient
+            border-radius: 20px 20px 0 0
         &-form
             padding: 30px 30px 0 30px
         &-text
@@ -220,19 +234,20 @@
             color: #262626
             line-height: 25px
             margin-bottom: 5px
-            font-weight: 600
+            font-weight: 500
+            margin-left: 10px
         &-input
             width: 100%
             height: 40px
             line-height: 40px
-            border-radius: 5px
+            border-radius: 20px
+            background: #f4f6fb
             outline: none
             border: none
-            box-shadow: 0 0 5px #666
-            margin-bottom: 5px
             color: #262626
             font-size: 17px
             padding: 0 10px
+            margin-bottom: 5px
         &-capture
             margin-bottom: 20px
             font-size: 13px
@@ -248,10 +263,12 @@
             display: block
             border-radius: 5px
             border: none
-            background: #fdf7cb
+            background: #f4f6fb
             margin-top: 40px
             outline: none
             cursor: pointer
+            &--active
+                background: #31d5d4
         &-cross
             position: absolute
             top: 10px

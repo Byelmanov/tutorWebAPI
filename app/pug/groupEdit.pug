@@ -3,15 +3,15 @@ html(lang="en")
     head
         include includes/head.pug
     body
-        include includes/headerJournal.pug
+        include includes/header.pug
 
         section.container
             include includes/alerts.pug
 
         section.container-fluid.groupEdit
-            form(action="", name="groupEdit")
+            form(action="", name="groupEdit").groupEdit__form
                 div.groupEdit__heading
-                    input(type="text", name="groupEditGroup", class="groupEdit__group", value="TM-71")
+                    input(type="text", name="groupEditGroup", class="groupEdit__group", value="TM-71", autofocus)
                 label(for="groupEditMonitor", class="groupEdit__monitor-label") Выберите старосту
                 select(name="groupEditMonitor", class="groupEdit__monitor", id="groupEditMonitor")
                     option(value="{{ monitor->id }}", selected) {{ monitor name }}
@@ -24,55 +24,57 @@ html(lang="en")
                         input(type="text", name="student[1][lastname]", class="name", placeholder="Фамилия", value="Hui")
                         input(type="text", name="student[1][firstname]", class="name", placeholder="Имя", value="Sobachiy")
                         input(type="text", name="student[1][fathername]", class="name", placeholder="Отчество", value="Dog")
-                        div.groupEdit__table-item-delete &#8854;
+                        
+                        img(src="img/bin.svg", alt="delete").groupEdit__table-item-delete
                     div(data-id="2").groupEdit__table-item 
                         input(type="text", name="student[2][lastname]", class="name", placeholder="Фамилия", value="Yelmanov")
                         input(type="text", name="student[2][firstname]", class="name", placeholder="Имя", value="Bohdan")
                         input(type="text", name="student[2][fathername]", class="name", value="Hui")
-                        div.groupEdit__table-item-delete &#8854;
+                        img(src="img/bin.svg", alt="delete").groupEdit__table-item-delete
                     div(data-id="3").groupEdit__table-item 
                         input(type="text", name="student[3][lastname]", class="name", placeholder="Фамилия", value="Kovalenko")
                         input(type="text", name="student[3][firstname]", class="name", placeholder="Имя", value="Maxim")
                         input(type="text", name="student[3][fathername]", class="name", placeholder="Отчество", value="Pisos")
-                        div.groupEdit__table-item-delete &#8854;
+                        img(src="img/bin.svg", alt="delete").groupEdit__table-item-delete
 
-                div.groupEdit__addStudent#addStudentButton Добавить студента
+                div.groupEdit__addStudent#addStudentButton
+                    img(src="img/plusSign.svg", alt="add")
 
                 button(type="submit", class="groupEdit__submit") Сохранить
 
-        section.container-fluid.groupData
-            h2.groupData__heading Данные аккаунта группы
-            .groupData__email
-                p.home__email-text testemail@gmail.com
-                img(src="img/profileEdit.svg", alt="Редактировать").groupData__email-img#editEmailButton
-            .groupData__password
-                p.home__password-text ●●●●●●●●●●
-                img(src="img/profileEdit.svg", alt="Редактировать").groupData__password-img#editPasswordButton
+            div.container-fluid.groupData
+                h2.groupData__heading Данные аккаунта группы
+                .groupData__email
+                    p.home__email-text testemail@gmail.com
+                    img(src="img/profileEdit.svg", alt="Редактировать").groupData__email-img#editEmailButton
+                .groupData__password
+                    p.home__password-text ●●●●●●●●●●
+                    img(src="img/profileEdit.svg", alt="Редактировать").groupData__password-img#editPasswordButton
 
-            div.groupData__editEmail#editEmailSection
-                div.groupData__editEmail-window
-                    h2.groupData__editEmail-heading Редактировать Email
-                    form(action="", name="editEmail", class='groupData__editEmail-form')
-                        label
-                            p.groupData__editEmail-label Email
-                            input(type="email", name="email", class="groupData__editEmail-input", id="editEmailInput", value="example@gmail.com")
-                        button(type="submit").groupData__editEmail-submit Готово
-                    div.groupData__editEmail-cross#editEmailCross &#9587
+                div.groupData__editEmail#editEmailSection
+                    div.groupData__editEmail-window
+                        h2.groupData__editEmail-heading Редактировать Email
+                        form(action="", name="editEmail", class='groupData__editEmail-form')
+                            label
+                                p.groupData__editEmail-label Email
+                                input(type="email", name="email", class="groupData__editEmail-input", id="editEmailInput", value="example@gmail.com")
+                            button(type="submit").groupData__editEmail-submit Готово
+                        div.groupData__editEmail-cross#editEmailCross &#9587
 
-            div.groupData__editPassword#editPasswordSection
-                div.editPassword__window
-                    h2.groupData__editPassword-heading Редактировать пароль
-                    form(action="", name="editPassword", class="groupData__editPassword-form")
-                        label.groupData__editPassword-item
-                            p.groupData__editPassword-text Новый пароль
-                            input(type="password", name="password", class="groupData__editPassword-input", id="passwordInput", autocomplete="new-password")
-                            p.groupData__editPassword-capture#passwordLength Пароль должен содержать не менее 4 символов.
-                        label.groupData__editPassword-item
-                            p.groupData__editPassword-text Повторите новый пароль
-                            input(type="password", name="passwordRepeat", class="groupData__editPassword-input", id="passwordRepeatInput", autocomplete="new-password")
-                            p.groupData__editPassword-capture#passwordsAreNotTheSame Пароли не совпадают.
-                        button(type="submit", class="groupData__editPassword-submit") Готово
-                    div.groupData__editPassword-cross#editPasswordCross &#9587
+                div.groupData__editPassword#editPasswordSection
+                    div.groupData__editPassword-window
+                        h2.groupData__editPassword-heading Редактировать пароль
+                        form(action="", name="editPassword", class="groupData__editPassword-form")
+                            label.groupData__editPassword-item
+                                p.groupData__editPassword-text Новый пароль
+                                input(type="password", name="password", class="groupData__editPassword-input", id="passwordInput", autocomplete="new-password")
+                                p.groupData__editPassword-capture#passwordLength Пароль должен содержать не менее 8 символов.
+                            label.groupData__editPassword-item
+                                p.groupData__editPassword-text Повторите новый пароль
+                                input(type="password", name="passwordRepeat", class="groupData__editPassword-input", id="passwordRepeatInput", autocomplete="new-password")
+                                p.groupData__editPassword-capture#passwordsAreNotTheSame Пароли не совпадают.
+                            button(type="submit", class="groupData__editPassword-submit") Готово
+                        div.groupData__editPassword-cross#editPasswordCross &#9587
 
         script(src="js/alerts.js")
         script(src="js/groupEdit.js")

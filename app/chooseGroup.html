@@ -18,13 +18,23 @@
       <div class="container header__content">
         <div class="header__main"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
           <h1 class="header__heading">Tutor's WEB APP</h1>
-        </div><a href=""><img class="header__home" src="img/home.svg" alt="home"/></a>
+        </div>
+        <div class="header__buttons"><a href=""><img class="header__home" src="img/home.svg" alt="home"/></a>
+          <form class="header__signOut" action="" method="POST" name="journalSignOut">
+            <input type="hidden" name="_token" value=""/>
+            <label><img class="header__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
+              <input class="header__signOut-submit" type="submit" value=""/>
+            </label>
+          </form>
+        </div>
       </div>
     </header>
-    <section class="container chooseGroup">
+    <section class="container-fluid chooseGroup">
       <div class="chooseGroup__window">
         <h2 class="chooseGroup__heading">Выберите группу</h2>
-        <div class="chooseGroup__items"><a class="chooseGroup__item" href="">ТМ-71</a><a class="chooseGroup__item" href="">ТМ-72</a><a class="chooseGroup__item" href="">ТМ-73</a><a class="chooseGroup__item" href="">ТМ-74</a></div>
+        <div class="chooseGroup__items"><a class="chooseGroup__item" href="">ТМ-71</a><a class="chooseGroup__item" href="">ТМ-72</a><a class="chooseGroup__item" href="">ТМ-73</a><a class="chooseGroup__item" href="">ТМ-74</a><a class="chooseGroup__item" href="">ТМ-74</a><a class="chooseGroup__item" href="">ТМ-74</a><a class="chooseGroup__item" href="">ТМ-74</a><a class="chooseGroup__item" href="">ТМ-74</a><a class="chooseGroup__item" href="">ТМ-74</a><a class="chooseGroup__item" href="">ТМ-74</a>
+          <!--p.chooseGroup__null У вас пока нету групп-->
+        </div><a class="chooseGroup__back" href="">Назад</a>
       </div>
     </section>
   </body>

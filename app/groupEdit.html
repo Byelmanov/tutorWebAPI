@@ -15,16 +15,18 @@
   </head>
   <body>
     <header class="container-fluid">
-      <div class="container journalHeader__content">
-        <div class="journalHeader__main"><a href="/"><img class="journalHeader__logo" src="img/logo.svg" alt="logo"/></a>
-          <h1 class="journalHeader__heading">Tutor's WEB APP</h1>
-        </div><a href=""><img src="img/home.svg" alt="home"/></a>
-        <form class="journal__signOut" action="" method="POST" name="journalSignOut">
-          <input type="hidden" name="_token" value=""/>
-          <label><img class="journal__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
-            <input class="journal__signOut-submit" type="submit" value=""/>
-          </label>
-        </form>
+      <div class="container header__content">
+        <div class="header__main"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
+          <h1 class="header__heading">Tutor's WEB APP</h1>
+        </div>
+        <div class="header__buttons"><a href=""><img class="header__home" src="img/home.svg" alt="home"/></a>
+          <form class="header__signOut" action="" method="POST" name="journalSignOut">
+            <input type="hidden" name="_token" value=""/>
+            <label><img class="header__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
+              <input class="header__signOut-submit" type="submit" value=""/>
+            </label>
+          </form>
+        </div>
       </div>
     </header>
     <section class="container">
@@ -38,9 +40,9 @@
       </div>
     </section>
     <section class="container-fluid groupEdit">
-      <form action="" name="groupEdit">
+      <form class="groupEdit__form" action="" name="groupEdit">
         <div class="groupEdit__heading">
-          <input class="groupEdit__group" type="text" name="groupEditGroup" value="TM-71"/>
+          <input class="groupEdit__group" type="text" name="groupEditGroup" value="TM-71" autofocus="autofocus"/>
         </div>
         <label class="groupEdit__monitor-label" for="groupEditMonitor">Выберите старосту</label>
         <select class="groupEdit__monitor" name="groupEditMonitor" id="groupEditMonitor">
@@ -52,64 +54,61 @@
           <div class="groupEdit__table-item" data-id="1"> 
             <input class="name" type="text" name="student[1][lastname]" placeholder="Фамилия" value="Hui"/>
             <input class="name" type="text" name="student[1][firstname]" placeholder="Имя" value="Sobachiy"/>
-            <input class="name" type="text" name="student[1][fathername]" placeholder="Отчество" value="Dog"/>
-            <div class="groupEdit__table-item-delete">&#8854;</div>
+            <input class="name" type="text" name="student[1][fathername]" placeholder="Отчество" value="Dog"/><img class="groupEdit__table-item-delete" src="img/bin.svg" alt="delete"/>
           </div>
           <div class="groupEdit__table-item" data-id="2"> 
             <input class="name" type="text" name="student[2][lastname]" placeholder="Фамилия" value="Yelmanov"/>
             <input class="name" type="text" name="student[2][firstname]" placeholder="Имя" value="Bohdan"/>
-            <input class="name" type="text" name="student[2][fathername]" value="Hui"/>
-            <div class="groupEdit__table-item-delete">&#8854;</div>
+            <input class="name" type="text" name="student[2][fathername]" value="Hui"/><img class="groupEdit__table-item-delete" src="img/bin.svg" alt="delete"/>
           </div>
           <div class="groupEdit__table-item" data-id="3"> 
             <input class="name" type="text" name="student[3][lastname]" placeholder="Фамилия" value="Kovalenko"/>
             <input class="name" type="text" name="student[3][firstname]" placeholder="Имя" value="Maxim"/>
-            <input class="name" type="text" name="student[3][fathername]" placeholder="Отчество" value="Pisos"/>
-            <div class="groupEdit__table-item-delete">&#8854;</div>
+            <input class="name" type="text" name="student[3][fathername]" placeholder="Отчество" value="Pisos"/><img class="groupEdit__table-item-delete" src="img/bin.svg" alt="delete"/>
           </div>
         </div>
-        <div class="groupEdit__addStudent" id="addStudentButton">Добавить студента</div>
+        <div class="groupEdit__addStudent" id="addStudentButton"><img src="img/plusSign.svg" alt="add"/></div>
         <button class="groupEdit__submit" type="submit">Сохранить</button>
       </form>
-    </section>
-    <section class="container-fluid groupData">
-      <h2 class="groupData__heading">Данные аккаунта группы</h2>
-      <div class="groupData__email">
-        <p class="home__email-text">testemail@gmail.com</p><img class="groupData__email-img" src="img/profileEdit.svg" alt="Редактировать" id="editEmailButton"/>
-      </div>
-      <div class="groupData__password">
-        <p class="home__password-text">●●●●●●●●●●</p><img class="groupData__password-img" src="img/profileEdit.svg" alt="Редактировать" id="editPasswordButton"/>
-      </div>
-      <div class="groupData__editEmail" id="editEmailSection">
-        <div class="groupData__editEmail-window">
-          <h2 class="groupData__editEmail-heading">Редактировать Email</h2>
-          <form class="groupData__editEmail-form" action="" name="editEmail">
-            <label>
-              <p class="groupData__editEmail-label">Email</p>
-              <input class="groupData__editEmail-input" type="email" name="email" id="editEmailInput" value="example@gmail.com"/>
-            </label>
-            <button class="groupData__editEmail-submit" type="submit">Готово</button>
-          </form>
-          <div class="groupData__editEmail-cross" id="editEmailCross">&#9587</div>
+      <div class="container-fluid groupData">
+        <h2 class="groupData__heading">Данные аккаунта группы</h2>
+        <div class="groupData__email">
+          <p class="home__email-text">testemail@gmail.com</p><img class="groupData__email-img" src="img/profileEdit.svg" alt="Редактировать" id="editEmailButton"/>
         </div>
-      </div>
-      <div class="groupData__editPassword" id="editPasswordSection">
-        <div class="editPassword__window">
-          <h2 class="groupData__editPassword-heading">Редактировать пароль</h2>
-          <form class="groupData__editPassword-form" action="" name="editPassword">
-            <label class="groupData__editPassword-item">
-              <p class="groupData__editPassword-text">Новый пароль</p>
-              <input class="groupData__editPassword-input" type="password" name="password" id="passwordInput" autocomplete="new-password"/>
-              <p class="groupData__editPassword-capture" id="passwordLength">Пароль должен содержать не менее 4 символов.</p>
-            </label>
-            <label class="groupData__editPassword-item">
-              <p class="groupData__editPassword-text">Повторите новый пароль</p>
-              <input class="groupData__editPassword-input" type="password" name="passwordRepeat" id="passwordRepeatInput" autocomplete="new-password"/>
-              <p class="groupData__editPassword-capture" id="passwordsAreNotTheSame">Пароли не совпадают.</p>
-            </label>
-            <button class="groupData__editPassword-submit" type="submit">Готово</button>
-          </form>
-          <div class="groupData__editPassword-cross" id="editPasswordCross">&#9587</div>
+        <div class="groupData__password">
+          <p class="home__password-text">●●●●●●●●●●</p><img class="groupData__password-img" src="img/profileEdit.svg" alt="Редактировать" id="editPasswordButton"/>
+        </div>
+        <div class="groupData__editEmail" id="editEmailSection">
+          <div class="groupData__editEmail-window">
+            <h2 class="groupData__editEmail-heading">Редактировать Email</h2>
+            <form class="groupData__editEmail-form" action="" name="editEmail">
+              <label>
+                <p class="groupData__editEmail-label">Email</p>
+                <input class="groupData__editEmail-input" type="email" name="email" id="editEmailInput" value="example@gmail.com"/>
+              </label>
+              <button class="groupData__editEmail-submit" type="submit">Готово</button>
+            </form>
+            <div class="groupData__editEmail-cross" id="editEmailCross">&#9587</div>
+          </div>
+        </div>
+        <div class="groupData__editPassword" id="editPasswordSection">
+          <div class="groupData__editPassword-window">
+            <h2 class="groupData__editPassword-heading">Редактировать пароль</h2>
+            <form class="groupData__editPassword-form" action="" name="editPassword">
+              <label class="groupData__editPassword-item">
+                <p class="groupData__editPassword-text">Новый пароль</p>
+                <input class="groupData__editPassword-input" type="password" name="password" id="passwordInput" autocomplete="new-password"/>
+                <p class="groupData__editPassword-capture" id="passwordLength">Пароль должен содержать не менее 8 символов.</p>
+              </label>
+              <label class="groupData__editPassword-item">
+                <p class="groupData__editPassword-text">Повторите новый пароль</p>
+                <input class="groupData__editPassword-input" type="password" name="passwordRepeat" id="passwordRepeatInput" autocomplete="new-password"/>
+                <p class="groupData__editPassword-capture" id="passwordsAreNotTheSame">Пароли не совпадают.</p>
+              </label>
+              <button class="groupData__editPassword-submit" type="submit">Готово</button>
+            </form>
+            <div class="groupData__editPassword-cross" id="editPasswordCross">&#9587</div>
+          </div>
         </div>
       </div>
     </section>

@@ -15,16 +15,18 @@
   </head>
   <body>
     <header class="container-fluid">
-      <div class="container journalHeader__content">
-        <div class="journalHeader__main"><a href="/"><img class="journalHeader__logo" src="img/logo.svg" alt="logo"/></a>
-          <h1 class="journalHeader__heading">Tutor's WEB APP</h1>
-        </div><a href=""><img src="img/home.svg" alt="home"/></a>
-        <form class="journal__signOut" action="" method="POST" name="journalSignOut">
-          <input type="hidden" name="_token" value=""/>
-          <label><img class="journal__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
-            <input class="journal__signOut-submit" type="submit" value=""/>
-          </label>
-        </form>
+      <div class="container header__content">
+        <div class="header__main"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
+          <h1 class="header__heading">Tutor's WEB APP</h1>
+        </div>
+        <div class="header__buttons"><a href=""><img class="header__home" src="img/home.svg" alt="home"/></a>
+          <form class="header__signOut" action="" method="POST" name="journalSignOut">
+            <input type="hidden" name="_token" value=""/>
+            <label><img class="header__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
+              <input class="header__signOut-submit" type="submit" value=""/>
+            </label>
+          </form>
+        </div>
       </div>
     </header>
     <section class="home">
@@ -68,7 +70,7 @@
           <label class="editPassword__item">
             <p class="editPassword__text">Новый пароль</p>
             <input class="editPassword__input" type="password" name="password" id="passwordInput" autocomplete="new-password"/>
-            <p class="editPassword__capture" id="passwordLength">Пароль должен содержать не менее 4 символов.</p>
+            <p class="editPassword__capture" id="passwordLength">Пароль должен содержать не менее 8 символов.</p>
           </label>
           <label class="editPassword__item">
             <p class="editPassword__text">Повторите новый пароль</p>

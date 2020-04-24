@@ -15,9 +15,9 @@ document.getElementById('forgetPasswordInput').addEventListener('input', functio
     let value = this.value;
     let submitButton = document.querySelector('.forgetPassword__submit');
     if (checkEmail(value)) {
-        submitButton.style.background = '#f9e547';
+        submitButton.classList.add('forgetPassword__submit--active');
     } else {
-        submitButton.style.background = '#fdf7cb';
+        submitButton.classList.remove('forgetPassword__submit--active');
     }
 });
 

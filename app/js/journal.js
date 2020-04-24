@@ -84,7 +84,9 @@ function addColumn() {
     currMonth = currMonth.length == 1 ? "0" + currMonth : currMonth;
     itemWithDate.innerText = currDay + "." + currMonth;
 
-    arrayOfLines[0].append(itemWithDate);
+    addColumn = document.getElementById('addColumn');
+
+    arrayOfLines[0].insertBefore(itemWithDate, addColumn);
 
     for (let i = 1; i < arrayOfLines.length; i++) {
         let studentId = arrayOfLines[i].children[0].getAttribute('data-id');
@@ -95,3 +97,5 @@ function addColumn() {
     }
     setHandlerForAbsentInputs();
 }
+
+document.getElementById('reloadButton').addEventListener('click', () => { location.reload(); });

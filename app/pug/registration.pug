@@ -5,7 +5,7 @@ html(lang="en")
     body
         include includes/header.pug
 
-        section.registration.container
+        section.registration.container-fluid
             
             include includes/alerts.pug
 
@@ -26,8 +26,8 @@ html(lang="en")
                         input(type="password", name="registerPassword", placeholder="Password", id="registerPassword", autocomplete="new-password")
                         div.register__tick--password
                         div.register__wrapUnderInput.register__wrapUnderInput--password
-                            p.register__warning.register__warning--password#registerWarningPassword Пароль должен содержать не менее 4 символов.
-                            button(type="submit").register__submitButton#registerSubmit Далее
+                            p.register__warning.register__warning--password#registerWarningPassword Пароль должен содержать не менее 8 символов.
+                            button(type="submit").register__submitButton#registerSubmit Создать
                         
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
         script(src="js/alerts.js")

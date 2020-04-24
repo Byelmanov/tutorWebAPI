@@ -3,33 +3,11 @@
 .journal
     padding-top: 20px
     position: relative
-    &Header
-        &__content
-            padding-top: 20px
-            padding-bottom: 20px
-            display: flex
-            align-items: center
-            justify-content: space-between
-            position: relative
-        &__main
-            display: flex
-            align-items: center
-            justify-content: flex-start
-        &__logo
-            width: 40px
-            height: auto
-            margin-right: 40px
-        &__heading
-            font-size: 25px
-            line-height: 30px
-            font-weight: 300
-        &__home
-            width: 15px
     &__headings
         display: flex
         align-items: flex-end
         justify-content: flex-start
-        margin-bottom: 20px
+        margin-bottom: 40px
         &-heading
             font-size: 35px
             line-height: 35px
@@ -54,22 +32,14 @@
             padding-left: 5px
             overflow: scroll
             display: block
-            margin-left: 5px
-    &__signOut
-        position: absolute
-        top: 25px
-        right: 50px
-        &-img
-            width: 30px
-            cursor: pointer
-        &-submit
-            display: none      
+            margin-left: 5px     
     &__table
-        border: 1px solid #262626
         overflow-x: scroll
+        overflow-y: scroll
         display: flex
         flex-flow: column nowrap
         margin-bottom: 50px
+        max-height: calc(100vh - 300px)
         &-line
             display: flex
             flex-flow: row nowrap
@@ -90,17 +60,18 @@
             min-width: 50px
             line-height: 35px
             text-align: center
-            border: 1px solid #262626
+            border: 1px solid $tableBorderColor
             font-size: 16px
             &--date
-                border: 1px solid #262626
+                border: 1px solid $tableBorderColor
                 font-size: 15px
                 text-align: center
-                overflow: hidden
+                //overflow: hidden
                 font-weight: 500
                 font-style: italic
                 color: #262626
                 text-align: center
+                position: relative
             .absent
                 width: 98%
                 height: 30px
@@ -122,7 +93,7 @@
         text-align: center
         border: none
         border-radius: 5px
-        background: #f9e547
+        background: #31d5d4
         font-weight: 600
         font-size: 15px
         text-transform: uppercase
@@ -130,77 +101,24 @@
         letter-spacing: .1em
         margin-right: 50px
     &__addColumn
-        width: 120px
-        height: 45px
-        position: absolute
-        box-shadow: 0 0 5px #ccc
-        right: 15px
-        top: 20px
-        text-align: center
+        width: 30px
+        min-width: 30px
+        max-width: 30px
         display: flex
-        font-size: 15px
-        line-height: 22px
-        border-radius: 10px
-        font-weight: 200
+        height: 30px
+        border-radius: 50%
+        background: $gradient
         cursor: pointer
-    &__addStudentPopUp
-        position: absolute
-        width: 100%
-        max-width: 500px
-        height: 200px  
-        box-shadow: 0 0 5px #262626
-        background: #fff
-        top: 0
-        bottom: 0
-        right: 0
-        left: 0
-        margin: auto
-        border-radius: 15px
-        display: none
-        &-heading
-            line-height: 50px
-            font-size: 25px
-            color: #fff
-            text-align: center
-            background: linear-gradient(80.53deg,rgb(66, 133, 244) 0,rgb(241, 154, 74) 99.61%)
-            border-radius: 15px 15px 0 0
-        &-input
-            width: 80%
-            height: 30px
+        margin-left: 5px
+        img
             margin: auto
-            display: block
-            margin-top: 35px
-            outline: none
-            border-radius: 5px
-            border: none
-            box-shadow: 0 0 5px #ccc
-            padding: 0 10px
-            font-size: 15px
-            line-height: 30px
-        &-button 
-            width: 150px
-            height: 40px
-            font-size: 17px
-            border: none
-            background: #f9e547
-            border-radius: 5px
-            margin: auto
-            display: block
-            margin-top: 30px
-            cursor: pointer
-        &-cross
-            position: absolute
-            left: 10px
-            top: 10px
-            width: 20px
-            height: 20px
-            background: #262626
-            color: #fff
-            font-size: 15px
-            text-align: center
-            line-height: 20px
-            border-radius: 50%
-            cursor: pointer
+            width: 15px
+            height: 15px
+    &__reload
+        font-size: 15px
+        margin-left: 10px
+        cursor: pointer
+
     
 
 

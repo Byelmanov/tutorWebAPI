@@ -4,8 +4,15 @@ let form = document.forms['authorization'];
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
+    let password = document.getElementById('password').value;
+    let login = document.getElementById('login').value;
+
     if (checkAllInputsAreEmpty()) {
         sendAuthorizationAjax();
+    } else if (checkEmail(login) && !checkPasswordLength(password)) {
+        putTextInAlertAndShowIt('Короткий пароль!');
+    } else if (!checkEmail(login) && checkPasswordLength(password)) {
+        putTextInAlertAndShowIt('Неправильный формат почты!');
     } else {
         putTextInAlertAndShowIt('Заполните все поля!');
     }
@@ -82,7 +89,7 @@ function checkStringIsEmpty(str) {
 }
 
 function checkPasswordLength(str) {
-    if (str.length < 4) {
+    if (str.length < 8) {
         return false;
     } else {
         return true;
@@ -103,29 +110,20 @@ function checkEmail(str) {
 document.getElementById('login').addEventListener('input', function () {
     let submitButton = document.getElementById('submit');
     if (checkAllInputsAreEmpty()) {
-        submitButton.style.background = '#f9e547';
+        submitButton.classList.add('authorization__submit--active');
     } else {
-        submitButton.style.background = '#fdf7cb';
+        submitButton.classList.remove('authorization__submit--active');
     }
 
 });
 document.getElementById('password').addEventListener('input', function () {
     let password = this.value;
-    let warning = document.querySelector('.authorization__captureWarning');
     let submitButton = document.getElementById('submit');
-    if (!checkPasswordLength(password)) {
-        warning.style.visibility = 'visible';
-        if (checkAllInputsAreEmpty()) {
-            submitButton.style.background = '#f9e547';
-        } else {
-            submitButton.style.background = '#fdf7cb';
-        }
+
+    if (checkAllInputsAreEmpty()) {
+        submitButton.classList.add('authorization__submit--active');
     } else {
-        warning.style.visibility = 'hidden';
-        if (checkAllInputsAreEmpty()) {
-            submitButton.style.background = '#f9e547';
-        } else {
-            submitButton.style.background = '#fdf7cb';
-        }
+        submitButton.classList.remove('authorization__submit--active');
     }
+
 });

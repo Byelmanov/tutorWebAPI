@@ -18,10 +18,18 @@
       <div class="container header__content">
         <div class="header__main"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
           <h1 class="header__heading">Tutor's WEB APP</h1>
-        </div><a href=""><img class="header__home" src="img/home.svg" alt="home"/></a>
+        </div>
+        <div class="header__buttons"><a href=""><img class="header__home" src="img/home.svg" alt="home"/></a>
+          <form class="header__signOut" action="" method="POST" name="journalSignOut">
+            <input type="hidden" name="_token" value=""/>
+            <label><img class="header__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
+              <input class="header__signOut-submit" type="submit" value=""/>
+            </label>
+          </form>
+        </div>
       </div>
     </header>
-    <section class="container authorization">
+    <section class="container-fluid authorization">
       <div class="alert alert--error" id="alertError">
         <p class="alert__text alert__text--error" id="alertErrorText"> </p>
         <div class="alert__cross alert__cross--error" id="alertErrorCross">&#9587;</div>
@@ -40,9 +48,10 @@
           <label class="authorization__item">
             <p class="authorization__text">Пароль</p>
             <input class="authorization__input" type="password" name="login" autocomplete="current-password" id="password"/>
-            <p class="authorization__captureWarning">Пароль должен содержать не менее 4 символов.</p>
-          </label><a class="authorization__forgetPassword" href="">Забыли пароль?</a>
-          <button class="authorization__submit" type="submit" id="submit">Готово</button>
+            <p class="authorization__captureWarning">Пароль должен содержать не менее 8 символов.</p>
+          </label>
+          <div class="authorization__links"><a class="authorization__register" href="">Зарегистрироваться </a><a class="authorization__forgetPassword" href="">Забыли пароль?</a></div>
+          <button class="authorization__submit " type="submit" id="submit">Готово</button>
         </form>
       </div>
     </section>

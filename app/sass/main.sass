@@ -45,6 +45,7 @@ body
     position: relative
     font-family: $default-font
     overflow-x: hidden
+    padding-bottom: 20px
 img 
     max-width: 100%
 ::selection
@@ -59,162 +60,290 @@ img
         align-items: center
         justify-content: space-between
         position: relative
+        height: 85px
     &__main
         display: flex
         align-items: center
         justify-content: flex-start
     &__logo
-        width: 50px
+        width: 40px
         height: auto
         margin-right: 40px
     &__heading
-        font-size: 50px
-        line-height: 50px
+        font-size: 25px
+        line-height: 30px
         font-weight: 300
     &__home
-        width: 25px
-.choose
-    padding-top: 50px
-    padding-bottom: 50px
-    &__window
-        max-width: 500px
-        width: 100%
-        height: auto
-        min-height: 300px
-        margin: auto
-        border-radius: 10px
-        box-shadow: 0 0 5px #ccc
-        padding-bottom: 40px
-    &__heading
-        font-size: 30px
-        text-align: center
-        line-height: 80px
-        font-weight: 400
-        color: #fff
-        background: linear-gradient(92.53deg, #33B3DF 8.34%, #31D5D4 92.56%)
-        border-radius: 10px 10px 0 0
-    &__text
-        width: 80%
-        text-align: center
-        background: #fff
-        margin: auto
-        margin-top: 30px
-        font-size: 20px
-        line-height: 40px
-        border-radius: 20px
-        box-shadow: 0 0 5px #ccc
-        &:hover
-            box-shadow: 0 0 10px $accent
-    &__input
-        display: none
+        height: 30px
+        margin-right: 15px
+    &__buttons
+        display: flex
+        align-items: center
+        justify-content: flex-end
+    &__signOut
+        &-img
+            height: 25px
+            cursor: pointer
+        &-submit
+            display: none
 
 .chooseGroup
-    padding-top: 50px
     padding-bottom: 50px
+    background: url('../img/bgr.svg')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: 50% 100%
+    min-height: calc(100vh - 85px)
+    max-height: calc(100vh - 85px)
     &__window
-        max-width: 500px
+        max-width: 550px
         width: 100%
         height: auto
-        min-height: 300px
-        max-height: 500px
+        min-height: 400px
+        max-height: 400px
         margin: auto
-        border-radius: 10px
-        box-shadow: 0 0 5px #ccc
-        padding-bottom: 40px
+        border-radius: 20px
+        box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25)
+        background: #fff
+        position: absolute
+        z-index: 1
+        top: 0
+        bottom: 0
+        right: 0
+        left: 0
     &__heading
-        font-size: 30px
+        font-size: 23px
         text-align: center
-        line-height: 80px
+        line-height: 60px
         font-weight: 400
         color: #fff
-        background: linear-gradient(92.53deg, #33B3DF 8.34%, #31D5D4 92.56%)
-        border-radius: 10px 10px 0 0
+        background: $gradient
+        border-radius: 20px 20px 0 0
     &__items
         overflow-y: scroll
-        max-height: 400px
-        padding-bottom: 20px
+        max-height: 300px
+        min-height: 300px
+        display: flex
+        align-items: center
+        flex-flow: row wrap
+        justify-content: space-around
+        padding: 0 20px
+        padding-bottom: 40px
     &__item
-        width: 80%
+        flex: 1
+        width: 120px
+        max-width: 120px
+        min-width: 120px
+        height: 120px
         text-align: center
-        background: #fff
-        margin: auto
-        margin-top: 30px
-        font-size: 20px
-        line-height: 40px
+        background: #F4F6FB
+        margin-top: 25px
+        font-size: 23px
+        font-weight: 500
+        line-height: 120px
         border-radius: 20px
-        box-shadow: 0 0 5px #ccc
         cursor: pointer
         display: block
-        color: #262626
+        color: #31D5D4
         text-decoration: none
         &:hover
-            box-shadow: 0 0 10px $accent
+            color: #F4F6FB
+            background: $gradient
+    &__back
+        color: #c4c4c4
+        text-decoration: underline
+        font-size: 15px
+        margin-left: 20px
+        margin-top: 10px
+        position: relative
+        top: 10px
+        &:before
+            content: '\21FD'
+            display: inline-block
+            margin-right: 3px
+            font-size: 15px
+    &__null
+        font-size: 17px
+        font-weight: 400
+        text-align: center
+        margin-top: 15%
+        color: #c4c4c4
         
 
 .chooseSubject
-    padding-top: 50px
     padding-bottom: 50px
+    background: url('../img/bgr.svg')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: 50% 100%
+    min-height: calc(100vh - 85px)
+    max-height: calc(100vh - 85px)
     &__window
-        max-width: 500px
+        max-width: 550px
         width: 100%
         height: auto
-        min-height: 300px
-        max-height: 500px
+        min-height: 400px
+        max-height: 400px
         margin: auto
-        border-radius: 10px
-        box-shadow: 0 0 5px #ccc
+        border-radius: 20px
+        box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25)
         padding-bottom: 40px
+        background: #fff
+        position: absolute
+        z-index: 1
+        top: 0
+        bottom: 0
+        right: 0
+        left: 0
     &__heading
-        font-size: 30px
+        font-size: 23px
         text-align: center
-        line-height: 80px
+        line-height: 60px
         font-weight: 400
         color: #fff
-        background: linear-gradient(92.53deg, #33B3DF 8.34%, #31D5D4 92.56%)
-        border-radius: 10px 10px 0 0
+        background: $gradient
+        border-radius: 20px 20px 0 0
     &__items
         overflow-y: scroll
-        max-height: 400px
-        padding-bottom: 20px
+        min-height: 300px
+        max-height: 300px
+        padding: 0 30px
+        .lecture
+            position: relative
+            &:after
+                content: 'ЛЕК'
+                position: absolute
+                right: 15px
+                top: 0
+                bottom: 0
+                margin: auto
+                width: 35px
+                height: 15px
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #F25C05
+        .laboratory
+            position: relative
+            &:after
+                content: 'ЛАБ'
+                position: absolute
+                right: 15px
+                top: 0
+                bottom: 0
+                width: 35px
+                height: 15px
+                margin: auto
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #F29F05
+        .practic
+            position: relative
+            &:after
+                content: 'ПРА'
+                position: absolute
+                right: 15px
+                top: 0
+                bottom: 0
+                margin: auto
+                width: 35px
+                height: 15px
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #33B3DF
+        .seminar
+            position: relative
+            &:after
+                content: 'СЕМ'
+                position: absolute
+                right: 15px
+                top: 0
+                bottom: 0
+                margin: auto
+                width: 35px
+                height: 15px
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #3359DF
     &__item
-        width: 80%
-        text-align: center
-        background: #fff
+        width: 100%
+        text-align: left
+        background: #F4F6FB
         margin: auto
-        margin-top: 30px
-        font-size: 20px
-        line-height: 40px
+        margin-top: 15px
+        font-size: 13px
+        line-height: 20px
         border-radius: 20px
-        box-shadow: 0 0 5px #ccc
         cursor: pointer
         display: block
-        color: #262626
+        color: #31D5D4
         text-decoration: none
+        padding: 8px 50px 8px 15px
+
+        :afterposition: relative
         &:hover
-            box-shadow: 0 0 10px $accent
+            color: #F4F6FB
+            background: $gradient
+    &__back
+        color: #c4c4c4
+        text-decoration: underline
+        font-size: 15px
+        margin-left: 20px
+        margin-top: 10px
+        position: relative
+        top: 10px
+        &:before
+            content: '\21FD'
+            display: inline-block
+            margin-right: 3px
+            font-size: 15px
+    &__null
+        font-size: 17px
+        font-weight: 400
+        text-align: center
+        margin-top: 30%
+        color: #c4c4c4
 
 
 .authorization
-    padding-top: 50px
     padding-bottom: 50px
+    background: url('../img/bgr.svg')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: 50% 100%
+    min-height: calc(100vh - 85px)
+    max-height: calc(100vh - 85px)
     &__window
-        max-width: 500px
+        max-width: 550px
         width: 100%
         height: auto
-        min-height: 300px
-        max-height: 500px
+        min-height: 450px
+        max-height: 450px
         margin: auto
-        border-radius: 10px
-        box-shadow: 0 0 5px #ccc
+        border-radius: 20px
+        box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25)
         padding-bottom: 30px
+        position: absolute
+        top: 0
+        bottom: 0
+        right: 0
+        left: 0
+        background: #fff
     &__heading
-        font-size: 30px
+        font-size: 23px
         text-align: center
-        line-height: 80px
+        line-height: 60px
         font-weight: 400
         color: #fff
-        background: linear-gradient(92.53deg, #33B3DF 8.34%, #31D5D4 92.56%)
-        border-radius: 10px 10px 0 0
+        background: $gradient
+        border-radius: 20px 20px 0 0
     &__form
         padding: 50px 40px 20px 40px
     &__text
@@ -222,15 +351,16 @@ img
         color: #262626
         line-height: 25px
         margin-bottom: 5px
-        font-weight: 600
+        font-weight: 500
+        margin-left: 10px
     &__input
         width: 100%
         height: 40px
         line-height: 40px
-        border-radius: 5px
+        border-radius: 20px
+        background: #f4f6fb
         outline: none
         border: none
-        box-shadow: 0 0 5px #666
         margin-bottom: 30px
         color: #262626
         font-size: 17px
@@ -252,44 +382,67 @@ img
         display: block
         border-radius: 5px
         border: none
-        background: #fdf7cb
+        background: #f4f6fb
         margin-top: 40px
         outline: none
         cursor: pointer
+        &--active
+            background: #31d5d4
+            color: #fff
+    &__links
+        display: flex
+        align-items: center
+        justify-content: space-between
+        flex-flow: row wrap
+    &__register
+        color: #666666
+        text-align: left
+        display: block
     &__forgetPassword
         color: #666666
         text-align: right
         display: block
 
 .registration
-    margin-top: 50px
-    margin-bottom: 50px
+    padding-bottom: 50px
+    background: url('../img/bgr.svg')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: 50% 100%
+    min-height: calc(100vh - 85px)
+    max-height: calc(100vh - 85px)
 .register
     max-width: 950px
     width: 100%
-    min-height: 500px
+    min-height: 480px
+    max-height: 480px
     height: auto
     font-family: $default-font
-    position: relative
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
     margin: auto
     z-index: 5
     background: #fff
-    border-radius: 10px
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    border-radius: 20px
+    box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.25)
     &__heading
-        font-size: 25px
-        line-height: 95px
-        background: linear-gradient(92.53deg, #33B3DF 8.34%, #31D5D4 92.56%)
-        border-radius: 10px 10px 0px 0px
+        font-size: 23px
         text-align: center
+        line-height: 60px
+        font-weight: 400
         color: #fff
+        background: $gradient
+        border-radius: 20px 20px 0 0
     &__enter
         font-size: 17px
         line-height: 21px
         color: $black
         text-decoration: none
         position: absolute
-        top: 38px
+        top: 20px
         left: 38px
         z-index: 5
         cursor: pointer
@@ -373,10 +526,13 @@ img
         width: 95px
         height: 40px
         line-height: 40px
-        background: #FDF7CB
+        background: #f4f6fb
         border-radius: 5px
         text-align: center
         cursor: pointer
+        &--active
+            background: #31d5d4
+            color: #fff
     &__warning
         font-family: $default-font
         font-size: 13px
@@ -442,7 +598,7 @@ img
         line-height: 40px
         font-family: $default-font
         text-align: center
-        background: #FDF7CB
+        background: #f4f6fb
         border-radius: 5px
         outline: none
         cursor: pointer
@@ -451,49 +607,60 @@ img
         letter-spacing: 0.05em
         color: $black
         &--validated
-            background: $yellow
+            background: #31d5d4
     &__passwordLabel--small
         .register__tick--password
             display: block
 
 .forgetPassword
-    padding-top: 50px
     padding-bottom: 50px
+    background: url('../img/bgr.svg')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: 50% 100%
+    min-height: calc(100vh - 85px)
+    max-height: calc(100vh - 85px)
     &__window
-        max-width: 500px
+        max-width: 550px
         width: 100%
         height: auto
-        min-height: 300px
-        max-height: 500px
+        min-height: 280px
+        max-height: 280px
         margin: auto
-        border-radius: 10px
-        box-shadow: 0 0 5px #ccc
+        border-radius: 20px
+        box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25)
         padding-bottom: 30px
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        background: #fff
     &__heading
-        font-size: 30px
+        font-size: 23px
         text-align: center
-        line-height: 80px
+        line-height: 60px
         font-weight: 400
         color: #fff
-        background: linear-gradient(92.53deg, #33B3DF 8.34%, #31D5D4 92.56%)
-        border-radius: 10px 10px 0 0
+        background: $gradient
+        border-radius: 20px 20px 0 0
     &__form
-        padding: 50px 40px 20px 40px
+        padding: 30px 40px 20px 40px
     &__text
         font-size: 21px
         color: #262626
         line-height: 25px
         margin-bottom: 5px
-        font-weight: 600
+        font-weight: 500
+        margin-left: 10px
     &__input
         width: 100%
         height: 40px
         line-height: 40px
-        border-radius: 5px
+        border-radius: 20px
+        background: #f4f6fb
         outline: none
         border: none
-        box-shadow: 0 0 5px #666
-        margin-bottom: 30px
         color: #262626
         font-size: 17px
         padding: 0 10px
@@ -506,48 +673,63 @@ img
         display: block
         border-radius: 5px
         border: none
-        background: #fdf7cb
+        background: #f4f6fb
         margin-top: 40px
         outline: none
         cursor: pointer
+        &--active
+            background: #31d5d4
+            color: #fff
 
 .setNewPassword
-    padding-top: 50px
     padding-bottom: 50px
+    background: url('../img/bgr.svg')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: 50% 100%
+    min-height: calc(100vh - 85px)
+    max-height: calc(100vh - 85px)
     &__window
-        max-width: 500px
+        max-width: 550px
         width: 100%
         height: auto
-        min-height: 300px
-        max-height: 600px
+        min-height: 500px
+        max-height: 500px
         margin: auto
-        border-radius: 10px
-        box-shadow: 0 0 5px #ccc
+        border-radius: 20px
+        box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25)
         padding-bottom: 30px
+        position: absolute
+        top: 0
+        bottom: 0
+        right: 0
+        left: 0
+        background: #fff
     &__heading
-        font-size: 30px
+        font-size: 23px
         text-align: center
-        line-height: 80px
+        line-height: 60px
         font-weight: 400
         color: #fff
-        background: linear-gradient(92.53deg, #33B3DF 8.34%, #31D5D4 92.56%)
-        border-radius: 10px 10px 0 0
+        background: $gradient
+        border-radius: 20px 20px 0 0
     &__form
-        padding: 50px 40px 20px 40px
+        padding: 30px 40px 10px 40px
     &__text
         font-size: 21px
         color: #262626
         line-height: 25px
         margin-bottom: 5px
-        font-weight: 600
+        font-weight: 500
+        margin-left: 10px
     &__input
         width: 100%
         height: 40px
         line-height: 40px
-        border-radius: 5px
+        border-radius: 20px
+        background: #f4f6fb
         outline: none
         border: none
-        box-shadow: 0 0 5px #666
         margin-bottom: 5px
         color: #262626
         font-size: 17px
@@ -567,37 +749,54 @@ img
         display: block
         border-radius: 5px
         border: none
-        background: #fdf7cb
-        margin-top: 40px
+        background: #f4f6fb
+        margin-top: 30px
         outline: none
         cursor: pointer
+        &--active
+            background: #31d5d4
+            color: #fff
     &__capture
         margin-bottom: 20px
         font-size: 13px
         font-weight: 100
         color: red
         visibility: hidden
+        margin-left: 10px
 
 .emailVerification
-    padding-top: 50px
+    padding-top: 20px
     padding-bottom: 50px
+    background: url('../img/bgr.svg')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: 50% 100%
+    min-height: calc(100vh - 85px)
+    max-height: calc(100vh - 85px)
     &__window
-        max-width: 600px
+        max-width: 550px
         width: 100%
         height: auto
-        min-height: 300px
-        margin: auto
-        border-radius: 10px
-        box-shadow: 0 0 5px #ccc
+        min-height: 450px
+        max-height: 450px
+        border-radius: 20px
+        box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25)
         padding-bottom: 30px
+        background: #fff
+        position: absolute
+        top: 0
+        bottom: 0
+        right: 0
+        left: 0
+        margin: auto
     &__heading
-        font-size: 30px
+        font-size: 23px
         text-align: center
-        line-height: 80px
+        line-height: 60px
         font-weight: 400
         color: #fff
-        background: linear-gradient(92.53deg, #33B3DF 8.34%, #31D5D4 92.56%)
-        border-radius: 10px 10px 0 0
+        background: $gradient
+        border-radius: 20px 20px 0 0
     &__textBlock
         padding: 30px 20px
     &__alertInText

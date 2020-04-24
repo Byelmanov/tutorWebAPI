@@ -10,7 +10,7 @@ function checkIsEmpty(str) {
 
 function checkPassword(str) {
     let strLength = str.length;
-    if (str == null || str == undefined || str == '' || strLength < 4 || strLength > 128) {
+    if (str == null || str == undefined || str == '' || strLength < 8 || strLength > 128) {
         return false;
     } else {
         return true;
@@ -64,9 +64,9 @@ registerEmailInput.addEventListener('input', function () {
     let email = this.value;
     let nextButton = document.getElementById('registerNextButton');
     if (checkIsEmpty(email) && checkEmail(email)) {
-        nextButton.style.background = '#F9E547';
+        nextButton.classList.add('register__nextButton--active');
     } else {
-        nextButton.style.background = '#FDF7CB';
+        nextButton.classList.remove('register__nextButton--active');
     }
 });
 
@@ -106,7 +106,8 @@ registerPasswordInput.addEventListener('input', function () {
     let password = this.value;
     if (checkIsEmpty(password) && checkPassword(password)) {
         $('#registerSubmit').css({
-            'background-color': '#F9E547'
+            'background-color': '#31d5d4',
+            'color': '#ffffff'
         });
         $('#registerPasswordLabel').addClass('register__passwordLabel--small');
         document.getElementById('registerWarningPassword').style.color = '#D1D0D0';
@@ -114,7 +115,8 @@ registerPasswordInput.addEventListener('input', function () {
         document.getElementById('registerWarningPassword').style.color = '#A02515';
         $('#registerPasswordLabel').removeClass('register__passwordLabel--small');
         $('#registerSubmit').css({
-            'background-color': '#FDF7CB'
+            'background-color': '#f4f6fb',
+            'color': '#262626'
         });
     }
 });
@@ -124,11 +126,11 @@ registrationForm.addEventListener('submit', function (event) {
     let emailValue = registerEmailInput.value;
     let passwordValue = registerPasswordInput.value;
     let error = true;
-    if (!checkIsEmpty(emailValue) && !checkEmail(emailValue)) {
+    if (!checkIsEmpty(emailValue) || !checkEmail(emailValue)) {
         document.getElementById('registerWarningEmail').style.display = 'block';
         $('.register__wrapUnderInput--email').css({
             'visibility': 'visible'
-        })
+        });
         error = false;
     }
     if (!checkIsEmpty(passwordValue) || !checkPassword(passwordValue)) {
