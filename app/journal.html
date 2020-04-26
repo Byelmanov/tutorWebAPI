@@ -41,10 +41,14 @@
     </section>
     <section class="container-fluid journal">
       <form action="" name="journal">
-        <div class="journal__headings">
-          <h2 class="journal__headings-heading">TM-71 </h2>
-          <p class="journal__headings-subject">Схемотехника (лекция)</p>
-          <!--input(type="text", name="subject", value="Схемотехника (лекция)", class="journal__headings-subjectInput")-->
+        <div class="journal__group">
+          <h2 class="journal__group-heading">TM-71</h2><a class="journal__group-button" href="">Изменить группу</a>
+        </div>
+        <div class="journal__subject">
+          <h2 class="journal__subject-heading">Схемотехника</h2>
+          <!--input(type="text", name="subject", value="Схемотехника (лекция)", class="journal__subject-input", autofocus)-->
+          <!-- ставить класс в зависимости от типа премета (.lecture, .laboratory, .practic, .seminar)-->
+          <div class="lecture"></div><a class="journal__subject-button" href="">Изменить предмет</a>
         </div>
         <div class="journal__table">
           <div class="journal__table-line">
@@ -55,7 +59,10 @@
             <div class="journal__table-item journal__table-item--date">31.02</div>
             <div class="journal__table-item journal__table-item--date">31.02</div>
             <div class="journal__table-item journal__table-item--date">31.02</div>
-            <div class="journal__table-item journal__table-item--date">31.02</div>
+            <div class="journal__table-item journal__table-item--date">31.02
+              <!-- put it only if tutor can delete this column-->
+              <!--img(src="img/bin.svg", alt="del").delete-->
+            </div>
             <div class="journal__addColumn" id="addColumn"><img src="img/plusSign.svg" alt="add"/></div>
           </div>
           <div class="journal__table-line">

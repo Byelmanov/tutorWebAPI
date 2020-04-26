@@ -36,11 +36,38 @@ html(lang="en")
                         input(type="text", name="student[3][firstname]", class="name", placeholder="Имя", value="Maxim")
                         input(type="text", name="student[3][fathername]", class="name", placeholder="Отчество", value="Pisos")
                         img(src="img/bin.svg", alt="delete").groupEdit__table-item-delete
+                    div(data-id="3").groupEdit__table-item 
+                        input(type="text", name="student[3][lastname]", class="name", placeholder="Фамилия", value="Kovalenko")
+                        input(type="text", name="student[3][firstname]", class="name", placeholder="Имя", value="Maxim")
+                        input(type="text", name="student[3][fathername]", class="name", placeholder="Отчество", value="Pisos")
+                        img(src="img/bin.svg", alt="delete").groupEdit__table-item-delete
+                    div(data-id="3").groupEdit__table-item 
+                        input(type="text", name="student[3][lastname]", class="name", placeholder="Фамилия", value="Kovalenko")
+                        input(type="text", name="student[3][firstname]", class="name", placeholder="Имя", value="Maxim")
+                        input(type="text", name="student[3][fathername]", class="name", placeholder="Отчество", value="Pisos")
+                        img(src="img/bin.svg", alt="delete").groupEdit__table-item-delete
+                    div(data-id="3").groupEdit__table-item 
+                        input(type="text", name="student[3][lastname]", class="name", placeholder="Фамилия", value="Kovalenko")
+                        input(type="text", name="student[3][firstname]", class="name", placeholder="Имя", value="Maxim")
+                        input(type="text", name="student[3][fathername]", class="name", placeholder="Отчество", value="Pisos")
+                        img(src="img/bin.svg", alt="delete").groupEdit__table-item-delete
+                    div(data-id="3").groupEdit__table-item 
+                        input(type="text", name="student[3][lastname]", class="name", placeholder="Фамилия", value="Kovalenko")
+                        input(type="text", name="student[3][firstname]", class="name", placeholder="Имя", value="Maxim")
+                        input(type="text", name="student[3][fathername]", class="name", placeholder="Отчество", value="Pisos")
+                        img(src="img/bin.svg", alt="delete").groupEdit__table-item-delete
+                    div(data-id="3").groupEdit__table-item 
+                        input(type="text", name="student[3][lastname]", class="name", placeholder="Фамилия", value="Kovalenko")
+                        input(type="text", name="student[3][firstname]", class="name", placeholder="Имя", value="Maxim")
+                        input(type="text", name="student[3][fathername]", class="name", placeholder="Отчество", value="Pisos")
+                        img(src="img/bin.svg", alt="delete").groupEdit__table-item-delete
 
                 div.groupEdit__addStudent#addStudentButton
                     img(src="img/plusSign.svg", alt="add")
 
-                button(type="submit", class="groupEdit__submit") Сохранить
+                .groupEdit__buttons
+                    button(type="submit", class="groupEdit__submit") Сохранить
+                    div.groupEdit__reload#reloadButton отменить
 
             div.container-fluid.groupData
                 h2.groupData__heading Данные аккаунта группы

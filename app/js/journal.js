@@ -84,6 +84,14 @@ function addColumn() {
     currMonth = currMonth.length == 1 ? "0" + currMonth : currMonth;
     itemWithDate.innerText = currDay + "." + currMonth;
 
+    let deleteNode = document.createElement('img');
+    deleteNode.src = 'img/bin.svg';
+    deleteNode.alt = 'del';
+    deleteNode.className = 'delete';
+    deleteNode.onclick = deleteColumn;
+
+    itemWithDate.append(deleteNode);
+
     addColumn = document.getElementById('addColumn');
 
     arrayOfLines[0].insertBefore(itemWithDate, addColumn);
@@ -99,3 +107,29 @@ function addColumn() {
 }
 
 document.getElementById('reloadButton').addEventListener('click', () => { location.reload(); });
+
+try {
+    document.querySelector('.journal__table-item--date .delete').addEventListener('click', deleteColumn);
+} catch (e) {
+    console.log(e);
+}
+
+function deleteColumn(e) {
+    let itemToDelete = e.target.parentNode;
+
+    let arrayOfLines = document.querySelectorAll('.journal__table-line');
+    let arrayOfChildren = arrayOfLines[0].children;
+    let postionOfDeleteItem;
+
+    for (let i = 0; i < arrayOfChildren.length; i++) {
+        if (arrayOfChildren[i] === itemToDelete) {
+            postionOfDeleteItem = i;
+            i = arrayOfChildren.length;
+        }
+    }
+
+    arrayOfLines.forEach(element => {
+        let childrenToDelete = element.children[postionOfDeleteItem];
+        childrenToDelete.remove();
+    });
+}

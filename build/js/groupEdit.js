@@ -65,7 +65,11 @@ function addStudent() {
     <input class="name" type="text" name="new[${counterForNewStudentId}][fathername]" placeholder="Отчество" value=""/>
     <img class="groupEdit__table-item-delete" src="img/bin.svg" alt="delete">`;
 
-    document.querySelector('.groupEdit__table').append(item);
+    let tableBlock = document.querySelector('.groupEdit__table');
+    tableBlock.append(item);
+
+    // scroll to the bottom of table
+    tableBlock.scrollTop = tableBlock.scrollHeight;
 
     counterForNewStudentId++;
     setHandlerForDeleteButtons();
@@ -313,3 +317,6 @@ function allDataIsValid() {
     document.getElementById('passwordsAreNotTheSame').style.visibility = "hidden";
     document.querySelector('.groupData__editPassword-submit').classList.add('groupData__editPassword-submit--active');
 }
+
+
+document.getElementById('reloadButton').addEventListener('click', () => { location.reload(); });

@@ -3,43 +3,122 @@
 .journal
     padding-top: 20px
     position: relative
-    &__headings
+    &__group
         display: flex
-        align-items: flex-end
+        align-items: center
         justify-content: flex-start
-        margin-bottom: 40px
+        flex-flow: row wrap
+        margin-bottom: 10px
         &-heading
             font-size: 35px
             line-height: 35px
             color: #262626
             font-weight: 400
-            margin-right: 10px
-        &-subject
+            margin-right: 15px
+        &-button
+            text-decoration: none
+            color: #262626
+            padding: 5px 10px
+            border-radius: 5px
+            background: #f4f6fb
+    &__subject
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        flex-flow: row wrap
+        margin-bottom: 30px
+        &-heading
             font-size: 20px
             line-height: 25px
-        &-subjectInput
-            outline: none
-            color: #262626
-            border-radius: 5px
-            border: none
-            box-shadow: 0 0 5px #ccc
-            font-size: 20px
-            font-family: $default-font
             font-weight: 400
-            width: 500px
-            height: 35px
-            line-height: 35px
-            padding-left: 5px
-            overflow: scroll
-            display: block
-            margin-left: 5px     
+            color: #262626
+            margin-right: 5px
+        .lecture
+            &:after
+                content: 'ЛЕК'
+                width: 35px
+                height: 15px
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #F25C05
+                display: inline-block
+                font-size: 13px
+                margin-left: 5px
+                margin-right: 20px
+        .laboratory
+            &:after
+                content: 'ЛАБ'
+                width: 35px
+                height: 15px
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #F29F05
+                display: inline-block
+                font-size: 13px
+                margin-left: 5px
+                margin-right: 20px
+        .practic
+            &:after
+                content: 'ПРА'
+                width: 35px
+                height: 15px
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #33B3DF
+                display: inline-block
+                font-size: 13px
+                margin-left: 5px
+                margin-right: 20px
+        .seminar
+            &:after
+                content: 'СЕМ'
+                width: 35px
+                height: 15px
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #3359DF
+                display: inline-block
+                font-size: 13px
+                margin-left: 5px
+                margin-right: 20px
+        &-button
+            text-decoration: none
+            color: #262626
+            padding: 5px 10px
+            border-radius: 5px
+            background: #f4f6fb
+        &-input
+            max-width: 350px
+            width: 100%
+            height: 40px
+            line-height: 40px
+            border-radius: 20px
+            background: #f4f6fb
+            outline: none
+            border: 2px solid transparent
+            color: #262626
+            font-size: 17px
+            padding: 0 10px
+            overflow-x: scroll
+            margin-right: 5px
+            &:focus
+                border: 2px solid #31d5d4
     &__table
         overflow-x: scroll
         overflow-y: scroll
         display: flex
         flex-flow: column nowrap
         margin-bottom: 50px
-        max-height: calc(100vh - 300px)
+        max-height: calc(100vh - 330px)
+        min-height: 50px
         &-line
             display: flex
             flex-flow: row nowrap
@@ -72,6 +151,18 @@
                 color: #262626
                 text-align: center
                 position: relative
+                .delete
+                    position: absolute
+                    top: 0
+                    bottom: 0
+                    right: 0
+                    left: 0
+                    margin: auto
+                    height: 90%
+                    cursor: pointer
+                    display: none
+                &:hover > .delete
+                    display: block
             .absent
                 width: 98%
                 height: 30px
@@ -100,6 +191,7 @@
         cursor: pointer
         letter-spacing: .1em
         margin-right: 50px
+        color: #fff
     &__addColumn
         width: 30px
         min-width: 30px
@@ -115,6 +207,8 @@
             width: 15px
             height: 15px
     &__reload
+        color: #c4c4c4
+        text-decoration: underline
         font-size: 15px
         margin-left: 10px
         cursor: pointer
