@@ -5,8 +5,11 @@ html(lang="en")
     body
         include includes/header.pug
 
-        section.container-fluid.groupEdit
+        section.container
             include includes/alerts.pug
+
+        section.container-fluid.groupEdit
+            
 
             form(action="", name="groupEdit").groupEdit__form
                 div.groupEdit__heading
@@ -71,7 +74,7 @@ html(lang="en")
             div.container-fluid.groupData
                 h2.groupData__heading Данные аккаунта группы
                 .groupData__email
-                    p.home__email-text testemail@gmail.com
+                    p.home__email-text#groupDataEmail testemail@gmail.com
                     img(src="img/profileEdit.svg", alt="Редактировать").groupData__email-img#editEmailButton
                 .groupData__password
                     p.home__password-text ●●●●●●●●●●

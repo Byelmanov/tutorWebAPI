@@ -9,7 +9,7 @@
     padding: 0 10px
     position: relative
     margin-bottom: 10px
-    z-index: 5
+    z-index: 3
     background: #fff
     display: none
     &--error
@@ -27,11 +27,16 @@
             color: green
     &__cross
         position: absolute
-        top: 9px
         right: 10px
         font-size: 20px
         font-weight: 500
         cursor: pointer
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 20px
+        height: 20px
+        line-height: 20px
         &--error
             color: red
         &--success

@@ -40,16 +40,16 @@ function sendAjaxWithJournalData() {
                 if (xhr.status == 200) {
                     putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
                 } else {
-                    let arrayJSON = JSON.parse(xhr.responseText);
-                    if (arrayJSON.errors) {
+                    try {
+                        let arrayJSON = JSON.parse(xhr.responseText);
                         let strToShow = '';
                         for (let i in arrayJSON.errors) {
                             strToShow += i + '\n';
                         }
                         putTextInAlertAndShowIt(strToShow);
 
-                    } else {
-                        putTextInAlertAndShowIt('Произошла ошибка');
+                    } catch (e) {
+                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
                         throw new Error(xhr.status + " : " + xhr.statusText);
                     }
                 }

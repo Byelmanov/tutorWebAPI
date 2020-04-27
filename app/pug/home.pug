@@ -5,14 +5,16 @@ html(lang="en")
     body
         include includes/header.pug
 
-        section.home.container-fluid
+        section.container
             include includes/alerts.pug
+
+        section.home.container-fluid
 
             div.home__window
                 h2.home__heading Профиль
                 p.home__role Вы вошли как преподователь
                 .home__email
-                    p.home__email-text testemail@gmail.com
+                    p.home__email-text#emailText testemail@gmail.com
                     img(src="img/profileEdit.svg", alt="Редактировать").home__email-img#editEmailButton
                 .home__password
                     p.home__password-text ●●●●●●●●●●

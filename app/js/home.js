@@ -54,6 +54,7 @@ function sendAjaxEditEmail() {
                 hideEditEmailSection();
                 if (xhr.status == 200) {
                     putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+                    document.getElementById('emailText').innerText = formData.get('email');
                 } else {
                     try {
                         let arrayJSON = JSON.parse(xhr.responseText);
@@ -103,6 +104,9 @@ function sendAjaxEditPassword() {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 hideEditPasswordSection();
+                // clear password inputs
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordRepeatInput').value = '';
                 if (xhr.status == 200) {
                     putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
                 } else {

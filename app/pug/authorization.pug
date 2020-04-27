@@ -4,10 +4,11 @@ html(lang="en")
         include includes/head.pug
     body
         include includes/header.pug
-        section.container-fluid.authorization
-        
+        section.container
             include includes/alerts.pug
 
+        section.container-fluid.authorization
+        
             div.authorization__window
                 h2.authorization__heading Вход
                 form(action="", name="authorization", class="authorization__form")

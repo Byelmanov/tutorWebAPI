@@ -4,11 +4,11 @@ html(lang="en")
         include includes/head.pug
     body
         include includes/header.pug
+        section.container
+            include includes/alerts.pug
 
         section.container-fluid.emailVerification
 
-            include includes/alerts.pug
-            
             div.emailVerification__window
                 h2.emailVerification__heading Подтверждение Email
                 div.emailVerification__textBlock
