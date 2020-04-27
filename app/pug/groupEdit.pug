@@ -5,10 +5,9 @@ html(lang="en")
     body
         include includes/header.pug
 
-        section.container
+        section.container-fluid.groupEdit
             include includes/alerts.pug
 
-        section.container-fluid.groupEdit
             form(action="", name="groupEdit").groupEdit__form
                 div.groupEdit__heading
                     input(type="text", name="groupEditGroup", class="groupEdit__group", value="TM-71", autofocus)
