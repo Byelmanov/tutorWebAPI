@@ -1,51 +1,53 @@
 'use strict';
 
-function checkIsEmpty(str) {
-    if (str == null || str == undefined || str == '') {
-        return false;
+// This function check if string is empty
+function checkIsEmpty(str) {  
+    if (str == "" || str == null || str == undefined) { // if string is empty 
+        return false; // return error
     } else {
         return true;
     }
 }
 
-function checkPassword(str) {
-    let strLength = str.length;
-    if (str == null || str == undefined || str == '' || strLength < 8 || strLength > 128) {
-        return false;
-    } else {
+// This function check if string is long enaught
+function checkPasswordLength(str) { 
+    if (str.length < 8) { // if lenght is < 8 symbols
+        return false; // return error
+    } else { 
         return true;
     }
 }
 
+// This function check if e-mail is valid
 function checkEmail(str) {
-    str = str.toString();
-    var regExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    str = str.toString(); // translate str to string
+    var regExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; // Regular expression for e-mail 
 
-    if (regExp.test(str)) {
+    if (regExp.test(str)) { // if e-mail is valid
         return true;
-    } else {
-        return false;
+    } else { // else
+        return false; // return error
     }
 }
 
-let registrationForm = document.forms["registerForm"];
-let registerEmailInput = document.getElementById('registerEmail');
-let registerPasswordInput = document.getElementById('registerPassword');
+let registrationForm = document.forms["registerForm"]; // get form
+let registerEmailInput = document.getElementById('registerEmail'); // get e-mail input 
+let registerPasswordInput = document.getElementById('registerPassword'); // get password input
 
-registerEmailInput.addEventListener('focus', function () {
-    if (($('#registerEmailLabel').hasClass('register__emailLabel--small')) == false) {
-        let textToShowAboveInput = document.getElementById('registerTextEmail');
-        textToShowAboveInput.style.visibility = 'visible';
+registerEmailInput.addEventListener('focus', function () { // if user focus on e-mail input
+    if (($('#registerEmailLabel').hasClass('register__emailLabel--small')) == false) {  // if e-mail label is big
+        let textToShowAboveInput = document.getElementById('registerTextEmail'); // get small label
+        textToShowAboveInput.style.visibility = 'visible'; // make it visible
     }
 
-    this.setAttribute('placeholder', '');
-    document.getElementById('registerCapture').style.display = 'block';
-    document.getElementById('registerWarningEmail').style.display = 'none';
+    this.setAttribute('placeholder', ''); // remove placeholder "Email"
+    document.getElementById('registerCapture').style.display = 'block'; // show capture 
+    document.getElementById('registerWarningEmail').style.display = 'none'; // hide big label
 });
 
-registerEmailInput.addEventListener('blur', function () {
+registerEmailInput.addEventListener('blur', function () { // if user get out input
 
-    if (($('#registerEmailLabel').hasClass('register__emailLabel--small')) == false) {
+    if (($('#registerEmailLabel').hasClass('register__emailLabel--small')) == false) {  // 
         let textToShowAboveInput = document.getElementById('registerTextEmail');
         textToShowAboveInput.style.visibility = 'hidden';
     }
@@ -70,47 +72,47 @@ registerEmailInput.addEventListener('input', function () {
     }
 });
 
-document.getElementById('registerNextButton').addEventListener('click', function () {
-    let valueFromInput = registerEmailInput.value;
-    let windowWidth = window.outerWidth;
-    let paddingTop = windowWidth <= 450 ? '20px' : '60px';
-    if (checkIsEmpty(valueFromInput) && checkEmail(valueFromInput)) {
-        let form = $('#registartionForm');
-        form.animate({
-            'padding-top': paddingTop
+document.getElementById('registerNextButton').addEventListener('click', function () { // if user click on registerNextButton
+    let valueFromInput = registerEmailInput.value; // get e-mail value
+    let windowWidth = window.outerWidth; // get window width
+    let paddingTop = windowWidth <= 450 ? '20px' : '60px';  // choosing padding top from window width: small for mobile, big for desktop
+    if (checkIsEmpty(valueFromInput) && checkEmail(valueFromInput)) { // if valueFromInput is valid
+        let form = $('#registartionForm'); // get form
+        form.animate({ // make form animation
+            'padding-top': paddingTop // add padding
         }, 1000);
-        $('#registerEmailLabel').animate({
+        $('#registerEmailLabel').animate({ // width animation
             'width': '60%'
         }, 1000);
-        $('#registerEmailLabel').addClass('register__emailLabel--small');
-        document.getElementById('registerTextEmail').style.display = 'none';
-        $('#registerPasswordLabel').fadeIn(1500);
+        $('#registerEmailLabel').addClass('register__emailLabel--small'); // add small e-mail label
+        document.getElementById('registerTextEmail').style.display = 'none'; // hide register text e-mail
+        $('#registerPasswordLabel').fadeIn(1500); // show registerPasswordLabel
     } else {
-        document.getElementById('registerCapture').style.display = 'none';
-        document.getElementById('registerWarningEmail').style.display = 'block';
+        document.getElementById('registerCapture').style.display = 'none'; // else hode capture
+        document.getElementById('registerWarningEmail').style.display = 'block'; // and show warning
     }
 });
 
-registerPasswordInput.addEventListener('focus', function () {
-    let textToShow = document.getElementById('registerTextPassword');
-    textToShow.style.visibility = 'visible';
-    this.setAttribute('placeholder', '');
+registerPasswordInput.addEventListener('focus', function () { // if password input is on focus
+    let textToShow = document.getElementById('registerTextPassword'); // get password label 
+    textToShow.style.visibility = 'visible'; // make small password label visible
+    this.setAttribute('placeholder', ''); // remove placeholder
 });
-registerPasswordInput.addEventListener('blur', function () {
-    let textToShow = document.getElementById('registerTextPassword');
-    textToShow.style.visibility = 'hidden';
-    this.setAttribute('placeholder', 'Password');
+registerPasswordInput.addEventListener('blur', function () { // if user go out password input
+    let textToShow = document.getElementById('registerTextPassword'); // get password label
+    textToShow.style.visibility = 'hidden'; // hide it
+    this.setAttribute('placeholder', 'Password'); // set placeholder
 });
 
-registerPasswordInput.addEventListener('input', function () {
-    let password = this.value;
-    if (checkIsEmpty(password) && checkPassword(password)) {
-        $('#registerSubmit').css({
+registerPasswordInput.addEventListener('input', function () { // if user input a password
+    let password = this.value; // get password value 
+    if (checkIsEmpty(password) && checkPassword(password)) { // if password is not valid
+        $('#registerSubmit').css({ // get submit button
             'background-color': '#31d5d4',
             'color': '#ffffff'
         });
-        $('#registerPasswordLabel').addClass('register__passwordLabel--small');
-        document.getElementById('registerWarningPassword').style.color = '#D1D0D0';
+        $('#registerPasswordLabel').addClass('register__passwordLabel--small'); // add small password label
+        document.getElementById('registerWarningPassword').style.color = '#D1D0D0'; 
     } else {
         document.getElementById('registerWarningPassword').style.color = '#A02515';
         $('#registerPasswordLabel').removeClass('register__passwordLabel--small');
@@ -121,70 +123,71 @@ registerPasswordInput.addEventListener('input', function () {
     }
 });
 
-registrationForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    let emailValue = registerEmailInput.value;
-    let passwordValue = registerPasswordInput.value;
-    let error = true;
-    if (!checkIsEmpty(emailValue) || !checkEmail(emailValue)) {
-        document.getElementById('registerWarningEmail').style.display = 'block';
-        $('.register__wrapUnderInput--email').css({
+registrationForm.addEventListener('submit', function (event) { // is user submit form 
+    event.preventDefault(); // remove standart submit event
+    let emailValue = registerEmailInput.value; // get e-mail value
+    let passwordValue = registerPasswordInput.value; // get password value
+    let error = true; // set error true
+    if (!checkIsEmpty(emailValue) || !checkEmail(emailValue)) { // if error in e-mail
+        document.getElementById('registerWarningEmail').style.display = 'block'; //show registerWarningEmail
+        $('.register__wrapUnderInput--email').css({ // make visible e-mail warning
             'visibility': 'visible'
         });
         error = false;
     }
-    if (!checkIsEmpty(passwordValue) || !checkPassword(passwordValue)) {
-        document.getElementById('registerWarningPassword').style.display = 'block';
-        error = false;
+    if (!checkIsEmpty(passwordValue) || !checkPassword(passwordValue)) { // if error in password
+        document.getElementById('registerWarningPassword').style.display = 'block'; // show registerWarningPassword
+        error = false; 
     }
 
-    if (error) {
-        sendAjaxWithRegisterData();
+    if (error) {  // if not error
+        sendAjaxWithRegisterData(); // send data function
     }
 
 });
 
 
 function sendAjaxWithRegisterData() {
-    let formData = new FormData(registrationForm);
-    let action = registrationForm.getAttribute('action');
-    let xhr = new XMLHttpRequest();
+    let formData = new FormData(registrationForm); // creating form data object
+    let action = registrationForm.getAttribute('action'); // getting an action attribute from html 
+    let xhr = new XMLHttpRequest(); // creating new http request without reloading a page
 
-    try {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status == 404) {
-                    putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                    throw new Error('404 server not found');
+    try { // construction try to catch errors, if they will appear
+
+        xhr.onreadystatechange = function () { // Event handler when readyState is changing
+            if (xhr.readyState === 4) { // if complited
+                if (xhr.status == 404) { // if not fount
+                    putTextInAlertAndShowIt('Упс, что-то пошло не так('); // show error message
+                    throw new Error('404 server not found'); // throw error
                 }
-                let arrayJSON = JSON.parse(xhr.responseText);
+                let arrayJSON = JSON.parse(xhr.responseText); // parse response in JSON
 
-                if (xhr.status == 200) {
-                    let linkToRedirect = arrayJSON.redirect;
-                    if (linkToRedirect) {
-                        window.location.href = linkToRedirect;
-                    } else {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                        throw new Error('cant find link');
+                if (xhr.status == 200) { // if sratus 200 - all is ok  
+                    let linkToRedirect = arrayJSON.redirect; // get link to redirect
+                    if (linkToRedirect) { // if link
+                        window.location.href = linkToRedirect; // get to the new page
+                    } else { // if any link in response
+                        putTextInAlertAndShowIt('Упс, что-то пошло не так('); // show error message
+                        throw new Error('cant find link'); // throw new error
                     }
-                } else {
-                    let arrayOfErrors = arrayJSON.errors;
-                    let strWithErrors = '';
+                } else { // if status isn`t 200 or 404
+                    let arrayOfErrors = arrayJSON.errors; // get all error
+                    let strWithErrors = ''; // create empty string
 
-                    for (let error in arrayOfErrors) {
-                        strWithErrors += error + '\n';
+                    for (let error in arrayOfErrors) { // for all errror
+                        strWithErrors += error + '\n'; // put them into string
                     }
 
-                    putTextInAlertAndShowIt(strWithErrors);
+                    putTextInAlertAndShowIt(strWithErrors); // show errors
                 }
             }
         }
 
-        xhr.open("POST", action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
+        xhr.open('POST', action); // initial new request
+        xhr.setRequestHeader('Accept', 'application/json'); // set header of request
+        xhr.send(formData); // send request
 
-    } catch (e) {
-        console.log(e);
+    } catch (e) { // if some errors
+        console.log(e); // show them in console
     }
 }

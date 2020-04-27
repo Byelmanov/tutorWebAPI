@@ -78,9 +78,9 @@ form.addEventListener('submit', function (e) {
 });
 
 function sendAjaxSetNewPassword() {
-    let formData = new FormData(form);
-    let action = form.getAttribute('action');
-    let xhr = new XMLHttpRequest();
+    let formData = new FormData(form); // creating form data object
+    let action = form.getAttribute('action'); // getting an action attribute from html 
+    let xhr = new XMLHttpRequest(); // creating new http request without reloading a page
 
     try {
         xhr.onreadystatechange = function () {
@@ -102,11 +102,11 @@ function sendAjaxSetNewPassword() {
             }
         }
 
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
+        xhr.open('POST', action); // initial new request
+        xhr.setRequestHeader('Accept', 'application/json'); // set header of request
+        xhr.send(formData); // send request
 
-    } catch (e) {
-        console.log(e);
+    } catch (e) { // if some errors
+        console.log(e); // show them in console
     }
 }
