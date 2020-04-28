@@ -85,7 +85,7 @@ function addColumn() {
     itemWithDate.innerText = currDay + "." + currMonth;
 
     let deleteNode = document.createElement('img');
-    deleteNode.src = 'img/bin.svg';
+    deleteNode.src = '/img/bin.svg';
     deleteNode.alt = 'del';
     deleteNode.className = 'delete';
     deleteNode.onclick = deleteColumn;

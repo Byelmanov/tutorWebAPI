@@ -63,7 +63,7 @@ function addStudent() {
     <input class="name" type="text" name="new[${counterForNewStudentId}][lastname]" placeholder="Фамилия" value=""/>
     <input class="name" type="text" name="new[${counterForNewStudentId}][firstname]" placeholder="Имя" value=""/>
     <input class="name" type="text" name="new[${counterForNewStudentId}][fathername]" placeholder="Отчество" value=""/>
-    <img class="groupEdit__table-item-delete" src="img/bin.svg" alt="delete">`;
+    <img class="groupEdit__table-item-delete" src="/img/bin.svg" alt="delete">`;
 
     let tableBlock = document.querySelector('.groupEdit__table');
     tableBlock.append(item);
