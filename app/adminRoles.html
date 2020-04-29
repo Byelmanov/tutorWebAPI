@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <meta name="description" content=""/>
+      <meta name="theme-color" content="#000"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="#000"/>
+      <title>Tutor Web API</title>
+      <link rel="shortcut icon" href="" type="image/png"/>
+      <link rel="stylesheet" href="css/main.min.css"/>
+    </head>
+  </head>
+  <body>
+    <header class="container-fluid">
+      <div class="container header__content">
+        <div class="header__main"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
+          <h1 class="header__heading">Tutor's WEB APP</h1>
+        </div>
+        <div class="header__buttons"><a href=""><img class="header__home" src="img/home.svg" alt="home"/></a>
+          <form class="header__signOut" action="" method="POST" name="journalSignOut">
+            <input type="hidden" name="_token" value=""/>
+            <label><img class="header__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
+              <input class="header__signOut-submit" type="submit" value=""/>
+            </label>
+          </form>
+        </div>
+      </div>
+    </header>
+    <section class="container">
+      <div class="alert alert--error" id="alertError">
+        <p class="alert__text alert__text--error" id="alertErrorText"> </p>
+        <div class="alert__cross alert__cross--error" id="alertErrorCross">&#9587;</div>
+      </div>
+      <div class="alert alert--success" id="alertSuccess">
+        <p class="alert__text alert__text--success" id="alertSuccessText"> </p>
+        <div class="alert__cross alert__cross--success" id="alertSuccessCross">&#9587;</div>
+      </div>
+    </section>
+    <section class="container-fluid adminRoles">
+      <h1 class="adminRoles__heading">Роли пользователей</h1>
+      <form action="#" name="adminRolesForm">
+        <div class="adminRoles__table">
+          <div class="adminRoles__item" data-id="1">
+            <p class="adminRoles__fullname">Yelmanov Bohdan Oleksiiovych</p>
+            <select class="adminRoles__select" name="adminRolesRole">
+              <option value="student" selected="selected">student</option>
+              <option value="monitor">monitor</option>
+            </select>
+          </div>
+          <div class="adminRoles__item" data-id="2">
+            <p class="adminRoles__fullname">Kovalenko Maxim Oleksiiovych</p>
+            <select class="adminRoles__select" name="adminRolesRole">
+              <option value="student" selected="selected">student</option>
+              <option value="monitor">monitor</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </section>
+    <script src="js/alerts.js"></script>
+    <script src="js/adminRoles.js"></script>
+  </body>
+</html>

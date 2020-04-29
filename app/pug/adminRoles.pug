@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include includes/head.pug
+    body
+        include includes/header.pug
+
+        section.container
+            include includes/alerts.pug
+
+        section.container-fluid.adminRoles
+            h1.adminRoles__heading Роли пользователей
+            form(action="#", name="adminRolesForm")
+                .adminRoles__table
+                    .adminRoles__item(data-id="1")
+                        p.adminRoles__fullname Yelmanov Bohdan Oleksiiovych
+                        select(name="adminRolesRole", class="adminRoles__select")
+                            option(value="student", selected) student
+                            option(value="monitor") monitor
+                    .adminRoles__item(data-id="2")
+                        p.adminRoles__fullname Kovalenko Maxim Oleksiiovych
+                        select(name="adminRolesRole", class="adminRoles__select")
+                            option(value="student", selected) student
+                            option(value="monitor") monitor
+
+        script(src="js/alerts.js")
+        script(src="js/adminRoles.js")

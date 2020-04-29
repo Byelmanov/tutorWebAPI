@@ -174,7 +174,6 @@ function sendAjaxEditEmail() {
                             putTextInAlertAndShowIt('Упс, что-то пошло не так(');
                         }
                     } catch (e) {
-                        console.log(formData.get('email'));
                         putTextInAlertAndShowIt('Упс, что-то пошло не так(');
 
                     }
