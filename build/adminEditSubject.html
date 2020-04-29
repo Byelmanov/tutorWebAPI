@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <meta name="description" content=""/>
+      <meta name="theme-color" content="#000"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="#000"/>
+      <title>Tutor Web API</title>
+      <link rel="shortcut icon" href="" type="image/png"/>
+      <link rel="stylesheet" href="css/main.min.css"/>
+    </head>
+  </head>
+  <body>
+    <header class="container-fluid">
+      <div class="container header__content">
+        <div class="header__main"><a href="/"><img class="header__logo" src="img/logo.svg" alt="logo"/></a>
+          <h1 class="header__heading">Tutor's WEB APP</h1>
+        </div>
+        <div class="header__buttons"><a href=""><img class="header__home" src="img/home.svg" alt="home"/></a>
+          <form class="header__signOut" action="" method="POST" name="journalSignOut">
+            <input type="hidden" name="_token" value=""/>
+            <label><img class="header__signOut-img" src="img/signOut.svg" alt="Sign Out"/>
+              <input class="header__signOut-submit" type="submit" value=""/>
+            </label>
+          </form>
+        </div>
+      </div>
+    </header>
+    <section class="container">
+      <div class="alert alert--error" id="alertError">
+        <p class="alert__text alert__text--error" id="alertErrorText"> </p>
+        <div class="alert__cross alert__cross--error" id="alertErrorCross">&#9587;</div>
+      </div>
+      <div class="alert alert--success" id="alertSuccess">
+        <p class="alert__text alert__text--success" id="alertSuccessText"> </p>
+        <div class="alert__cross alert__cross--success" id="alertSuccessCross">&#9587;</div>
+      </div>
+    </section>
+    <section class="container-fluid adminEditSubject">
+      <form class="adminEditSubject__form" action="" name="adminEditSubject">
+        <div class="adminEditSubject__heading">
+          <input class="adminEditSubject__group" type="text" name="adminEditSubjectGroup" value="subject name subject name subject name" autofocus="autofocus"/>
+          <select class="adminEditSubject__type" name="adminEditSubjectType" id="adminEditSubjectType">
+            <option value="lecture" selected="selected">Лекция</option>
+            <option value="lab">Лаба</option>
+          </select>
+        </div>
+        <div class="adminEditSubject__table adminEditSubject__table--forSubject">
+          <div class="adminEditSubject__table-item adminEditSubject__table-item--heading">Преподаватели этого предмета</div>
+          <div class="adminEditSubject__table-item" data-id="1"> 
+            <p class="name">Lastname Firstname Fathername</p>
+            <p class="email">example@gmail.com</p><img class="adminEditSubject__table-item-delete" src="/img/bin.svg" alt="delete"/>
+          </div>
+          <div class="adminEditSubject__table-item" data-id="2"> 
+            <p class="name">Lastname2 Firstname2 Fathername2</p>
+            <p class="email">example@gmail.com</p><img class="adminEditSubject__table-item-delete" src="/img/bin.svg" alt="delete"/>
+          </div>
+        </div>
+      </form>
+      <form class="adminEditSubject__tutorsForm" action="" name="adminAllTutors">
+        <div class="adminEditSubject__table adminEditSubject__table--all">
+          <div class="adminEditSubject__table-item adminEditSubject__table-item--heading">Все преподаватели</div>
+          <div class="adminEditSubject__table-item" data-id="3"> 
+            <p class="name">Lastname3 Firstname3 Fathername3</p>
+            <p class="email">example@gmail.com</p><img class="adminEditSubject__addTutor" src="/img/plusSign.svg" alt="add"/>
+          </div>
+          <div class="adminEditSubject__table-item" data-id="4"> 
+            <p class="name">Lastname4 Firstname4 Fathername4</p>
+            <p class="email">example@gmail.com</p><img class="adminEditSubject__addTutor" src="/img/plusSign.svg" alt="add"/>
+          </div>
+        </div>
+      </form>
+    </section>
+    <script src="js/alerts.js"></script>
+    <script src="js/adminEditSubject.js"></script>
+  </body>
+</html>

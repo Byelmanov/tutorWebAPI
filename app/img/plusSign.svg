@@ -1,3 +1,12 @@
-<svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M13.6971 7.37461H8.11712V12.8346H6.22712V7.37461H0.647119V5.60461H6.22712V0.114608H8.11712V5.60461H13.6971V7.37461Z" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.185" y1="0.159" x2="0.78" y2="0.927" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#33b3df"/>
+      <stop offset="1" stop-color="#31d5d4"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(-350 -340)">
+    <circle id="Ellipse_1" data-name="Ellipse 1" cx="10" cy="10" r="10" transform="translate(350 340)" fill="url(#linear-gradient)"/>
+    <path id="plusSign" d="M15.647,8.676H9.233v6.439H7.061V8.676H.647V6.589H7.061V.115H9.233V6.589h6.414Z" transform="translate(351.979 342.512)" fill="#fff"/>
+  </g>
 </svg>

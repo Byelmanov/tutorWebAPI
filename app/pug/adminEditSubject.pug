@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include includes/head.pug
+    body
+        include includes/header.pug
+
+        section.container
+            include includes/alerts.pug
+
+        section.container-fluid.adminEditSubject
+            form(action="", name="adminEditSubject").adminEditSubject__form
+                div.adminEditSubject__heading
+                    input(type="text", name="adminEditSubjectGroup", class="adminEditSubject__group", value="subject name subject name subject name", autofocus)
+                    select(name="adminEditSubjectType", class="adminEditSubject__type", id="adminEditSubjectType")
+                        option(value="lecture", selected) Лекция
+                        option(value="lab") Лаба
+                .adminEditSubject__table.adminEditSubject__table--forSubject
+                    div.adminEditSubject__table-item.adminEditSubject__table-item--heading Преподаватели этого предмета
+                    div(data-id="1").adminEditSubject__table-item 
+                        p.name Lastname Firstname Fathername
+                        p.email example@gmail.com
+                        img(src="/img/bin.svg", alt="delete").adminEditSubject__table-item-delete
+                    div(data-id="2").adminEditSubject__table-item 
+                        p.name Lastname2 Firstname2 Fathername2
+                        p.email example@gmail.com
+                        img(src="/img/bin.svg", alt="delete").adminEditSubject__table-item-delete
+
+                //- .adminEditSubject__buttons
+                //-     button(type="submit", class="adminEditSubject__submit") Сохранить
+                //-     div.adminEditSubject__reload#reloadButton отменить
+            form(action="", name="adminAllTutors").adminEditSubject__tutorsForm
+                .adminEditSubject__table.adminEditSubject__table--all
+                    div.adminEditSubject__table-item.adminEditSubject__table-item--heading Все преподаватели
+                    div(data-id="3").adminEditSubject__table-item 
+                        p.name Lastname3 Firstname3 Fathername3
+                        p.email example@gmail.com
+                        img(src="/img/plusSign.svg", alt="add").adminEditSubject__addTutor
+                    div(data-id="4").adminEditSubject__table-item 
+                        p.name Lastname4 Firstname4 Fathername4
+                        p.email example@gmail.com
+                        img(src="/img/plusSign.svg", alt="add").adminEditSubject__addTutor
+
+
+
+
+
+        script(src="js/alerts.js")
+        script(src="js/adminEditSubject.js")
