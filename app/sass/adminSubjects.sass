@@ -1,0 +1,130 @@
+@import "vars"
+
+.adminSubjects
+    height: calc(100vh - 85px)
+    background: url('../img/bgr.svg')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: 50% 100%
+    padding-bottom: 20px
+    padding-top: 20px
+    &__heading
+        font-size: 25px
+        font-weight: 400
+        line-height: 35px
+        margin-bottom: 20px
+        font-family: $default-font
+        color: #262626
+        margin-left: 40px
+        margin-bottom: 20px
+    &__content
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        overflow: scroll
+    &__table
+        flex: 0 0 45%
+        display: flex
+        flex-flow: column nowrap
+        margin-bottom: 20px
+        max-height: calc(100vh - 170px)
+        overflow-y: scroll
+        min-height: 50px
+        margin-right: 50px
+        padding-top: 20px
+    &__item
+        border: 1px solid $tableBorderColor
+        max-width: 600px
+        min-width: 400px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 6px 10px
+        .lecture
+            &:after
+                content: 'ЛЕК'
+                width: 35px
+                height: 15px
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #F25C05
+                display: inline-block
+                font-size: 13px
+                margin-left: 5px
+                margin-right: 20px
+        .laboratory
+            &:after
+                content: 'ЛАБ'
+                width: 35px
+                height: 15px
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #F29F05
+                display: inline-block
+                font-size: 13px
+                margin-left: 5px
+                margin-right: 20px
+        .practic
+            &:after
+                content: 'ПРА'
+                width: 35px
+                height: 15px
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #33B3DF
+                display: inline-block
+                font-size: 13px
+                margin-left: 5px
+                margin-right: 20px
+        .seminar
+            &:after
+                content: 'СЕМ'
+                width: 35px
+                height: 15px
+                line-height: 15px
+                text-align: center
+                color: #fff
+                border-radius: 2px
+                background: #3359DF
+                display: inline-block
+                font-size: 13px
+                margin-left: 5px
+                margin-right: 20px
+    &__name
+        font-size: 13px
+        line-height: 18px
+        text-overflow: ellipsis
+        overflow: hidden
+        white-space: nowrap
+    &__edit
+        width: 30px
+        flex: 0 0 5%
+        display: block
+        text-align: center
+        img
+            width: 15px
+            position: relative
+            top: 3px
+    &__add
+        width: 30px
+        min-width: 30px
+        max-width: 30px
+        display: flex
+        height: 30px
+        border-radius: 50%
+        background: $gradient
+        cursor: pointer
+        margin-left: 5px
+        margin-bottom: 50px
+        img
+            margin: auto
+            width: 15px
+            height: 15px
+        
+    
