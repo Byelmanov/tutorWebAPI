@@ -5,12 +5,19 @@ html(lang="en")
     body
         include includes/header.pug
 
+
+        section.container-fluid
+            ul().nav.nav-tabs
+                li.nav-item
+                    a(href="#groupEdit", data-toggle="tab", role="tab").nav-link.active Редактирование группы
+                li.nav-item
+                    a(href="#groupSubjects", data-toggle="tab", role="tab").nav-link Редактирование предметов группы
+        
         section.container
             include includes/alerts.pug
 
-        section.container-fluid.groupEdit
+        section.container-fluid.groupEdit#groupEdit
             
-
             form(action="", name="groupEdit").groupEdit__form
                 div.groupEdit__heading
                     input(type="text", name="groupEditGroup", class="groupEdit__group", value="TM-71", autofocus)
@@ -104,6 +111,39 @@ html(lang="en")
                                 p.groupData__editPassword-capture#passwordsAreNotTheSame Пароли не совпадают.
                             button(type="submit", class="groupData__editPassword-submit") Готово
                         div.groupData__editPassword-cross#editPasswordCross &#9587
+        
+        section.groupSubjects#groupSubjects
+            // data-actionToDelete
+            form(action="", name="subjectsPerGroupForm", data-actionToDelete="").groupSubjects__subjects
+                div.groupSubjects__table#subjectPerGroupTable
+                    div.groupSubjects__table-item.groupSubjects__table-item--heading Предметы группы
+                    div(data-id="1").groupSubjects__table-item
+                        .lecture
+                        p.name Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid debitis eaque soluta dolor. Magnam ipsum at veritatis possimus eligendi culpa, vel quas quidem non nisi nam aliquid omnis modi illo?
+                        select(name="subject", class="select")
+                            option(value="tutorId") Lastname Firstname 
+                            option(value="tutorId") Lastname Firstname 
+                        img(src="/img/bin.svg", alt="delete").groupSubjects__table-item-delete
+                    div(data-id="2").groupSubjects__table-item
+                        .laboratory
+                        p.name Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid debitis eaque soluta dolor. Magnam ipsum at veritatis possimus eligendi culpa, vel quas quidem non nisi nam aliquid omnis modi illo?
+                        select(name="subject", class="select")
+                            option(value="tutorId") Lastname Firstname 
+                            option(value="tutorId") Lastname Firstname 
+                        img(src="/img/bin.svg", alt="delete").groupSubjects__table-item-delete
+
+            form(action="", name="allSubjectsForm").groupSubjects__allSubjects
+                div.groupSubjects__table#allSubjectsTable
+                    div.groupSubjects__table-item.groupSubjects__table-item--heading Все предметы
+                    div(data-id="3").groupSubjects__table-item
+                        .lecture
+                        p.name.name--allSubjects some name
+                        img(src="/img/plusSign.svg", alt="add").groupSubjects__table-item-add
+                    div(data-id="4").groupSubjects__table-item
+                        .seminar
+                        p.name.name--allSubjects some name
+                        img(src="/img/plusSign.svg", alt="add").groupSubjects__table-item-add
 
         script(src="js/alerts.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js")
         script(src="js/groupEdit.js")

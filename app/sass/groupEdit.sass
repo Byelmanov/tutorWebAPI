@@ -1,5 +1,28 @@
 @import "vars"
-
+.nav
+    display: flex
+    flex-wrap: wrap
+    list-style: none
+    margin-bottom: 20px
+    &-tabs
+        border-bottom: 1px solid #dee2e6
+    &-item
+        margin-bottom: -1px
+    &-link
+        display: block
+        padding: .5rem 1rem
+        text-decoration: none
+        border: 1px solid transparent
+        border-top-left-radius: .25rem
+        border-top-right-radius: .25rem
+        color: #007bff
+        &:hover
+            border-color: #e9ecef #e9ecef #dee2e6
+            color: #0056b3
+    .active
+        color: #495057
+        background-color: #fff
+        border-color: #dee2e6 #dee2e6 #fff
 .groupEdit
     padding-top: 20px
     position: relative
@@ -46,7 +69,7 @@
         display: flex
         flex-flow: column nowrap
         margin-bottom: 20px
-        max-height: calc(100vh - 410px)
+        max-height: calc(100vh - 468px)
         overflow-y: scroll
         min-height: 50px
         &-item
@@ -292,3 +315,118 @@
             right: 10px
             font-size: 30px
             cursor: pointer
+.groupSubjects
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    flex-flow: row wrap
+    padding: 20px 15px
+    display: none
+    &__subjects, &__allsubjects
+        flex: 0 0 48%
+    &__table
+        max-width: 630px
+        &-item
+            width: 630px
+            height: 45px
+            min-width: 50px
+            line-height: 45px
+            text-align: center
+            border: 1px solid $tableBorderColor
+            font-size: 13px
+            position: relative
+            display: flex
+            align-items: center
+            justify-content: space-between
+            padding: 6px 10px
+            &--heading
+                text-align: center
+                display: block
+                font-size: 20px
+                line-height: 45px
+                padding: 0
+            .name
+                font-size: 13px
+                line-height: 18px
+                text-overflow: ellipsis
+                overflow: hidden
+                white-space: nowrap
+                flex: 0 0 69%
+                text-align: left
+                &--allSubjects
+                    flex: 0 0 89%
+            .select
+                flex: 0 0 20%
+                max-width: 100px
+                height: 18px
+                margin-right: 5px
+            .lecture
+                flex: 0 0 8%
+                &:after
+                    content: 'ЛЕК'
+                    width: 35px
+                    height: 15px
+                    line-height: 15px
+                    text-align: center
+                    color: #fff
+                    border-radius: 2px
+                    background: #F25C05
+                    display: inline-block
+                    font-size: 13px
+                    margin-left: 5px
+                    margin-right: 5px
+            .laboratory
+                flex: 0 0 8%
+                &:after
+                    content: 'ЛАБ'
+                    width: 35px
+                    height: 15px
+                    line-height: 15px
+                    text-align: center
+                    color: #fff
+                    border-radius: 2px
+                    background: #F29F05
+                    display: inline-block
+                    font-size: 13px
+                    margin-left: 5px
+                    margin-right: 5px
+            .practic
+                flex: 0 0 8%
+                &:after
+                    content: 'ПРА'
+                    width: 35px
+                    height: 15px
+                    line-height: 15px
+                    text-align: center
+                    color: #fff
+                    border-radius: 2px
+                    background: #33B3DF
+                    display: inline-block
+                    font-size: 13px
+                    margin-left: 5px
+                    margin-right: 5px
+            .seminar
+                flex: 0 0 8%
+                &:after
+                    content: 'СЕМ'
+                    width: 35px
+                    height: 15px
+                    line-height: 15px
+                    text-align: center
+                    color: #fff
+                    border-radius: 2px
+                    background: #3359DF
+                    display: inline-block
+                    font-size: 13px
+                    margin-left: 5px
+                    margin-right: 5px
+            &-delete, &-add
+                width: 20px
+                max-width: 20px
+                min-width: 20px
+                flex: 0 0 3%
+                cursor: pointer
+
+
+    
+

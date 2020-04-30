@@ -219,15 +219,13 @@ function sendAjaxEditPassword() {
                     try {
                         let arrayJSON = JSON.parse(xhr.responseText);
                         let errors = arrayJSON.errors;
-                        if (errors) {
-                            let strWithError = '';
-                            for (let error in errors) {
-                                strWithError += error + '\n';
-                            }
-                            putTextInAlertAndShowIt(strWithError);
-                        } else {
-                            putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+
+                        let strWithError = '';
+                        for (let error in errors) {
+                            strWithError += error + '\n';
                         }
+                        putTextInAlertAndShowIt(strWithError);
+
                     } catch (e) {
                         putTextInAlertAndShowIt('Упс, что-то пошло не так(');
                     }
@@ -325,3 +323,257 @@ function allDataIsValid() {
 
 
 document.getElementById('reloadButton').addEventListener('click', () => { location.reload(); });
+
+// NAVIGATION
+let previousTarget = $('.nav-link:first');
+$('.nav-link').on('click', function (e) {
+    e.preventDefault();
+
+    let $target = $(e.target);
+
+    $(previousTarget.attr('href')).hide();
+    $target.addClass('active');
+    previousTarget.removeClass('active');
+
+    let idOfBlockToShow = $target.attr('href');
+    $(idOfBlockToShow).css('display', 'flex');
+    previousTarget = $target;
+});
+
+// edit group subjects
+
+let subjectsPerGroupForm = document.forms['subjectsPerGroupForm'];
+let allSubjectsForm = document.forms['allSubjectsForm'];
+
+function setHandlerForTutorSelects() {
+    let arrayOfTutorsSelects = document.querySelectorAll('.select');
+    for (let i = 0; i < arrayOfTutorsSelects.length; i++) {
+        arrayOfTutorsSelects[i].addEventListener('change', sendAjaxTutorSelect);
+    }
+}
+
+window.addEventListener('load', setHandlerForTutorSelects);
+
+function sendAjaxTutorSelect(e) {
+    let select = e.target;
+    let tutorId = select.value;
+    let subjectId = select.parentNode.getAttribute('data-id');
+
+    let formData = new FormData();
+    formData.append('tutor', tutorId);
+    formData.append('subject', subjectId);
+
+    let action = subjectsPerGroupForm.getAttribute('action');
+
+    let xhr = new XMLHttpRequest();
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status == 200) {
+                    putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+                } else {
+                    try {
+                        let arrayJSON = JSON.parse(xhr.responseText);
+                        let errors = arrayJSON.errors;
+
+                        let strWithError = '';
+                        for (let error in errors) {
+                            strWithError += error + '\n';
+                        }
+                        putTextInAlertAndShowIt(strWithError);
+
+                    } catch (e) {
+                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+                    }
+                }
+            }
+        }
+
+        xhr.open('POST', action);
+        xhr.setRequestHeader('Accept', 'application/json');
+        xhr.send(formData);
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+// delete subject
+
+function setHandlerForAllDeleteSubjectButtons() {
+    let array = document.querySelectorAll('.groupSubjects__table-item-delete');
+    array.forEach((elem) => {
+        elem.addEventListener('click', handleDeleteSubjectButton);
+    });
+}
+
+window.addEventListener('load', setHandlerForAllDeleteSubjectButtons);
+
+
+function handleDeleteSubjectButton(e) {
+    let subjectItem = e.target.parentNode;
+    let arrayOfChildren = subjectItem.children;
+    let itemData = {
+        'subjectId': subjectItem.getAttribute('data-id'),
+        'type': arrayOfChildren[0],
+        'name': arrayOfChildren[1].innerText
+    };
+
+    let formData = new FormData();
+    formData.append('subject', itemData.subjectId);
+    let action = subjectsPerGroupForm.getAttribute('data-actionToDelete');
+
+    let xhr = new XMLHttpRequest();
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status == 200) {
+                    deleteSubject(itemData);
+                    subjectItem.remove();
+                    putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+                } else {
+                    deleteSubject(itemData);
+                    subjectItem.remove();
+                    try {
+                        let arrayJSON = JSON.parse(xhr.responseText);
+                        let errors = arrayJSON.errors;
+
+                        let strWithError = '';
+                        for (let error in errors) {
+                            strWithError += error + '\n';
+                        }
+                        putTextInAlertAndShowIt(strWithError);
+
+                    } catch (e) {
+                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+                    }
+                }
+            }
+        }
+
+
+        xhr.open('POST', action);
+        xhr.setRequestHeader('Accept', 'application/json');
+        xhr.send(formData);
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+function deleteSubject(dataObj) {
+    let item = document.createElement('div');
+    item.className = 'groupSubjects__table-item';
+    item.setAttribute('data-id', dataObj.subjectId);
+    item.append(dataObj.type);
+    item.innerHTML += `
+    <p class="name name--allSubjects">${dataObj.name}</p>
+    <img src="/img/plusSign.svg" alt="add" class="groupSubjects__table-item-add">
+    `;
+
+    document.querySelector('#allSubjectsTable').append(item);
+    setHandlerForAllAddSubjectButtons();
+}
+
+// add subject 
+
+function setHandlerForAllAddSubjectButtons() {
+    let array = document.querySelectorAll('.groupSubjects__table-item-add');
+    array.forEach((elem) => {
+        elem.addEventListener('click', handleAddSubjectButton);
+    });
+}
+
+window.addEventListener('load', setHandlerForAllAddSubjectButtons);
+
+function handleAddSubjectButton(e) {
+    let subjectItem = e.target.parentNode;
+    let arrayOfChildren = subjectItem.children;
+    let itemData = {
+        'subjectId': subjectItem.getAttribute('data-id'),
+        'type': arrayOfChildren[0],
+        'name': arrayOfChildren[1].innerText
+    };
+
+    let formData = new FormData();
+    formData.append('subject', itemData.subjectId);
+    let action = allSubjectsForm.getAttribute('action');
+
+    let xhr = new XMLHttpRequest();
+    try {
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status == 200) {
+                    let arrayJSON = JSON.parse(xhr.responseText);
+                    itemData.arrayOfTutors = arrayJSON;
+                    addSubject(itemData);
+                    subjectItem.remove();
+                } else {
+
+                    try {
+                        let arrayJSON = JSON.parse(xhr.responseText);
+                        let errors = arrayJSON.errors;
+
+                        let strWithError = '';
+                        for (let error in errors) {
+                            strWithError += error + '\n';
+                        }
+                        putTextInAlertAndShowIt(strWithError);
+
+                    } catch (e) {
+                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+                    }
+                }
+            }
+        }
+
+
+        xhr.open('POST', action);
+        xhr.setRequestHeader('Accept', 'application/json');
+        xhr.send(formData);
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+function addSubject(dataObj) {
+    console.log(dataObj);
+    let arrayOfTutors = dataObj.arrayOfTutors;
+
+    let item = document.createElement('div');
+    item.className = 'groupSubjects__table-item';
+    item.setAttribute('data-id', dataObj.subjectId);
+    item.append(dataObj.type);
+
+    item.innerHTML += `
+    <p class="name">${dataObj.name}</p>
+    `;
+
+    let select = document.createElement('select');
+    select.name = 'subject';
+    select.className = 'select';
+    let option = document.createElement('option');
+    option.value = 0;
+    option.innerText = "";
+    option.setAttribute('selected', 'true');
+    select.append(option);
+
+    for (let i in arrayOfTutors) {
+        let option = document.createElement('option');
+        option.value = arrayOfTutors[i].id;
+        option.innerText = `${arrayOfTutors[i].lastname} ${arrayOfTutors[i].firstname} ${arrayOfTutors[i].fathername} ${arrayOfTutors[i].email}`;
+        select.append(option);
+    }
+
+    item.append(select);
+
+    item.innerHTML += `
+    <img src="/img/bin.svg" alt="add" class="groupSubjects__table-item-delete">
+    `;
+
+
+
+    document.querySelector('#subjectPerGroupTable').append(item);
+    setHandlerForAllDeleteSubjectButtons();
+    setHandlerForTutorSelects();
+}

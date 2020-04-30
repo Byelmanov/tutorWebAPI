@@ -10,6 +10,7 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="#000"/>
       <title>Tutor Web API</title>
       <link rel="shortcut icon" href="" type="image/png"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap-grid.min.css"/>
       <link rel="stylesheet" href="css/main.min.css"/>
     </head>
   </head>
@@ -29,6 +30,12 @@
         </div>
       </div>
     </header>
+    <section class="container-fluid">
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" href="#groupEdit" data-toggle="tab" role="tab">Редактирование группы</a></li>
+        <li class="nav-item"><a class="nav-link" href="#groupSubjects" data-toggle="tab" role="tab">Редактирование предметов группы</a></li>
+      </ul>
+    </section>
     <section class="container">
       <div class="alert alert--error" id="alertError">
         <p class="alert__text alert__text--error" id="alertErrorText"> </p>
@@ -45,7 +52,7 @@
           a(href="").alertIfNoTutorName__link Заполнить
       -->
     </section>
-    <section class="container-fluid groupEdit">
+    <section class="container-fluid groupEdit" id="groupEdit">
       <form class="groupEdit__form" action="" name="groupEdit">
         <div class="groupEdit__heading">
           <input class="groupEdit__group" type="text" name="groupEditGroup" value="TM-71" autofocus="autofocus"/>
@@ -146,7 +153,45 @@
         </div>
       </div>
     </section>
+    <section class="groupSubjects" id="groupSubjects">
+      <!-- data-actionToDelete-->
+      <form class="groupSubjects__subjects" action="" name="subjectsPerGroupForm" data-actionToDelete="">
+        <div class="groupSubjects__table" id="subjectPerGroupTable">
+          <div class="groupSubjects__table-item groupSubjects__table-item--heading">Предметы группы</div>
+          <div class="groupSubjects__table-item" data-id="1">
+            <div class="lecture"></div>
+            <p class="name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid debitis eaque soluta dolor. Magnam ipsum at veritatis possimus eligendi culpa, vel quas quidem non nisi nam aliquid omnis modi illo?</p>
+            <select class="select" name="subject">
+              <option value="tutorId">Lastname Firstname </option>
+              <option value="tutorId">Lastname Firstname </option>
+            </select><img class="groupSubjects__table-item-delete" src="/img/bin.svg" alt="delete"/>
+          </div>
+          <div class="groupSubjects__table-item" data-id="2">
+            <div class="laboratory"></div>
+            <p class="name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid debitis eaque soluta dolor. Magnam ipsum at veritatis possimus eligendi culpa, vel quas quidem non nisi nam aliquid omnis modi illo?</p>
+            <select class="select" name="subject">
+              <option value="tutorId">Lastname Firstname </option>
+              <option value="tutorId">Lastname Firstname </option>
+            </select><img class="groupSubjects__table-item-delete" src="/img/bin.svg" alt="delete"/>
+          </div>
+        </div>
+      </form>
+      <form class="groupSubjects__allSubjects" action="" name="allSubjectsForm">
+        <div class="groupSubjects__table" id="allSubjectsTable">
+          <div class="groupSubjects__table-item groupSubjects__table-item--heading">Все предметы</div>
+          <div class="groupSubjects__table-item" data-id="3">
+            <div class="lecture"></div>
+            <p class="name name--allSubjects">some name</p><img class="groupSubjects__table-item-add" src="/img/plusSign.svg" alt="add"/>
+          </div>
+          <div class="groupSubjects__table-item" data-id="4">
+            <div class="seminar"></div>
+            <p class="name name--allSubjects">some name</p><img class="groupSubjects__table-item-add" src="/img/plusSign.svg" alt="add"/>
+          </div>
+        </div>
+      </form>
+    </section>
     <script src="js/alerts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     <script src="js/groupEdit.js"></script>
   </body>
 </html>
