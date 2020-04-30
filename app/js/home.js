@@ -216,3 +216,62 @@ function allDataIsValid() {
     document.getElementById('passwordsAreNotTheSame').style.visibility = "hidden";
     document.querySelector('.editPassword__submit').classList.add('editPassword__submit--active');
 }
+
+// for fullname
+
+let fullnameForm = document.forms['homeFullname'];
+fullnameForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (checkFullnameInputs()) {
+        let formData = new FormData(fullnameForm);
+        let action = fullnameForm.getAttribute('action');
+        let xhr = new XMLHttpRequest();
+
+        try {
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status == 200) {
+                        putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+                    } else {
+                        try {
+                            let arrayJSON = JSON.parse(xhr.responseText);
+                            let errors = arrayJSON.errors;
+
+                            let strWithError = '';
+                            for (let error in errors) {
+                                strWithError += error + '\n';
+                            }
+                            putTextInAlertAndShowIt(strWithError);
+                        } catch (e) {
+                            putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+                        }
+                    }
+                }
+            }
+
+            xhr.open('POST', action);
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.send(formData);
+
+        } catch (e) {
+            console.log(e);
+        }
+    } else {
+        putTextInAlertAndShowIt('ФИО не дожно быть пустым');
+    }
+
+
+});
+
+function checkFullnameInputs() {
+    let lastname = document.getElementById('lastname').value;
+    let firstname = document.getElementById('firstname').value;
+    let fathername = document.getElementById('fathername').value;
+
+    if (lastname != "" && firstname != "" && fathername != "") {
+        return true;
+    } else {
+        return false;
+    }
+}

@@ -19,10 +19,16 @@ html(lang="en")
                 .home__password
                     p.home__password-text ●●●●●●●●●●
                     img(src="img/profileEdit.svg", alt="Редактировать").home__password-img#editPasswordButton
+                form(action="", name="homeFullname", class="home__fullname")
+                    input(type="text", name="lastname", value="Lastname", class="home__fullname-item", id="lastname")
+                    input(type="text", name="firstname", value="Firstname", class="home__fullname-item", id="firstname")
+                    input(type="text", name="fathername", value="Fathername", class="home__fullname-item", id="fathername")
+                    button(type="submit").home__fullname-submit Сохранить
                 .home__links
                     a(href="").home__link Смотреть журнал
                     a(href="").home__link Выбрать группу
                     a(href="").home__link Выбрать предмет
+                
         section.editEmail#editEmailSection
             div.editEmail__window
                 h2.editEmail__heading Редактировать Email
