@@ -362,6 +362,7 @@ function sendAjaxTutorSelect(e) {
     let formData = new FormData();
     formData.append('tutor', tutorId);
     formData.append('subject', subjectId);
+    formData.append('_token', document.getElementById('subjectsPerGroupToken').value);
 
     let action = subjectsPerGroupForm.getAttribute('action');
 
@@ -421,6 +422,8 @@ function handleDeleteSubjectButton(e) {
 
     let formData = new FormData();
     formData.append('subject', itemData.subjectId);
+    formData.append('_token', document.getElementById('subjectsPerGroupToken').value);
+
     let action = subjectsPerGroupForm.getAttribute('data-actionToDelete');
 
     let xhr = new XMLHttpRequest();
@@ -497,6 +500,7 @@ function handleAddSubjectButton(e) {
 
     let formData = new FormData();
     formData.append('subject', itemData.subjectId);
+    formData.append('_token', document.getElementById('allSubjectsToken').value);
     let action = allSubjectsForm.getAttribute('action');
 
     let xhr = new XMLHttpRequest();

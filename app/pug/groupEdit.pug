@@ -115,6 +115,7 @@ html(lang="en")
         section.groupSubjects#groupSubjects
             // data-actionToDelete
             form(action="", name="subjectsPerGroupForm", data-actionToDelete="").groupSubjects__subjects
+                input(type="hidden", name="_token", id="subjectsPerGroupToken", value="")
                 div.groupSubjects__table#subjectPerGroupTable
                     div.groupSubjects__table-item.groupSubjects__table-item--heading Предметы группы
                     div(data-id="1").groupSubjects__table-item
@@ -133,6 +134,7 @@ html(lang="en")
                         img(src="/img/bin.svg", alt="delete").groupSubjects__table-item-delete
 
             form(action="", name="allSubjectsForm").groupSubjects__allSubjects
+                input(type="hidden", name="_token", id="allSubjectsToken", value="")
                 div.groupSubjects__table#allSubjectsTable
                     div.groupSubjects__table-item.groupSubjects__table-item--heading Все предметы
                     div(data-id="3").groupSubjects__table-item

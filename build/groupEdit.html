@@ -156,6 +156,7 @@
     <section class="groupSubjects" id="groupSubjects">
       <!-- data-actionToDelete-->
       <form class="groupSubjects__subjects" action="" name="subjectsPerGroupForm" data-actionToDelete="">
+        <input type="hidden" name="_token" id="subjectsPerGroupToken" value=""/>
         <div class="groupSubjects__table" id="subjectPerGroupTable">
           <div class="groupSubjects__table-item groupSubjects__table-item--heading">Предметы группы</div>
           <div class="groupSubjects__table-item" data-id="1">
@@ -177,6 +178,7 @@
         </div>
       </form>
       <form class="groupSubjects__allSubjects" action="" name="allSubjectsForm">
+        <input type="hidden" name="_token" id="allSubjectsToken" value=""/>
         <div class="groupSubjects__table" id="allSubjectsTable">
           <div class="groupSubjects__table-item groupSubjects__table-item--heading">Все предметы</div>
           <div class="groupSubjects__table-item" data-id="3">

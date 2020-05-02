@@ -11,6 +11,7 @@ html(lang="en")
         section.container-fluid.adminRoles
             h1.adminRoles__heading Роли пользователей
             form(action="#", name="adminRolesForm")
+                input(type="hidden", name="_token", id="token", value="")
                 .adminRoles__table
                     .adminRoles__item(data-id="1")
                         p.adminRoles__fullname Yelmanov Bohdan Oleksiiovych

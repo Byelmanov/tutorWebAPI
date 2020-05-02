@@ -27,6 +27,7 @@ function deleteTutor(e) {
 
     let formData = new FormData();
     formData.append('tutor', tutorId);
+    formData.append('_token', document.getElementById('editSubjectToken').value);
     let action = document.forms['adminEditSubject'].getAttribute('action');
     let xhr = new XMLHttpRequest();
 
@@ -102,6 +103,7 @@ function addTutor(e) {
 
     let formData = new FormData();
     formData.append('tutor', tutorId);
+    formData.append('_token', document.getElementById('allTutorsToken').value);
     let action = document.forms['adminAllTutors'].getAttribute('action');
     let xhr = new XMLHttpRequest();
 

@@ -48,6 +48,7 @@
     </section>
     <section class="container-fluid adminEditSubject">
       <form class="adminEditSubject__form" action="" name="adminEditSubject">
+        <input type="hidden" name="_token" id="editSubjectToken" value=""/>
         <div class="adminEditSubject__heading">
           <input class="adminEditSubject__group" type="text" name="adminEditSubjectGroup" value="subject name subject name subject name" autofocus="autofocus"/>
           <select class="adminEditSubject__type" name="adminEditSubjectType" id="adminEditSubjectType">
@@ -68,6 +69,7 @@
         </div>
       </form>
       <form class="adminEditSubject__tutorsForm" action="" name="adminAllTutors">
+        <input type="hidden" name="_token" id="allTutorsToken" value=""/>
         <div class="adminEditSubject__table adminEditSubject__table--all">
           <div class="adminEditSubject__table-item adminEditSubject__table-item--heading">Все преподаватели</div>
           <div class="adminEditSubject__table-item" data-id="3"> 

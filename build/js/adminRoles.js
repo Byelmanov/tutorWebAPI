@@ -16,6 +16,7 @@ function sendAjaxWithRole(e) {
     let formData = new FormData();
     formData.append('user', userId);
     formData.append('role', selectElem.value);
+    formData.append('_token', document.getElementById('token').value);
 
     let action = form.getAttribute('action');
 

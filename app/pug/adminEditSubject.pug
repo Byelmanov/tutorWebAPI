@@ -10,6 +10,7 @@ html(lang="en")
 
         section.container-fluid.adminEditSubject
             form(action="", name="adminEditSubject").adminEditSubject__form
+                input(type="hidden", name="_token", id="editSubjectToken", value="")
                 div.adminEditSubject__heading
                     input(type="text", name="adminEditSubjectGroup", class="adminEditSubject__group", value="subject name subject name subject name", autofocus)
                     select(name="adminEditSubjectType", class="adminEditSubject__type", id="adminEditSubjectType")
@@ -27,6 +28,7 @@ html(lang="en")
                         img(src="/img/bin.svg", alt="delete").adminEditSubject__table-item-delete
 
             form(action="", name="adminAllTutors").adminEditSubject__tutorsForm
+                input(type="hidden", name="_token", id="allTutorsToken", value="")
                 .adminEditSubject__table.adminEditSubject__table--all
                     div.adminEditSubject__table-item.adminEditSubject__table-item--heading Все преподаватели
                     div(data-id="3").adminEditSubject__table-item 
