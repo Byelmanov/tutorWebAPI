@@ -4,7 +4,7 @@ function setHandlerForAbsentInputs() {
     let arrayOfAbsentInputs = document.querySelectorAll('.absent');
 
     for (let i = 0; i < arrayOfAbsentInputs.length; i++) {
-        arrayOfAbsentInputs[i].addEventListener('input', dineAllSymbolsBesideN);
+        arrayOfAbsentInputs[i].addEventListener('input', dineSymbols);
     }
 };
 
@@ -12,13 +12,23 @@ setHandlerForAbsentInputs();
 
 
 
-function dineAllSymbolsBesideN(e) {
+function dineSymbols(e) {
     let input = e.target;
     let value = input.value;
-    if (e.data !== 'н' || value.length == 2) {
-        value = value.slice(0, value.length - 1);
-        input.value = value;
+    let valueInt = parseInt(value);
+
+    if (!isNaN(valueInt)) {
+        if (valueInt < 0 || valueInt > 100 || value.length === 4) {
+            value = value.slice(0, length - 1);
+            input.value = value;
+        }
+    } else {
+        if (value !== 'н' || value.length === 2) {
+            value = value.slice(0, length - 1);
+            input.value = value;
+        }
     }
+
 }
 
 
