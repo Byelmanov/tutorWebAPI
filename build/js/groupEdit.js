@@ -560,6 +560,7 @@ function addSubject(dataObj) {
     option.value = 0;
     option.innerText = "";
     option.setAttribute('selected', 'true');
+    option.setAttribute('disabled', 'true');
     select.append(option);
 
     for (let i in arrayOfTutors) {

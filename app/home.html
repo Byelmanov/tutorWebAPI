@@ -56,6 +56,9 @@
         <div class="home__password">
           <p class="home__password-text">●●●●●●●●●●</p><img class="home__password-img" src="img/profileEdit.svg" alt="Редактировать" id="editPasswordButton"/>
         </div>
+        <div class="home__telegram">
+          <p class="home__telegram-text" id="telegramText">login</p><img class="home__telegram-img" src="img/profileEdit.svg" alt="Редактировать" id="editTelegramButton"/>
+        </div>
         <form class="home__fullname" action="" name="homeFullname">
           <input class="home__fullname-item" type="text" name="lastname" value="Lastname" id="lastname"/>
           <input class="home__fullname-item" type="text" name="firstname" value="Firstname" id="firstname"/>
@@ -95,6 +98,19 @@
           <button class="editPassword__submit" type="submit">Готово</button>
         </form>
         <div class="editPassword__cross" id="editPasswordCross">&#9587</div>
+      </div>
+    </section>
+    <section class="editTelegram" id="editTelegramSection">
+      <div class="editTelegram__window">
+        <h2 class="editTelegram__heading">Редактировать Telegram</h2>
+        <form class="editTelegram__form" action="" name="editTelegram">
+          <label>
+            <p class="editTelegram__label">Telegram</p>
+            <input class="editTelegram__input" type="text" name="telegram" id="editTelegramInput" value="example"/>
+          </label>
+          <button class="editTelegram__submit" type="submit">Готово</button>
+        </form>
+        <div class="editTelegram__cross" id="editTelegramCross">&#9587</div>
       </div>
     </section>
     <script src="js/alerts.js"></script>

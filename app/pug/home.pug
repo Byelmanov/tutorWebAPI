@@ -19,6 +19,10 @@ html(lang="en")
                 .home__password
                     p.home__password-text ●●●●●●●●●●
                     img(src="img/profileEdit.svg", alt="Редактировать").home__password-img#editPasswordButton
+                .home__telegram
+                    p.home__telegram-text#telegramText login
+                    img(src="img/profileEdit.svg", alt="Редактировать").home__telegram-img#editTelegramButton
+
                 form(action="", name="homeFullname", class="home__fullname")
                     input(type="text", name="lastname", value="Lastname", class="home__fullname-item", id="lastname")
                     input(type="text", name="firstname", value="Firstname", class="home__fullname-item", id="firstname")
@@ -52,6 +56,16 @@ html(lang="en")
                         p.editPassword__capture#passwordsAreNotTheSame Пароли не совпадают.
                     button(type="submit", class="editPassword__submit") Готово
                 div.editPassword__cross#editPasswordCross &#9587
+        
+        section.editTelegram#editTelegramSection
+            div.editTelegram__window
+                h2.editTelegram__heading Редактировать Telegram
+                form(action="", name="editTelegram", class='editTelegram__form')
+                    label
+                        p.editTelegram__label Telegram
+                        input(type="text", name="telegram", class="editTelegram__input", id="editTelegramInput", value="example")
+                    button(type="submit").editTelegram__submit Готово
+                div.editTelegram__cross#editTelegramCross &#9587
 
 
 

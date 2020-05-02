@@ -6,6 +6,10 @@ document.getElementById('editEmailButton').addEventListener('click', showEditEma
 document.getElementById('editPasswordCross').addEventListener('click', hideEditPasswordSection);
 document.getElementById('editPasswordButton').addEventListener('click', showEditPasswordSection);
 
+document.getElementById('editTelegramCross').addEventListener('click', hideEditTelegramSection);
+document.getElementById('editTelegramButton').addEventListener('click', showEditTelegramSection);
+
+
 function hideEditEmailSection() {
     document.getElementById('editEmailSection').style.display = 'none';
     document.removeEventListener('keydown', checkEscAndHideWindow);
@@ -22,6 +26,14 @@ function showEditPasswordSection() {
     document.getElementById('editPasswordSection').style.display = 'flex';
     document.addEventListener('keydown', checkEscAndHideWindow);
 }
+function hideEditTelegramSection() {
+    document.getElementById('editTelegramSection').style.display = 'none';
+    document.removeEventListener('keydown', checkEscAndHideWindow);
+}
+function showEditTelegramSection() {
+    document.getElementById('editTelegramSection').style.display = 'flex';
+    document.addEventListener('keydown', checkEscAndHideWindow);
+}
 
 function checkEscAndHideWindow(e) {
     e = e || window.event;
@@ -29,6 +41,53 @@ function checkEscAndHideWindow(e) {
         hideEditEmailSection();
         hideEditPasswordSection();
     }
+}
+
+try {
+    let formEditTelegram = document.forms['editTelegram'];
+    formEditTelegram.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        let value = document.getElementById('editTelegramInput').value;
+        if (value != '') {
+            let formData = new FormData(formEditTelegram);
+            let action = formEditTelegram.getAttribute('action');
+            let xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    hideEditTelegramSection();
+                    if (xhr.status == 200) {
+                        putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+                        document.getElementById('telegramText').innerText = formData.get('email');
+                    } else {
+                        try {
+                            let arrayJSON = JSON.parse(xhr.responseText);
+                            let errors = arrayJSON.errors;
+                            if (errors) {
+                                let strWithError = '';
+                                for (let error in errors) {
+                                    strWithError += error + '\n';
+                                }
+                                putTextInAlertAndShowIt(strWithError);
+                            } else {
+                                putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+                            }
+                        } catch (e) {
+                            putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+                        }
+
+                    }
+                }
+            }
+
+            xhr.open('POST', action);
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.send(formData);
+        }
+    });
+} catch (e) {
+
 }
 
 
@@ -200,6 +259,15 @@ document.getElementById('passwordRepeatInput').addEventListener('input', functio
     }
 });
 
+document.getElementById('editTelegramInput').addEventListener('input', function () {
+    let value = this.value;
+    let button = document.querySelector('.editTelegram__submit');
+    if (value != "") {
+        button.classList.add('editTelegram__submit--active');
+    } else {
+        button.classList.remove('editTelegram__submit--active');
+    }
+});
 
 function checkAllInputs() {
     let password = document.getElementById('passwordInput').value;
