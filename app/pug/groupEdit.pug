@@ -9,9 +9,11 @@ html(lang="en")
         section.container-fluid
             ul().nav.nav-tabs
                 li.nav-item
-                    a(href="#groupEdit", data-toggle="tab", role="tab").nav-link.active Редактирование группы
+                    a(href="#groupEdit").nav-link.active Редактирование группы
                 li.nav-item
-                    a(href="#groupSubjects", data-toggle="tab", role="tab").nav-link Редактирование предметов группы
+                    a(href="#groupSubjects").nav-link Редактирование предметов группы
+                li.nav-item
+                    a(href="#accounts").nav-link Аккаунты
         
         section.container
             include includes/alerts.pug
@@ -145,7 +147,23 @@ html(lang="en")
                         .seminar
                         p.name.name--allSubjects some name
                         img(src="/img/plusSign.svg", alt="add").groupSubjects__table-item-add
+        
+        section.container.accounts#accounts
+            form(action="", name="accounts")
+                input(type="hidden", name="_token", value="")
+                h2.accounts__heading Аккаунт старосты
+                select(name="accountsMonitor", class="accounts__select")
+                    option(value="0" selected)
+                    option(value="1") email@gmail.com
+                    option(value="2") email@gmail.com
+                h2.accounts__heading Аккаунт группы
+                select(name="accountsGroup", class="accounts__select")
+                    option(value="0" selected disabled)
+                    option(value="1") email@gmail.com
+                    option(value="2") email@gmail.com
+                button(type="submit", class="accounts__submit") Сохранить
 
+                
         script(src="js/alerts.js")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js")
         script(src="js/groupEdit.js")

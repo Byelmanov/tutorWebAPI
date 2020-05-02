@@ -32,8 +32,9 @@
     </header>
     <section class="container-fluid">
       <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link active" href="#groupEdit" data-toggle="tab" role="tab">Редактирование группы</a></li>
-        <li class="nav-item"><a class="nav-link" href="#groupSubjects" data-toggle="tab" role="tab">Редактирование предметов группы</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#groupEdit">Редактирование группы</a></li>
+        <li class="nav-item"><a class="nav-link" href="#groupSubjects">Редактирование предметов группы</a></li>
+        <li class="nav-item"><a class="nav-link" href="#accounts">Аккаунты</a></li>
       </ul>
     </section>
     <section class="container">
@@ -190,6 +191,24 @@
             <p class="name name--allSubjects">some name</p><img class="groupSubjects__table-item-add" src="/img/plusSign.svg" alt="add"/>
           </div>
         </div>
+      </form>
+    </section>
+    <section class="container accounts" id="accounts">
+      <form action="" name="accounts">
+        <input type="hidden" name="_token" value=""/>
+        <h2 class="accounts__heading">Аккаунт старосты</h2>
+        <select class="accounts__select" name="accountsMonitor">
+          <option value="0" selected="selected"></option>
+          <option value="1">email@gmail.com</option>
+          <option value="2">email@gmail.com</option>
+        </select>
+        <h2 class="accounts__heading">Аккаунт группы</h2>
+        <select class="accounts__select" name="accountsGroup">
+          <option value="0" selected="selected" disabled="disabled"></option>
+          <option value="1">email@gmail.com</option>
+          <option value="2">email@gmail.com</option>
+        </select>
+        <button class="accounts__submit" type="submit">Сохранить</button>
       </form>
     </section>
     <script src="js/alerts.js"></script>

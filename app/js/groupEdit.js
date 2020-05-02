@@ -581,3 +581,61 @@ function addSubject(dataObj) {
     setHandlerForAllDeleteSubjectButtons();
     setHandlerForTutorSelects();
 }
+
+
+// ACCOUNTS
+
+document.forms['accounts'].addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let error = false;
+
+    let arrayOfSelect = document.querySelectorAll('.accounts__select');
+    arrayOfSelect.forEach((elem) => {
+        if (elem.value == 0) {
+            error = true;
+        }
+    });
+
+    if (error) {
+        putTextInAlertAndShowIt('Заполните данные');
+    } else {
+        let formData = new FormData(this);
+        let action = this.getAttribute('action');
+        let xhr = new XMLHttpRequest();
+
+        try {
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status == 200) {
+                        putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+                    } else {
+                        try {
+                            let arrayJSON = JSON.parse(xhr.responseText);
+                            let errors = arrayJSON.errors;
+
+                            let strWithError = '';
+                            for (let error in errors) {
+                                strWithError += error + '\n';
+                            }
+                            putTextInAlertAndShowIt(strWithError);
+
+                        } catch (e) {
+                            putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+                        }
+                    }
+                }
+            }
+
+            xhr.open('POST', action);
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.send(formData);
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+
+});
+
