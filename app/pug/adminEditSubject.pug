@@ -9,13 +9,16 @@ html(lang="en")
             include includes/alerts.pug
 
         section.container-fluid.adminEditSubject
-            form(action="", name="adminEditSubject").adminEditSubject__form
-                input(type="hidden", name="_token", id="editSubjectToken", value="")
+            form(action="", name="adminEditSubjectNameType")
+                input(type="hidden", name="_token", value="")
                 div.adminEditSubject__heading
                     input(type="text", name="adminEditSubjectGroup", class="adminEditSubject__group", value="subject name subject name subject name", autofocus)
                     select(name="adminEditSubjectType", class="adminEditSubject__type", id="adminEditSubjectType")
                         option(value="lecture", selected) Лекция
                         option(value="lab") Лаба
+                    button(type="submit").adminEditSubject__submit Сохранить
+            form(action="", name="adminEditSubject").adminEditSubject__form
+                input(type="hidden", name="_token", value="", id="adminEditSubjectToken")
                 .adminEditSubject__table.adminEditSubject__table--forSubject
                     div.adminEditSubject__table-item.adminEditSubject__table-item--heading Преподаватели этого предмета
                     div(data-id="1").adminEditSubject__table-item 
@@ -27,18 +30,17 @@ html(lang="en")
                         p.email example@gmail.com
                         img(src="/img/bin.svg", alt="delete").adminEditSubject__table-item-delete
 
-            form(action="", name="adminAllTutors").adminEditSubject__tutorsForm
-                input(type="hidden", name="_token", id="allTutorsToken", value="")
-                .adminEditSubject__table.adminEditSubject__table--all
-                    div.adminEditSubject__table-item.adminEditSubject__table-item--heading Все преподаватели
-                    div(data-id="3").adminEditSubject__table-item 
-                        p.name Lastname3 Firstname3 Fathername3
-                        p.email example@gmail.com
-                        img(src="/img/plusSign.svg", alt="add").adminEditSubject__addTutor
-                    div(data-id="4").adminEditSubject__table-item 
-                        p.name Lastname4 Firstname4 Fathername4
-                        p.email example@gmail.com
-                        img(src="/img/plusSign.svg", alt="add").adminEditSubject__addTutor
+                .adminEditSubject__tutorsForm
+                    .adminEditSubject__table.adminEditSubject__table--all
+                        div.adminEditSubject__table-item.adminEditSubject__table-item--heading Все преподаватели
+                        div(data-id="3").adminEditSubject__table-item 
+                            p.name Lastname3 Firstname3 Fathername3
+                            p.email example@gmail.com
+                            img(src="/img/plusSign.svg", alt="add").adminEditSubject__addTutor
+                        div(data-id="4").adminEditSubject__table-item 
+                            p.name Lastname4 Firstname4 Fathername4
+                            p.email example@gmail.com
+                            img(src="/img/plusSign.svg", alt="add").adminEditSubject__addTutor
 
 
 

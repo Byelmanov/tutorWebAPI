@@ -391,7 +391,7 @@ function sendAjaxTutorSelect(e) {
             }
         }
 
-        xhr.open('POST', action);
+        xhr.open('PUT', action);
         xhr.setRequestHeader('Accept', 'application/json');
         xhr.send(formData);
     } catch (e) {
@@ -436,8 +436,6 @@ function handleDeleteSubjectButton(e) {
                     subjectItem.remove();
                     putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
                 } else {
-                    deleteSubject(itemData);
-                    subjectItem.remove();
                     try {
                         let arrayJSON = JSON.parse(xhr.responseText);
                         let errors = arrayJSON.errors;
@@ -456,7 +454,7 @@ function handleDeleteSubjectButton(e) {
         }
 
 
-        xhr.open('POST', action);
+        xhr.open('DELETE', action);
         xhr.setRequestHeader('Accept', 'application/json');
         xhr.send(formData);
     } catch (e) {

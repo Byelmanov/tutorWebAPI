@@ -47,15 +47,19 @@
       -->
     </section>
     <section class="container-fluid adminEditSubject">
-      <form class="adminEditSubject__form" action="" name="adminEditSubject">
-        <input type="hidden" name="_token" id="editSubjectToken" value=""/>
+      <form action="" name="adminEditSubjectNameType">
+        <input type="hidden" name="_token" value=""/>
         <div class="adminEditSubject__heading">
           <input class="adminEditSubject__group" type="text" name="adminEditSubjectGroup" value="subject name subject name subject name" autofocus="autofocus"/>
           <select class="adminEditSubject__type" name="adminEditSubjectType" id="adminEditSubjectType">
             <option value="lecture" selected="selected">Лекция</option>
             <option value="lab">Лаба</option>
           </select>
+          <button class="adminEditSubject__submit" type="submit">Сохранить</button>
         </div>
+      </form>
+      <form class="adminEditSubject__form" action="" name="adminEditSubject">
+        <input type="hidden" name="_token" value="" id="adminEditSubjectToken"/>
         <div class="adminEditSubject__table adminEditSubject__table--forSubject">
           <div class="adminEditSubject__table-item adminEditSubject__table-item--heading">Преподаватели этого предмета</div>
           <div class="adminEditSubject__table-item" data-id="1"> 
@@ -67,18 +71,17 @@
             <p class="email">example@gmail.com</p><img class="adminEditSubject__table-item-delete" src="/img/bin.svg" alt="delete"/>
           </div>
         </div>
-      </form>
-      <form class="adminEditSubject__tutorsForm" action="" name="adminAllTutors">
-        <input type="hidden" name="_token" id="allTutorsToken" value=""/>
-        <div class="adminEditSubject__table adminEditSubject__table--all">
-          <div class="adminEditSubject__table-item adminEditSubject__table-item--heading">Все преподаватели</div>
-          <div class="adminEditSubject__table-item" data-id="3"> 
-            <p class="name">Lastname3 Firstname3 Fathername3</p>
-            <p class="email">example@gmail.com</p><img class="adminEditSubject__addTutor" src="/img/plusSign.svg" alt="add"/>
-          </div>
-          <div class="adminEditSubject__table-item" data-id="4"> 
-            <p class="name">Lastname4 Firstname4 Fathername4</p>
-            <p class="email">example@gmail.com</p><img class="adminEditSubject__addTutor" src="/img/plusSign.svg" alt="add"/>
+        <div class="adminEditSubject__tutorsForm">
+          <div class="adminEditSubject__table adminEditSubject__table--all">
+            <div class="adminEditSubject__table-item adminEditSubject__table-item--heading">Все преподаватели</div>
+            <div class="adminEditSubject__table-item" data-id="3"> 
+              <p class="name">Lastname3 Firstname3 Fathername3</p>
+              <p class="email">example@gmail.com</p><img class="adminEditSubject__addTutor" src="/img/plusSign.svg" alt="add"/>
+            </div>
+            <div class="adminEditSubject__table-item" data-id="4"> 
+              <p class="name">Lastname4 Firstname4 Fathername4</p>
+              <p class="email">example@gmail.com</p><img class="adminEditSubject__addTutor" src="/img/plusSign.svg" alt="add"/>
+            </div>
           </div>
         </div>
       </form>
