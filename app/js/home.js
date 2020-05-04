@@ -42,6 +42,7 @@ function checkEscAndHideWindow(e) {
     if (e.keyCode === 27) {
         hideEditEmailSection();
         hideEditPasswordSection();
+        hideEditTelegramSection();
     }
 }
 

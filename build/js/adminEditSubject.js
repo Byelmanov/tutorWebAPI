@@ -27,6 +27,7 @@ function deleteTutor(e) {
     let formData = new FormData();
     formData.append('tutor', tutorId);
     formData.append('_token', document.getElementById('adminEditSubjectToken').value);
+    formData.append('_method', 'DELETE');
     let action = document.forms['adminEditSubject'].getAttribute('action');
     let xhr = new XMLHttpRequest();
 
@@ -55,7 +56,7 @@ function deleteTutor(e) {
             }
         }
 
-        xhr.open("DELETE", action);
+        xhr.open("POST", action);
         xhr.setRequestHeader('Accept', 'application/json');
         xhr.send(formData);
 
@@ -103,6 +104,7 @@ function addTutor(e) {
     let formData = new FormData();
     formData.append('tutor', tutorId);
     formData.append('_token', document.getElementById('adminEditSubjectToken').value);
+    formData.append('_method', 'PUT');
     let action = document.forms['adminEditSubject'].getAttribute('action');
     let xhr = new XMLHttpRequest();
 
@@ -131,7 +133,7 @@ function addTutor(e) {
             }
         }
 
-        xhr.open("PUT", action);
+        xhr.open("POST", action);
         xhr.setRequestHeader('Accept', 'application/json');
         xhr.send(formData);
 
