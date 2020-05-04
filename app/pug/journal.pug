@@ -23,15 +23,23 @@ html(lang="en")
                 div.journal__table
                     div.journal__table-line
                         div.journal__table-item ФИО
-                        div.journal__table-item.journal__table-item--date 31.02
-                        div.journal__table-item.journal__table-item--date 31.02
-                        div.journal__table-item.journal__table-item--date 31.02
-                        div.journal__table-item.journal__table-item--date 31.02
-                        div.journal__table-item.journal__table-item--date 31.02
-                        div.journal__table-item.journal__table-item--date 31.02
-                        div.journal__table-item.journal__table-item--date 31.02
+                        div.journal__table-item.journal__table-item--date
+                            input(type="text", value="31.02" name="").header
+                        div.journal__table-item.journal__table-item--date
+                            input(type="text", value="31.02" name="").header
+                        div.journal__table-item.journal__table-item--date
+                            input(type="text", value="31.02" name="").header
+                        div.journal__table-item.journal__table-item--date
+                            input(type="text", value="31.02" name="").header
+                        div.journal__table-item.journal__table-item--date
+                            input(type="text", value="31.02" name="").header
+                        div.journal__table-item.journal__table-item--date
+                            input(type="text", value="31.02" name="").header
+                        div(data-itemId="1").journal__table-item.journal__table-item--date
+                            input(type="text", value="31.02" name="").header 
                             // put it only if tutor can delete this column
-                            //img(src="/img/bin.svg", alt="del").delete
+                            .delete
+                                img(src="/img/bin.svg", alt="del")
                         
                         div.journal__addColumn#addColumn
                             img(src="img/plusSign.svg", alt="add")
@@ -49,7 +57,7 @@ html(lang="en")
                             input(type="text", name="", class="absent", value="")
                         div.journal__table-item
                             input(type="text", name="", class="absent", value="н")
-                        div.journal__table-item
+                        div(data-itemId="2").journal__table-item
                             input(type="text", name="", class="absent", value="н")
                     div.journal__table-line
                         div(data-id="2").journal__table-item 2. Kovalenko Maxim
@@ -65,7 +73,7 @@ html(lang="en")
                             input(type="text", name="", class="absent", value="н")
                         div.journal__table-item
                             input(type="text", name="", class="absent", value="н")
-                        div.journal__table-item
+                        div(data-itemId="3").journal__table-item
                             input(type="text", name="", class="absent", value="")
                     div.journal__table-line
                         div(data-id="3").journal__table-item 3. Tymoshenko Ivan
@@ -81,7 +89,7 @@ html(lang="en")
                             input(type="text", name="", class="absent", value="")
                         div.journal__table-item
                             input(type="text", name="", class="absent", value="н")
-                        div.journal__table-item
+                        div(data-itemId="4").journal__table-item
                             input(type="text", name="", class="absent", value="")
 
                 .journal__buttons

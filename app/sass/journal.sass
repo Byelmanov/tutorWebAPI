@@ -144,25 +144,48 @@
             &--date
                 border: 1px solid $tableBorderColor
                 font-size: 15px
-                text-align: center
-                //overflow: hidden
-                font-weight: 500
-                font-style: italic
-                color: #262626
-                text-align: center
                 position: relative
+                .header
+                    width: 49px
+                    height: 31px
+                    font-size: 15px
+                    line-height: 35px
+                    border: none
+                    text-align: center
+                    font-weight: 400
+                    font-style: italic
+                    color: #262626
+                    text-align: center
                 .delete
                     position: absolute
-                    top: 0
-                    bottom: 0
-                    right: 0
-                    left: 0
+                    bottom: -40px
+                    left: -5px
                     margin: auto
-                    height: 90%
-                    cursor: pointer
                     display: none
+                    width: 60px
+                    height: 40px
+                    background: #fff
+                    border: 2px solid #333
+                    border-radius: 10px
+                    &:after
+                        content: ''
+                        background: #fff
+                        position: absolute
+                        top: -10px
+                        left: 0
+                        right: 0
+                        margin: auto
+                        width: 0
+                        height: 0
+                        border-left: 5px solid transparent
+                        border-right: 5px solid transparent
+                        border-bottom: 10px solid #333
+                    img
+                        width: 20px
+                        margin: auto
+                        cursor: pointer
                 &:hover > .delete
-                    display: block
+                    display: flex
             .absent
                 width: 98%
                 height: 30px
