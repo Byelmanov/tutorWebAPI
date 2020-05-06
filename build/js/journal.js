@@ -89,7 +89,7 @@ function addColumn() {
     let arrayOfLines = document.querySelectorAll('.journal__table-line');
 
     let itemWithDate = document.createElement("div");
-    itemWithDate.className = 'journal__table-item journal__table-item--date';
+    itemWithDate.className = 'journal__table-item journal__table-item--date header';
     let currDate = new Date();
     let currDay = String(currDate.getDate());
     let currMonth = String(currDate.getMonth() + 1);
@@ -97,9 +97,9 @@ function addColumn() {
     itemWithDate.innerText = currDay + "." + currMonth;
 
     itemWithDate.innerHTML = `
-    <input type="text" value="${currDay + "." + currMonth}" name="new_header[${counterForNewColumns}]" class="header">
+    ${currDay + "." + currMonth}
     <div class="delete">
-        <img src="/img/bin.svg" alt=""del>
+        <img src="/img/bin.svg" alt="del">
     </div>
     `;
 
@@ -156,7 +156,7 @@ function deleteColumn(e) {
         if (itemId !== null) {
             let hiddenInput = document.createElement('input');
             hiddenInput.type = 'hidden';
-            hiddenInput.name = 'delete';
+            hiddenInput.name = 'delete[]';
             hiddenInput.value = itemId;
             form.append(hiddenInput);
         }

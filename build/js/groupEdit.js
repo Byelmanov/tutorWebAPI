@@ -22,7 +22,13 @@ function sendAjaxgroupEdit() {
             if (xhr.readyState === 4) {
                 window.scroll(0, 0);
                 if (xhr.status == 200) {
-                    putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+                    try {
+                        let arrayJSON = JSON.parse(xhr.responseText);
+                        let redirect = arrayJSON.redirect;
+                        window.location.href = redirect;
+                    } catch{
+                        putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+                    }
                 } else {
                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
                 }
