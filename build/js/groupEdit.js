@@ -106,11 +106,15 @@ function createHiddenInputAndInsertId(id) {
     document.forms['groupEdit'].append(hiddenInput);
 }
 
-document.getElementById('editEmailCross').addEventListener('click', hideEditEmailSection);
-document.getElementById('editEmailButton').addEventListener('click', showEditEmailSection);
+try {
+    document.getElementById('editEmailCross').addEventListener('click', hideEditEmailSection);
+    document.getElementById('editEmailButton').addEventListener('click', showEditEmailSection);
 
-document.getElementById('editPasswordCross').addEventListener('click', hideEditPasswordSection);
-document.getElementById('editPasswordButton').addEventListener('click', showEditPasswordSection);
+    document.getElementById('editPasswordCross').addEventListener('click', hideEditPasswordSection);
+    document.getElementById('editPasswordButton').addEventListener('click', showEditPasswordSection);
+} catch (e) {
+    console.log(e);
+}
 
 function hideEditEmailSection() {
     document.getElementById('editEmailSection').style.display = 'none';
@@ -137,14 +141,18 @@ function checkEscAndHideWindow(e) {
     }
 }
 
-let formEditEmail = document.forms['editEmail'];
-formEditEmail.addEventListener('submit', function (e) {
-    e.preventDefault();
-    let email = document.getElementById('editEmailInput').value;
-    if (checkEmail(email)) {
-        sendAjaxEditEmail();
-    }
-});
+try {
+    let formEditEmail = document.forms['editEmail'];
+    formEditEmail.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let email = document.getElementById('editEmailInput').value;
+        if (checkEmail(email)) {
+            sendAjaxEditEmail();
+        }
+    });
+} catch (e) {
+    console.log(e);
+}
 
 function sendAjaxEditEmail() {
     let formData = new FormData(formEditEmail);
@@ -191,13 +199,17 @@ function sendAjaxEditEmail() {
     }
 }
 
-let formEditPassword = document.forms['editPassword'];
-formEditPassword.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (checkAllInputs()) {
-        sendAjaxEditPassword();
-    }
-});
+try {
+    let formEditPassword = document.forms['editPassword'];
+    formEditPassword.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (checkAllInputs()) {
+            sendAjaxEditPassword();
+        }
+    });
+} catch (e) {
+    console.log(e);
+}
 
 function sendAjaxEditPassword() {
     let formData = new FormData(formEditPassword);
@@ -261,49 +273,51 @@ function checkPassword(str) {
     }
 }
 
+try {
+    document.getElementById('editEmailInput').addEventListener('input', function () {
+        let value = this.value;
+        let button = document.querySelector('.groupData__editEmail-submit');
+        if (checkEmail(value)) {
+            button.classList.add('groupData__editEmail-submit--active');
+        } else {
+            button.classList.remove('groupData__editEmail-submit--active');
+        }
+    });
 
-document.getElementById('editEmailInput').addEventListener('input', function () {
-    let value = this.value;
-    let button = document.querySelector('.groupData__editEmail-submit');
-    if (checkEmail(value)) {
-        button.classList.add('groupData__editEmail-submit--active');
-    } else {
-        button.classList.remove('groupData__editEmail-submit--active');
-    }
-});
+    document.getElementById('passwordInput').addEventListener('input', function () {
+        let passwordValue = this.value;
+        let capture = document.getElementById('passwordLength');
+        if (checkPassword(passwordValue)) {
+            capture.style.visibility = "hidden";
+        } else {
+            capture.style.visibility = 'visible';
+            document.querySelector('.groupData__editPassword-submit').classList.remove('groupData__editPassword-submit--active');
+        }
 
-document.getElementById('passwordInput').addEventListener('input', function () {
-    let passwordValue = this.value;
-    let capture = document.getElementById('passwordLength');
-    if (checkPassword(passwordValue)) {
-        capture.style.visibility = "hidden";
-    } else {
-        capture.style.visibility = 'visible';
-        document.querySelector('.groupData__editPassword-submit').classList.remove('groupData__editPassword-submit--active');
-    }
+        if (checkAllInputs()) {
+            allDataIsValid();
+        }
+    });
 
-    if (checkAllInputs()) {
-        allDataIsValid();
-    }
-});
+    document.getElementById('passwordRepeatInput').addEventListener('input', function () {
+        let passwordRepeat = this.value;
+        let password = document.getElementById('passwordInput').value;
+        let capture = document.getElementById('passwordsAreNotTheSame');
 
-document.getElementById('passwordRepeatInput').addEventListener('input', function () {
-    let passwordRepeat = this.value;
-    let password = document.getElementById('passwordInput').value;
-    let capture = document.getElementById('passwordsAreNotTheSame');
+        if (passwordRepeat === password) {
+            capture.style.visibility = "hidden";
+        } else {
+            capture.style.visibility = 'visible';
+            document.querySelector('.groupData__editPassword-submit').classList.remove('groupData__editPassword-submit--active');
+        }
 
-    if (passwordRepeat === password) {
-        capture.style.visibility = "hidden";
-    } else {
-        capture.style.visibility = 'visible';
-        document.querySelector('.groupData__editPassword-submit').classList.remove('groupData__editPassword-submit--active');
-    }
-
-    if (checkAllInputs()) {
-        allDataIsValid();
-    }
-});
-
+        if (checkAllInputs()) {
+            allDataIsValid();
+        }
+    });
+} catch (e) {
+    console.log(e);
+}
 
 function checkAllInputs() {
     let password = document.getElementById('passwordInput').value;
