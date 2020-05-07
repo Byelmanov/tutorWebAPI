@@ -6,45 +6,33 @@ function setHandlerForAbsentInputs() {
     for (let i = 0; i < arrayOfAbsentInputs.length; i++) {
         arrayOfAbsentInputs[i].addEventListener('input', dineSymbols);
     }
-};
-
-setHandlerForAbsentInputs();
-
+}
+window.addEventListener('load', setHandlerForAbsentInputs);
 
 
 function dineSymbols(e) {
     let input = e.target;
     let value = input.value;
-    let valueInt = parseInt(value);
 
-    if (!isNaN(valueInt)) {
-        if (valueInt < 0 || valueInt > 100 || value.length === 4) {
-            value = value.slice(0, length - 1);
-            input.value = value;
-        }
-    } else {
-        if (value !== 'н' || value.length === 2) {
-            value = value.slice(0, length - 1);
-            input.value = value;
-        }
+    if (value !== 'н' || value.length === 2) {
+        value = value.slice(0, length - 1);
+        input.value = value;
     }
-
 }
 
 
 let form = document.forms['journal'];
 form.addEventListener('submit', function (e) {
     e.preventDefault();
-    sendAjaxWithJournalData();
+    let formData = new FormData(this);
+    let action = this.getAttribute('action');
+
+    sendAjax(formData, action);
 });
 
-function sendAjaxWithJournalData() {
-    let formData = new FormData(form);
-    let action = form.getAttribute('action');
+function sendAjax(formData, action) {
     let xhr = new XMLHttpRequest();
-
     try {
-
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status == 200) {
@@ -73,9 +61,8 @@ function sendAjaxWithJournalData() {
     } catch (e) {
         console.log(e);
     }
-
-
 }
+
 
 try {
     document.getElementById('addColumn').addEventListener('click', addColumn);
@@ -94,17 +81,14 @@ function addColumn() {
     let currDay = String(currDate.getDate());
     let currMonth = String(currDate.getMonth() + 1);
     currMonth = currMonth.length == 1 ? "0" + currMonth : currMonth;
-    itemWithDate.innerText = currDay + "." + currMonth;
 
     itemWithDate.innerHTML = `
     ${currDay + "." + currMonth}
     <div class="delete">
         <img src="/img/bin.svg" alt="del">
-    </div>
-    `;
+    </div>`;
 
-
-    addColumn = document.getElementById('addColumn');
+    let addColumn = document.getElementById('addColumn');
 
     arrayOfLines[0].insertBefore(itemWithDate, addColumn);
 
@@ -125,7 +109,7 @@ document.getElementById('reloadButton').addEventListener('click', () => { locati
 
 function setHandlerForDeleteButtons() {
     try {
-        let array = document.querySelectorAll('.journal__table-item--date .delete img');
+        let array = document.querySelectorAll('.delete img');
         for (let i = 0; i < array.length; i++) {
             array[i].addEventListener('click', deleteColumn);
         }
@@ -138,6 +122,7 @@ window.addEventListener('load', setHandlerForDeleteButtons);
 
 function deleteColumn(e) {
     let itemToDelete = e.target.parentNode.parentNode;
+    let columnId = itemToDelete.getAttribute('data-columnId');
 
     let arrayOfLines = document.querySelectorAll('.journal__table-line');
     let arrayOfChildren = arrayOfLines[0].children;
@@ -151,15 +136,16 @@ function deleteColumn(e) {
     }
 
     arrayOfLines.forEach(element => {
-        let childrenToDelete = element.children[postionOfDeleteItem];
-        let itemId = childrenToDelete.getAttribute('data-itemId');
-        if (itemId !== null) {
-            let hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'delete[]';
-            hiddenInput.value = itemId;
-            form.append(hiddenInput);
-        }
-        childrenToDelete.remove();
+        element.children[postionOfDeleteItem].remove();
     });
+
+    if (columnId !== null) {
+        let hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'delete[]';
+        hiddenInput.value = columnId;
+        form.append(hiddenInput);
+    }
 }
+
+

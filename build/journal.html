@@ -47,16 +47,19 @@
       -->
     </section>
     <section class="container-fluid journal">
-      <form action="" name="journal">
-        <div class="journal__group">
-          <h2 class="journal__group-heading">TM-71</h2><a class="journal__group-button" href="">Изменить группу</a>
-        </div>
-        <div class="journal__subject">
-          <h2 class="journal__subject-heading">Схемотехника</h2>
-          <!--input(type="text", name="subject", value="Схемотехника (лекция)", class="journal__subject-input", autofocus)-->
-          <!-- ставить класс в зависимости от типа премета (.lecture, .laboratory, .practic, .seminar)-->
-          <div class="lecture"></div><a class="journal__subject-button" href="">Изменить предмет</a>
-        </div>
+      <div class="journal__group">
+        <h2 class="journal__group-heading">TM-71</h2><a class="journal__group-button" href="">Изменить группу</a>
+      </div>
+      <div class="journal__subject">
+        <h2 class="journal__subject-heading">Схемотехника</h2>
+        <!-- ставить класс в зависимости от типа премета (.lecture, .laboratory, .practic, .seminar)-->
+        <div class="lecture"></div><a class="journal__subject-button" href="">Изменить предмет</a>
+      </div>
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" href="#">Посещаемость</a></li>
+        <li class="nav-item"><a class="nav-link" href="/marks.html">Оценки</a></li>
+      </ul>
+      <form action="" name="journal" id="journal">
         <div class="journal__table">
           <div class="journal__table-line">
             <div class="journal__table-item">ФИО</div>
@@ -66,7 +69,7 @@
             <div class="journal__table-item journal__table-item--date header">31.02</div>
             <div class="journal__table-item journal__table-item--date header">31.02</div>
             <div class="journal__table-item journal__table-item--date header">31.02</div>
-            <div class="journal__table-item journal__table-item--date header" data-itemId="1">31.01
+            <div class="journal__table-item journal__table-item--date header" data-columnId="1">31.01
               <!-- put it only if tutor can delete this column-->
               <div class="delete"><img src="/img/bin.svg" alt="del"/></div>
             </div>
@@ -92,7 +95,7 @@
             <div class="journal__table-item">
               <input class="absent" type="text" name="" value="н"/>
             </div>
-            <div class="journal__table-item" data-itemId="2">
+            <div class="journal__table-item">
               <input class="absent" type="text" name="" value="н"/>
             </div>
           </div>
@@ -116,7 +119,7 @@
             <div class="journal__table-item">
               <input class="absent" type="text" name="" value="н"/>
             </div>
-            <div class="journal__table-item" data-itemId="3">
+            <div class="journal__table-item">
               <input class="absent" type="text" name="" value=""/>
             </div>
           </div>
@@ -140,7 +143,7 @@
             <div class="journal__table-item">
               <input class="absent" type="text" name="" value="н"/>
             </div>
-            <div class="journal__table-item" data-itemId="4">
+            <div class="journal__table-item">
               <input class="absent" type="text" name="" value=""/>
             </div>
           </div>

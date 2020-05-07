@@ -56,77 +56,90 @@
         <div class="lecture"></div><a class="journal__subject-button" href="">Изменить предмет</a>
       </div>
       <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link active" href="#">Посещаемость</a></li>
-        <li class="nav-item"><a class="nav-link" href="/marks.html">Оценки</a></li>
+        <li class="nav-item"><a class="nav-link" href="/journal.html">Посещаемость</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#marks">Оценки</a></li>
       </ul>
-      <form action="" name="journal" id="journal">
+      <form class="marks" action="" name="marks" id="marks">
         <div class="journal__table">
           <div class="journal__table-line">
             <div class="journal__table-item">ФИО</div>
-            <div class="journal__table-item journal__table-item--date header">31.02</div>
-            <div class="journal__table-item journal__table-item--date header">31.02</div>
-            <div class="journal__table-item journal__table-item--date header">31.02</div>
-            <div class="journal__table-item journal__table-item--date header">31.02</div>
-            <div class="journal__table-item journal__table-item--date header">31.02</div>
-            <div class="journal__table-item journal__table-item--date header">31.02</div>
-            <div class="journal__table-item journal__table-item--date header" data-columnId="1">31.01
+            <div class="journal__table-item journal__table-item--date">
+              <input class="header" type="text" name="" value="лаб1"/>
+            </div>
+            <div class="journal__table-item journal__table-item--date">
+              <input class="header" type="text" name="" value="лаб2"/>
+            </div>
+            <div class="journal__table-item journal__table-item--date">
+              <input class="header" type="text" name="" value="лаб3"/>
+            </div>
+            <div class="journal__table-item journal__table-item--date">
+              <input class="header" type="text" name="" value="лаб4"/>
+            </div>
+            <div class="journal__table-item journal__table-item--date">
+              <input class="header" type="text" name="" value="лаб5"/>
+            </div>
+            <div class="journal__table-item journal__table-item--date">
+              <input class="header" type="text" name="" value="лаб6"/>
+            </div>
+            <div class="journal__table-item journal__table-item--date" data-itemId="1">
+              <input class="header" type="text" name="" value="лаб"/>
               <!-- put it only if tutor can delete this column-->
               <div class="delete"><img src="/img/bin.svg" alt="del"/></div>
             </div>
-            <div class="journal__addColumn" id="addColumn"><img src="img/plusSign.svg" alt="add"/></div>
+            <div class="journal__addColumn" id="marksAddColumn"><img src="img/plusSign.svg" alt="add"/></div>
           </div>
           <div class="journal__table-line">
             <div class="journal__table-item" data-id="1">1. Yelmanov Bohdan</div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value="10"/>
             </div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
-            </div>
-            <div class="journal__table-item">
-              <input class="absent" type="text" name="" value=""/>
-            </div>
-            <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value="1"/>
             </div>
             <div class="journal__table-item">
               <input class="absent" type="text" name="" value=""/>
             </div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value="4"/>
             </div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value=""/>
+            </div>
+            <div class="journal__table-item">
+              <input class="absent" type="text" name="" value="9"/>
+            </div>
+            <div class="journal__table-item" data-itemId="2">
+              <input class="absent" type="text" name="" value="25"/>
             </div>
           </div>
           <div class="journal__table-line">
             <div class="journal__table-item" data-id="2">2. Kovalenko Maxim</div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value="5"/>
             </div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value="9"/>
             </div>
             <div class="journal__table-item">
               <input class="absent" type="text" name="" value=""/>
             </div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value="33"/>
             </div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value="1"/>
             </div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value="4"/>
             </div>
-            <div class="journal__table-item">
+            <div class="journal__table-item" data-itemId="3">
               <input class="absent" type="text" name="" value=""/>
             </div>
           </div>
           <div class="journal__table-line">
             <div class="journal__table-item" data-id="3">3. Tymoshenko Ivan</div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value="20"/>
             </div>
             <div class="journal__table-item">
               <input class="absent" type="text" name="" value=""/>
@@ -135,15 +148,15 @@
               <input class="absent" type="text" name="" value=""/>
             </div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value="30"/>
             </div>
             <div class="journal__table-item">
               <input class="absent" type="text" name="" value=""/>
             </div>
             <div class="journal__table-item">
-              <input class="absent" type="text" name="" value="н"/>
+              <input class="absent" type="text" name="" value="0"/>
             </div>
-            <div class="journal__table-item">
+            <div class="journal__table-item" data-itemId="4">
               <input class="absent" type="text" name="" value=""/>
             </div>
           </div>
@@ -155,6 +168,6 @@
       </form>
     </section>
     <script src="js/alerts.js"></script>
-    <script src="js/journal.js"></script>
+    <script src="js/marks.js"></script>
   </body>
 </html>

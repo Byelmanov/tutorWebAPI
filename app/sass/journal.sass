@@ -112,12 +112,11 @@
             &:focus
                 border: 2px solid #31d5d4
     &__table
-        overflow-x: scroll
-        overflow-y: scroll
+        overflow: auto
         display: flex
         flex-flow: column nowrap
         margin-bottom: 50px
-        max-height: calc(100vh - 330px)
+        max-height: calc(100vh - 385px)
         min-height: 50px
         &-line
             display: flex
@@ -125,7 +124,9 @@
             align-items: center
             justify-content: flex-start
             font-size: 15px
+            max-height: 35px
             .journal__table-item
+                border-top: 1px solid $tableBorderColor
                 &:first-child
                     width: 330px
                     min-width: 170px
@@ -139,10 +140,11 @@
             min-width: 50px
             line-height: 35px
             text-align: center
-            border: 1px solid $tableBorderColor
+            border-bottom: 1px solid $tableBorderColor
+            border-left: 1px solid $tableBorderColor
+            border-right: 1px solid $tableBorderColor
             font-size: 16px
             &--date
-                border: 1px solid $tableBorderColor
                 font-size: 15px
                 position: relative
                 font-style: italic
@@ -155,6 +157,7 @@
                     text-align: center
                     font-weight: 400
                     color: #262626
+                    font-style: italic
                     text-align: center
                 .delete
                     position: absolute
@@ -236,7 +239,6 @@
         margin-left: 10px
         cursor: pointer
 
-    
 
 
 

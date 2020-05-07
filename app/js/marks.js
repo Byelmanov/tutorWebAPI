@@ -1,33 +1,50 @@
 'use strict';
 
-function setHandlerForAbsentInputs() {
-    let arrayOfAbsentInputs = document.querySelectorAll('.absent');
+function setHandlerForMarksInputs() {
+    let arrayOfMarksInputs = document.querySelectorAll('.absent');
 
-    for (let i = 0; i < arrayOfAbsentInputs.length; i++) {
-        arrayOfAbsentInputs[i].addEventListener('input', dineSymbols);
+    for (let i = 0; i < arrayOfMarksInputs.length; i++) {
+        arrayOfMarksInputs[i].addEventListener('input', dineSymbolsMarks);
     }
 }
-window.addEventListener('load', setHandlerForAbsentInputs);
+window.addEventListener('load', setHandlerForMarksInputs);
 
 
-function dineSymbols(e) {
+function dineSymbolsMarks(e) {
     let input = e.target;
     let value = input.value;
+    let valueInt = parseInt(value);
 
-    if (value !== 'н' || value.length === 2) {
+    if (!isNaN(valueInt)) {
+        if (valueInt < 0 || valueInt > 100 || value.length === 4) {
+            value = value.slice(0, length - 1);
+            input.value = value;
+        }
+    } else {
         value = value.slice(0, length - 1);
         input.value = value;
     }
 }
 
-
-let form = document.forms['journal'];
-form.addEventListener('submit', function (e) {
+let marksForm = document.forms['marks'];
+marksForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    let formData = new FormData(this);
-    let action = this.getAttribute('action');
+    let error = false;
 
-    sendAjax(formData, action);
+    let arrayOfHeaderInputs = document.querySelectorAll('.header');
+    arrayOfHeaderInputs.forEach((input) => {
+        if (input.value == "") {
+            error = true;
+        }
+    });
+
+    if (error) {
+        putTextInAlertAndShowIt('Заполните все заголовки таблицы');
+    } else {
+        let formData = new FormData(this);
+        let action = this.getAttribute('action');
+        sendAjax(formData, action);
+    }
 });
 
 function sendAjax(formData, action) {
@@ -63,64 +80,57 @@ function sendAjax(formData, action) {
     }
 }
 
-
 try {
-    document.getElementById('addColumn').addEventListener('click', addColumn);
+    document.getElementById('marksAddColumn').addEventListener('click', marksAddColumn);
 } catch (e) {
     console.log(e);
 }
 
-let counterForNewColumns = 1;
+let counterForNewMarksColumns = 1;
 
-function addColumn() {
+function marksAddColumn() {
     let arrayOfLines = document.querySelectorAll('.journal__table-line');
 
-    let itemWithDate = document.createElement("div");
-    itemWithDate.className = 'journal__table-item journal__table-item--date header';
-    let currDate = new Date();
-    let currDay = String(currDate.getDate());
-    let currMonth = String(currDate.getMonth() + 1);
-    currMonth = currMonth.length == 1 ? "0" + currMonth : currMonth;
+    let headerItem = document.createElement("div");
+    headerItem.className = 'journal__table-item journal__table-item--date';
 
-    itemWithDate.innerHTML = `
-    ${currDay + "." + currMonth}
+    headerItem.innerHTML = `
+    <input type="text" name="new_header[${counterForNewMarksColumns}]" class="header" value="лаб">
     <div class="delete">
         <img src="/img/bin.svg" alt="del">
     </div>`;
 
-    let addColumn = document.getElementById('addColumn');
+    let addColumn = document.getElementById('marksAddColumn');
 
-    arrayOfLines[0].insertBefore(itemWithDate, addColumn);
+    arrayOfLines[0].insertBefore(headerItem, addColumn);
 
     for (let i = 1; i < arrayOfLines.length; i++) {
         let studentId = arrayOfLines[i].children[0].getAttribute('data-id');
-        let itemWithN = document.createElement('div');
-        itemWithN.className = 'journal__table-item';
-        itemWithN.innerHTML = `<input class="absent" type="text" name="new_journal[${counterForNewColumns}][${studentId}]" value=""/>`;
-        arrayOfLines[i].append(itemWithN);
+        let itemWithMark = document.createElement('div');
+        itemWithMark.className = 'journal__table-item';
+        itemWithMark.innerHTML = `<input class="absent" type="text" name="new_mark[${counterForNewMarksColumns}][${studentId}]" value=""/>`;
+        arrayOfLines[i].append(itemWithMark);
     }
-    setHandlerForAbsentInputs();
-    setHandlerForDeleteButtons();
-    counterForNewColumns++;
+    setHandlerForMarksInputs();
+    setHandlerForMarksDeleteButtons();
+    counterForNewMarksColumns++;
 }
 
-document.getElementById('reloadButton').addEventListener('click', () => { location.reload(); });
 
-
-function setHandlerForDeleteButtons() {
+function setHandlerForMarksDeleteButtons() {
     try {
         let array = document.querySelectorAll('.delete img');
         for (let i = 0; i < array.length; i++) {
-            array[i].addEventListener('click', deleteColumn);
+            array[i].addEventListener('click', marksDeleteColumn);
         }
     } catch (e) {
         console.log(e);
     }
 }
+window.addEventListener('load', setHandlerForMarksDeleteButtons);
 
-window.addEventListener('load', setHandlerForDeleteButtons);
 
-function deleteColumn(e) {
+function marksDeleteColumn(e) {
     let itemToDelete = e.target.parentNode.parentNode;
     let columnId = itemToDelete.getAttribute('data-columnId');
 
@@ -144,8 +154,8 @@ function deleteColumn(e) {
         hiddenInput.type = 'hidden';
         hiddenInput.name = 'delete[]';
         hiddenInput.value = columnId;
-        form.append(hiddenInput);
+        marksForm.append(hiddenInput);
     }
 }
 
-
+document.getElementById('reloadButton').addEventListener('click', () => { location.reload(); });

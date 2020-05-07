@@ -3,7 +3,6 @@ html(lang="en")
     head
         include includes/head.pug
     body
-        
         include includes/header.pug
 
         section.container
@@ -22,84 +21,86 @@ html(lang="en")
 
             ul.nav.nav-tabs
                 li.nav-item
-                    a(href="#").nav-link.active Посещаемость
+                    a(href="/journal.html").nav-link Посещаемость
                 li.nav-item
-                    a(href="/marks.html").nav-link Оценки
+                    a(href="#marks").nav-link.active Оценки
             
-            form(action="", name="journal")#journal
+            form(action="", name="marks", class="marks")#marks
                 div.journal__table
                     div.journal__table-line
                         div.journal__table-item ФИО
-                        div.journal__table-item.journal__table-item--date.header 31.02
-                        div.journal__table-item.journal__table-item--date.header 31.02
-                        div.journal__table-item.journal__table-item--date.header 31.02
-                        div.journal__table-item.journal__table-item--date.header 31.02
-                        div.journal__table-item.journal__table-item--date.header 31.02
-                        div.journal__table-item.journal__table-item--date.header 31.02
-                        div(data-columnId="1").journal__table-item.journal__table-item--date.header 31.01
+                        .journal__table-item.journal__table-item--date
+                            input(type="text", name="", class="header", value="лаб1")
+                        div.journal__table-item.journal__table-item--date
+                            input(type="text", name="", class="header", value="лаб2")
+                        div.journal__table-item.journal__table-item--date
+                            input(type="text", name="", class="header", value="лаб3")
+                        div.journal__table-item.journal__table-item--date
+                            input(type="text", name="", class="header", value="лаб4")
+                        div.journal__table-item.journal__table-item--date
+                            input(type="text", name="", class="header", value="лаб5")
+                        div.journal__table-item.journal__table-item--date
+                            input(type="text", name="", class="header", value="лаб6")
+                        div(data-itemId="1").journal__table-item.journal__table-item--date
+                            input(type="text", name="", class="header", value="лаб")
                             // put it only if tutor can delete this column
                             .delete
                                 img(src="/img/bin.svg", alt="del")
                         
-                        div.journal__addColumn#addColumn
+                        div.journal__addColumn#marksAddColumn
                             img(src="img/plusSign.svg", alt="add")
                     div.journal__table-line
                         div(data-id="1").journal__table-item 1. Yelmanov Bohdan
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
+                            input(type="text", name="", class="absent", value="10")
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
-                        div.journal__table-item
-                            input(type="text", name="", class="absent", value="")
-                        div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
+                            input(type="text", name="", class="absent", value="1")
                         div.journal__table-item
                             input(type="text", name="", class="absent", value="")
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
+                            input(type="text", name="", class="absent", value="4")
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
+                            input(type="text", name="", class="absent", value="")
+                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="9")
+                        div(data-itemId="2").journal__table-item
+                            input(type="text", name="", class="absent", value="25")
                     div.journal__table-line
                         div(data-id="2").journal__table-item 2. Kovalenko Maxim
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
+                            input(type="text", name="", class="absent", value="5")
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
+                            input(type="text", name="", class="absent", value="9")
                         div.journal__table-item
                             input(type="text", name="", class="absent", value="")
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
+                            input(type="text", name="", class="absent", value="33")
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
+                            input(type="text", name="", class="absent", value="1")
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
-                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="4")
+                        div(data-itemId="3").journal__table-item
                             input(type="text", name="", class="absent", value="")
                     div.journal__table-line
                         div(data-id="3").journal__table-item 3. Tymoshenko Ivan
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
+                            input(type="text", name="", class="absent", value="20")
                         div.journal__table-item
                             input(type="text", name="", class="absent", value="")
                         div.journal__table-item
                             input(type="text", name="", class="absent", value="")
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
+                            input(type="text", name="", class="absent", value="30")
                         div.journal__table-item
                             input(type="text", name="", class="absent", value="")
                         div.journal__table-item
-                            input(type="text", name="", class="absent", value="н")
-                        div.journal__table-item
+                            input(type="text", name="", class="absent", value="0")
+                        div(data-itemId="4").journal__table-item
                             input(type="text", name="", class="absent", value="")
-                    
 
                 .journal__buttons
                     button(type="submit", class="journal__submit") сохранить
                     div.journal__reload#reloadButton отменить
         
-        
         script(src="js/alerts.js")
-        script(src="js/journal.js")
-                        
-                    
-                
+        script(src="js/marks.js")
