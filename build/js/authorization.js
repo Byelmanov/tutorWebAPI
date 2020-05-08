@@ -33,9 +33,8 @@ function sendAuthorizationAjax() {
                     throw new Error('404 server not found');
                 }
 
-                let arrayJSON = JSON.parse(xhr.responseText);
-
                 if (xhr.status == 200) {
+                    let arrayJSON = JSON.parse(xhr.responseText);
                     let linkToRedirect = arrayJSON.redirect;
                     if (linkToRedirect) {
                         window.location.href = linkToRedirect;
@@ -45,15 +44,17 @@ function sendAuthorizationAjax() {
                     }
 
                 } else {
-                    let arrayOfErrors = arrayJSON.errors;
-                    if (arrayOfErrors) {
+                    try {
+                        let arrayJSON = JSON.parse(xhr.responseText);
+                        let arrayOfErrors = arrayJSON.errors;
                         let strWithErrors = '';
                         for (let error in arrayOfErrors) {
                             strWithErrors += error[0] + '\n';
                         }
                         putTextInAlertAndShowIt(strWithErrors);
-                    } else {
+                    } catch (e) {
                         putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+                        console.log(e);
                     }
 
                 }
