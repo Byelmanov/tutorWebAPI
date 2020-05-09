@@ -25,7 +25,9 @@ function sendAjaxgroupEdit() {
                     try {
                         let arrayJSON = JSON.parse(xhr.responseText);
                         let redirect = arrayJSON.redirect;
-                        window.location.href = redirect;
+                        if (redirect != undefined) {
+                            window.location.href = redirect;
+                        }
                     } catch{
                         putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
                     }
