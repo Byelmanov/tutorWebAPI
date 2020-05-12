@@ -28,9 +28,12 @@ function sendAjaxgroupEdit() {
                         if (redirect != undefined) {
                             window.location.href = redirect;
                         }
-                    } catch{
+                    } catch (e) {
+                        console.log(e);
+                    } finally {
                         putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
                     }
+
                 } else {
                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
                 }
