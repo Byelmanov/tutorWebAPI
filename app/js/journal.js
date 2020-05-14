@@ -40,11 +40,13 @@ function sendAjax(formData, action) {
                 } else {
                     try {
                         let arrayJSON = JSON.parse(xhr.responseText);
-                        let strToShow = '';
-                        for (let i in arrayJSON.errors) {
-                            strToShow += i + '\n';
+                        let errors = arrayJSON.errors;
+
+                        let strWithError = '';
+                        for (let error in errors) {
+                            strWithError += errors[error][0] + '\n';
                         }
-                        putTextInAlertAndShowIt(strToShow);
+                        putTextInAlertAndShowIt(strWithError);
 
                     } catch (e) {
                         putTextInAlertAndShowIt('Упс, что-то пошло не так(');

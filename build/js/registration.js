@@ -172,7 +172,7 @@ function sendAjaxWithRegisterData() {
                     let strWithErrors = '';
 
                     for (let error in arrayOfErrors) {
-                        strWithErrors += error + '\n';
+                        strWithError += errors[error][0] + '\n';
                     }
 
                     putTextInAlertAndShowIt(strWithErrors);

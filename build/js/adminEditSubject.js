@@ -45,7 +45,7 @@ function deleteTutor(e) {
 
                         let strWithError = '';
                         for (let error in errors) {
-                            strWithError += error + '\n';
+                            strWithError += errors[error][0] + '\n';
                         }
                         putTextInAlertAndShowIt(strWithError);
                     } catch (e) {
@@ -122,7 +122,7 @@ function addTutor(e) {
 
                         let strWithError = '';
                         for (let error in errors) {
-                            strWithError += error + '\n';
+                            strWithError += errors[error][0] + '\n';
                         }
                         putTextInAlertAndShowIt(strWithError);
                     } catch (e) {
@@ -181,7 +181,7 @@ document.forms['adminEditSubjectNameType'].addEventListener('submit', function (
 
                         let strWithError = '';
                         for (let error in errors) {
-                            strWithError += error + '\n';
+                            strWithError += errors[error][0] + '\n';
                         }
                         putTextInAlertAndShowIt(strWithError);
                     } catch (e) {

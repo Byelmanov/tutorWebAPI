@@ -70,7 +70,7 @@ try {
                             if (errors) {
                                 let strWithError = '';
                                 for (let error in errors) {
-                                    strWithError += error + '\n';
+                                    strWithError += errors[error][0] + '\n';
                                 }
                                 putTextInAlertAndShowIt(strWithError);
                             } else {
@@ -122,7 +122,7 @@ try {
                             if (errors) {
                                 let strWithError = '';
                                 for (let error in errors) {
-                                    strWithError += error + '\n';
+                                    strWithError += errors[error][0] + '\n';
                                 }
                                 putTextInAlertAndShowIt(strWithError);
                             } else {
@@ -176,7 +176,7 @@ try {
                             if (errors) {
                                 let strWithError = '';
                                 for (let error in errors) {
-                                    strWithError += error + '\n';
+                                    strWithError += errors[error][0] + '\n';
                                 }
                                 putTextInAlertAndShowIt(strWithError);
                             } else {
@@ -317,7 +317,7 @@ try {
 
                                 let strWithError = '';
                                 for (let error in errors) {
-                                    strWithError += error + '\n';
+                                    strWithError += errors[error][0] + '\n';
                                 }
                                 putTextInAlertAndShowIt(strWithError);
                             } catch (e) {

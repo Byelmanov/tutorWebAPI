@@ -34,7 +34,7 @@ function sendAjaxWithRole(e) {
 
                         let strWithError = '';
                         for (let error in errors) {
-                            strWithError += error + '\n';
+                            strWithError += errors[error][0] + '\n';
                         }
 
                         putTextInAlertAndShowIt(strWithError);

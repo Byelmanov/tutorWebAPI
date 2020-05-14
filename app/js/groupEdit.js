@@ -186,7 +186,7 @@ function sendAjaxEditEmail() {
                         if (errors) {
                             let strWithError = '';
                             for (let error in errors) {
-                                strWithError += error + '\n';
+                                strWithError += errors[error][0] + '\n';
                             }
                             putTextInAlertAndShowIt(strWithError);
                         } else {
@@ -245,7 +245,7 @@ function sendAjaxEditPassword() {
 
                         let strWithError = '';
                         for (let error in errors) {
-                            strWithError += error + '\n';
+                            strWithError += errors[error][0] + '\n';
                         }
                         putTextInAlertAndShowIt(strWithError);
 
@@ -406,7 +406,7 @@ function sendAjaxTutorSelect(e) {
 
                         let strWithError = '';
                         for (let error in errors) {
-                            strWithError += error + '\n';
+                            strWithError += errors[error][0] + '\n';
                         }
                         putTextInAlertAndShowIt(strWithError);
 
@@ -469,7 +469,7 @@ function handleDeleteSubjectButton(e) {
 
                         let strWithError = '';
                         for (let error in errors) {
-                            strWithError += error + '\n';
+                            strWithError += errors[error][0] + '\n';
                         }
                         putTextInAlertAndShowIt(strWithError);
 
@@ -545,7 +545,7 @@ function handleAddSubjectButton(e) {
 
                         let strWithError = '';
                         for (let error in errors) {
-                            strWithError += error + '\n';
+                            strWithError += errors[error][0] + '\n';
                         }
                         putTextInAlertAndShowIt(strWithError);
 
@@ -640,7 +640,7 @@ document.forms['accounts'].addEventListener('submit', function (e) {
 
                             let strWithError = '';
                             for (let error in errors) {
-                                strWithError += error + '\n';
+                                strWithError += errors[error][0] + '\n';
                             }
                             putTextInAlertAndShowIt(strWithError);
 
