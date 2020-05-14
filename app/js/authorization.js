@@ -49,7 +49,7 @@ function sendAuthorizationAjax() {
                         let arrayOfErrors = arrayJSON.errors;
                         let strWithErrors = '';
                         for (let error in arrayOfErrors) {
-                            strWithErrors += error[0] + '\n';
+                            strWithErrors += arrayOfErrors[error][0] + '\n';
                         }
                         putTextInAlertAndShowIt(strWithErrors);
                     } catch (e) {
