@@ -1,5 +1,7 @@
 'use strict';
 
+import { sendAJAX, defaultAjaxErrorHandler } from './xhr.js';
+
 let form = document.forms['adminRolesForm'];
 
 form.addEventListener('submit', (e) => { e.preventDefault(); });
@@ -20,37 +22,45 @@ function sendAjaxWithRole(e) {
 
     let action = form.getAttribute('action');
 
-    let xhr = new XMLHttpRequest();
+    sendAJAX('POST', action, formData)
+        .then(data => {
+            putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+        })
+        .catch(data => {
+            defaultAjaxErrorHandler(data);
+        });
 
-    try {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status == 200) {
-                    putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
-                } else {
-                    try {
-                        let arrayJSON = JSON.parse(xhr.responseText);
-                        let errors = arrayJSON.errors;
+    // let xhr = new XMLHttpRequest();
 
-                        let strWithError = '';
-                        for (let error in errors) {
-                            strWithError += errors[error][0] + '\n';
-                        }
+    // try {
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4) {
+    //             if (xhr.status == 200) {
+    //                 putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+    //             } else {
+    //                 try {
+    //                     let arrayJSON = JSON.parse(xhr.responseText);
+    //                     let errors = arrayJSON.errors;
 
-                        putTextInAlertAndShowIt(strWithError);
-                    } catch (e) {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                    }
-                }
-            }
-        }
+    //                     let strWithError = '';
+    //                     for (let error in errors) {
+    //                         strWithError += errors[error][0] + '\n';
+    //                     }
 
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
+    //                     putTextInAlertAndShowIt(strWithError);
+    //                 } catch (e) {
+    //                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    //     xhr.open('POST', action);
+    //     xhr.setRequestHeader('Accept', 'application/json');
+    //     xhr.send(formData);
 
 
-    } catch (e) {
-        console.log(e);
-    }
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }

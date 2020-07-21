@@ -1,5 +1,7 @@
 'use strict';
 
+import { sendAJAX, defaultAjaxErrorHandler, redirectIfAjaxSuccess } from './xhr.js';
+
 let form = document.forms['authorization'];
 
 form.addEventListener('submit', function (e) {
@@ -21,53 +23,66 @@ form.addEventListener('submit', function (e) {
 function sendAuthorizationAjax() {
     let formData = new FormData(form);
     let action = form.getAttribute('action');
-    let xhr = new XMLHttpRequest();
 
     try {
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-
-                if (xhr.status == 404) {
-                    putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                    throw new Error('404 server not found');
-                }
-
-                if (xhr.status == 200) {
-                    let arrayJSON = JSON.parse(xhr.responseText);
-                    let linkToRedirect = arrayJSON.redirect;
-                    if (linkToRedirect) {
-                        window.location.href = linkToRedirect;
-                    } else {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                        throw new Error('cant find link');
-                    }
-
-                } else {
-                    try {
-                        let arrayJSON = JSON.parse(xhr.responseText);
-                        let arrayOfErrors = arrayJSON.errors;
-                        let strWithErrors = '';
-                        for (let error in arrayOfErrors) {
-                            strWithErrors += arrayOfErrors[error][0] + '\n';
-                        }
-                        putTextInAlertAndShowIt(strWithErrors);
-                    } catch (e) {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                        console.log(e);
-                    }
-
-                }
-            }
-        }
-
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
+        sendAJAX('POST', action, formData)
+            .then(data => {
+                redirectIfAjaxSuccess(data);
+            })
+            .catch(data => {
+                defaultAjaxErrorHandler(data);
+            });
 
     } catch (e) {
-        console.log(e);
+        console.error(e);
     }
+    //     let xhr = new XMLHttpRequest();
+
+    //     try {
+
+    //         xhr.onreadystatechange = function () {
+    //             if (xhr.readyState === 4) {
+
+    //                 if (xhr.status == 404) {
+    //                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                     throw new Error('404 server not found');
+    //                 }
+
+    //                 if (xhr.status == 200) {
+    //                     let arrayJSON = JSON.parse(xhr.responseText);
+    //                     let linkToRedirect = arrayJSON.redirect;
+    //                     if (linkToRedirect) {
+    //                         window.location.href = linkToRedirect;
+    //                     } else {
+    //                         putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                         throw new Error('cant find link');
+    //                     }
+
+    //                 } else {
+    //                     try {
+    //                         let arrayJSON = JSON.parse(xhr.responseText);
+    //                         let arrayOfErrors = arrayJSON.errors;
+    //                         let strWithErrors = '';
+    //                         for (let error in arrayOfErrors) {
+    //                             strWithErrors += arrayOfErrors[error][0] + '\n';
+    //                         }
+    //                         putTextInAlertAndShowIt(strWithErrors);
+    //                     } catch (e) {
+    //                         putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                         console.log(e);
+    //                     }
+
+    //                 }
+    //             }
+    //         }
+
+    //         xhr.open('POST', action);
+    //         xhr.setRequestHeader('Accept', 'application/json');
+    //         xhr.send(formData);
+
+    //     } catch (e) {
+    //         console.log(e);
+    //     }
 }
 
 

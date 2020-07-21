@@ -1,5 +1,7 @@
 'use strict';
 
+import { sendAJAX, defaultAjaxErrorHandler, redirectIfAjaxSuccess } from './xhr.js';
+
 function checkIsEmpty(str) {
     if (str == null || str == undefined || str == '') {
         return false;
@@ -148,43 +150,57 @@ registrationForm.addEventListener('submit', function (event) {
 function sendAjaxWithRegisterData() {
     let formData = new FormData(registrationForm);
     let action = registrationForm.getAttribute('action');
-    let xhr = new XMLHttpRequest();
 
     try {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status == 404) {
-                    putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                    throw new Error('404 server not found');
-                }
-                let arrayJSON = JSON.parse(xhr.responseText);
-
-                if (xhr.status == 200) {
-                    let linkToRedirect = arrayJSON.redirect;
-                    if (linkToRedirect) {
-                        window.location.href = linkToRedirect;
-                    } else {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                        throw new Error('cant find link');
-                    }
-                } else {
-                    let arrayOfErrors = arrayJSON.errors;
-                    let strWithErrors = '';
-
-                    for (let error in arrayOfErrors) {
-                        strWithError += errors[error][0] + '\n';
-                    }
-
-                    putTextInAlertAndShowIt(strWithErrors);
-                }
-            }
-        }
-
-        xhr.open("POST", action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
+        sendAJAX('POST', action, formData)
+            .then(data => {
+                redirectIfAjaxSuccess(data)
+            })
+            .catch(data => {
+                defaultAjaxErrorHandler(data);
+            });
 
     } catch (e) {
-        console.log(e);
+        console.error(e);
     }
+
+    // let xhr = new XMLHttpRequest();
+
+    // try {
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4) {
+    //             if (xhr.status == 404) {
+    //                 putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                 throw new Error('404 server not found');
+    //             }
+    //             let arrayJSON = JSON.parse(xhr.responseText);
+
+    //             if (xhr.status == 200) {
+    //                 let linkToRedirect = arrayJSON.redirect;
+    //                 if (linkToRedirect) {
+    //                     window.location.href = linkToRedirect;
+    //                 } else {
+    //                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                     throw new Error('cant find link');
+    //                 }
+    //             } else {
+    //                 let arrayOfErrors = arrayJSON.errors;
+    //                 let strWithErrors = '';
+
+    //                 for (let error in arrayOfErrors) {
+    //                     strWithError += errors[error][0] + '\n';
+    //                 }
+
+    //                 putTextInAlertAndShowIt(strWithErrors);
+    //             }
+    //         }
+    //     }
+
+    //     xhr.open("POST", action);
+    //     xhr.setRequestHeader('Accept', 'application/json');
+    //     xhr.send(formData);
+
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }

@@ -1,5 +1,7 @@
 'use strict';
 
+import { sendAJAX } from './xhr.js';
+
 function setHandlerForMarksInputs() {
     let arrayOfMarksInputs = document.querySelectorAll('.absent');
 
@@ -43,44 +45,54 @@ marksForm.addEventListener('submit', function (e) {
     } else {
         let formData = new FormData(this);
         let action = this.getAttribute('action');
-        sendAjax(formData, action);
+        // sendAjax(formData, action);
+
+        sendAJAX('POST', action, formData)
+            .then(data => {
+                putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+            })
+            .catch(data => {
+                defaultAjaxErrorHandler(data);
+            });
+
+
     }
 });
 
-function sendAjax(formData, action) {
-    let xhr = new XMLHttpRequest();
-    try {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status == 200) {
-                    putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
-                } else {
-                    try {
-                        let arrayJSON = JSON.parse(xhr.responseText);
-                        let errors = arrayJSON.errors;
+// function sendAjax(formData, action) {
+//     let xhr = new XMLHttpRequest();
+//     try {
+//         xhr.onreadystatechange = function () {
+//             if (xhr.readyState === 4) {
+//                 if (xhr.status == 200) {
+//                     putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+//                 } else {
+//                     try {
+//                         let arrayJSON = JSON.parse(xhr.responseText);
+//                         let errors = arrayJSON.errors;
 
-                        let strWithError = '';
-                        for (let error in errors) {
-                            strWithError += errors[error][0] + '\n';
-                        }
-                        putTextInAlertAndShowIt(strWithError);
+//                         let strWithError = '';
+//                         for (let error in errors) {
+//                             strWithError += errors[error][0] + '\n';
+//                         }
+//                         putTextInAlertAndShowIt(strWithError);
 
-                    } catch (e) {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                        throw new Error(xhr.status + " : " + xhr.statusText);
-                    }
-                }
-            }
-        }
+//                     } catch (e) {
+//                         putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+//                         throw new Error(xhr.status + " : " + xhr.statusText);
+//                     }
+//                 }
+//             }
+//         }
 
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json')
-        xhr.send(formData);
+//         xhr.open('POST', action);
+//         xhr.setRequestHeader('Accept', 'application/json')
+//         xhr.send(formData);
 
-    } catch (e) {
-        console.log(e);
-    }
-}
+//     } catch (e) {
+//         console.log(e);
+//     }
+// }
 
 try {
     document.getElementById('marksAddColumn').addEventListener('click', marksAddColumn);

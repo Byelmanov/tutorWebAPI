@@ -1,5 +1,7 @@
 'use strict';
 
+import { sendAJAX, defaultAjaxErrorHandler } from './xhr.js';
+
 function checkEmail(str) {
     str = str.toString();
     var regExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -39,26 +41,35 @@ form.addEventListener('submit', function (e) {
 function sendAjaxForgetPassword() {
     let formData = new FormData(form);
     let action = form.getAttribute('action');
-    let xhr = new XMLHttpRequest();
 
-    try {
+    sendAJAX('POST', action, formData)
+        .then(data => {
+            putTextInSuccessAlertAndShowIt('Успешно отправлено');
+        })
+        .catch(data => {
+            defaultAjaxErrorHandler(data);
+        });
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status == 200) {
-                    putTextInSuccessAlertAndShowIt('Успешно отправлено');
-                } else {
-                    putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                }
-            }
-        }
+    // let xhr = new XMLHttpRequest();
+
+    // try {
+
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4) {
+    //             if (xhr.status == 200) {
+    //                 putTextInSuccessAlertAndShowIt('Успешно отправлено');
+    //             } else {
+    //                 putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //             }
+    //         }
+    //     }
 
 
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
+    //     xhr.open('POST', action);
+    //     xhr.setRequestHeader('Accept', 'application/json');
+    //     xhr.send(formData);
 
-    } catch (e) {
-        console.log(e);
-    }
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }

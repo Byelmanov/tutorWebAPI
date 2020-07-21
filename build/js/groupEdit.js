@@ -1,5 +1,7 @@
 'use strict';
 
+import { sendAJAX, defaultAjaxErrorHandler, redirectIfAjaxSuccess } from './xhr.js';
+
 let form = document.forms['groupEdit'];
 form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -14,39 +16,53 @@ form.addEventListener('submit', function (e) {
 function sendAjaxgroupEdit() {
     let formData = new FormData(form);
     let action = form.getAttribute('action');
-    let xhr = new XMLHttpRequest();
 
-    try {
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                window.scroll(0, 0);
-                if (xhr.status == 200) {
-                    try {
-                        let arrayJSON = JSON.parse(xhr.responseText);
-                        let redirect = arrayJSON.redirect;
-                        if (redirect != undefined) {
-                            window.location.href = redirect;
-                        }
-                    } catch (e) {
-                        console.log(e);
-                    } finally {
-                        putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
-                    }
-
-                } else {
-                    putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                }
+    sendAJAX('POST', action, formData)
+        .then(data => {
+            let redirect = data.redirect;
+            if (redirect != undefined) {
+                window.location.href = redirect;
             }
-        }
 
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
+            putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+        })
+        .catch(data => {
+            defaultAjaxErrorHandler(data);
+        });
 
-    } catch (e) {
-        console.log(e);
-    }
+    // let xhr = new XMLHttpRequest();
+
+    // try {
+
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4) {
+    //             window.scroll(0, 0);
+    //             if (xhr.status == 200) {
+    //                 try {
+    //                     let arrayJSON = JSON.parse(xhr.responseText);
+    //                     let redirect = arrayJSON.redirect;
+    //                     if (redirect != undefined) {
+    //                         window.location.href = redirect;
+    //                     }
+    //                 } catch (e) {
+    //                     console.log(e);
+    //                 } finally {
+    //                     putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+    //                 }
+
+    //             } else {
+    //                 putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //             }
+    //         }
+    //     }
+
+    //     xhr.open('POST', action);
+    //     xhr.setRequestHeader('Accept', 'application/json');
+    //     xhr.send(formData);
+
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }
 
 function checkAllInputsAreEmpty() {
@@ -168,46 +184,60 @@ try {
 function sendAjaxEditEmail() {
     let formData = new FormData(formEditEmail);
     let action = formEditEmail.getAttribute('action');
-    let xhr = new XMLHttpRequest();
 
-    try {
+    sendAJAX('POST', action, formData)
+        .then(data => {
+            putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+            document.getElementById('groupDataEmail').innerText = formData.get('email');
+        })
+        .catch(data => {
+            defaultAjaxErrorHandler(data);
+        })
+        .finally(data => {
+            hideEditEmailSection();
+            window.scroll(0, 0);
+        });
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                hideEditEmailSection();
-                window.scroll(0, 0);
-                if (xhr.status == 200) {
-                    putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
-                    document.getElementById('groupDataEmail').innerText = formData.get('email');
-                } else {
-                    try {
-                        let arrayJSON = JSON.parse(xhr.responseText);
-                        let errors = arrayJSON.errors;
-                        if (errors) {
-                            let strWithError = '';
-                            for (let error in errors) {
-                                strWithError += errors[error][0] + '\n';
-                            }
-                            putTextInAlertAndShowIt(strWithError);
-                        } else {
-                            putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                        }
-                    } catch (e) {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    // let xhr = new XMLHttpRequest();
 
-                    }
+    // try {
 
-                }
-            }
-        }
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4) {
+    //             hideEditEmailSection();
+    //             window.scroll(0, 0);
+    //             if (xhr.status == 200) {
+    //                 putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+    //                 document.getElementById('groupDataEmail').innerText = formData.get('email');
+    //             } else {
+    //                 try {
+    //                     let arrayJSON = JSON.parse(xhr.responseText);
+    //                     let errors = arrayJSON.errors;
+    //                     if (errors) {
+    //                         let strWithError = '';
+    //                         for (let error in errors) {
+    //                             strWithError += errors[error][0] + '\n';
+    //                         }
+    //                         putTextInAlertAndShowIt(strWithError);
+    //                     } else {
+    //                         putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                     }
+    //                 } catch (e) {
+    //                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
 
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
+    //                 }
 
-    } catch (e) {
-        console.log(e);
-    }
+    //             }
+    //         }
+    //     }
+
+    //     xhr.open('POST', action);
+    //     xhr.setRequestHeader('Accept', 'application/json');
+    //     xhr.send(formData);
+
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }
 
 try {
@@ -225,45 +255,61 @@ try {
 function sendAjaxEditPassword() {
     let formData = new FormData(formEditPassword);
     let action = formEditPassword.getAttribute('action');
-    let xhr = new XMLHttpRequest();
 
-    try {
+    sendAJAX('POST', action, formData)
+        .then(data => {
+            putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+        })
+        .catch(data => {
+            defaultAjaxErrorHandler(data);
+        })
+        .finally(data => {
+            hideEditPasswordSection();
+            window.scroll(0, 0);
+            // clear password inputs
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('passwordRepeatInput').value = '';
+        });
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                hideEditPasswordSection();
-                window.scroll(0, 0);
-                // clear password inputs
-                document.getElementById('passwordInput').value = '';
-                document.getElementById('passwordRepeatInput').value = '';
-                if (xhr.status == 200) {
-                    putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
-                } else {
-                    try {
-                        let arrayJSON = JSON.parse(xhr.responseText);
-                        let errors = arrayJSON.errors;
+    // let xhr = new XMLHttpRequest();
 
-                        let strWithError = '';
-                        for (let error in errors) {
-                            strWithError += errors[error][0] + '\n';
-                        }
-                        putTextInAlertAndShowIt(strWithError);
+    // try {
 
-                    } catch (e) {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                    }
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4) {
+    //             hideEditPasswordSection();
+    //             window.scroll(0, 0);
+    //             // clear password inputs
+    //             document.getElementById('passwordInput').value = '';
+    //             document.getElementById('passwordRepeatInput').value = '';
+    //             if (xhr.status == 200) {
+    //                 putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+    //             } else {
+    //                 try {
+    //                     let arrayJSON = JSON.parse(xhr.responseText);
+    //                     let errors = arrayJSON.errors;
 
-                }
-            }
-        }
+    //                     let strWithError = '';
+    //                     for (let error in errors) {
+    //                         strWithError += errors[error][0] + '\n';
+    //                     }
+    //                     putTextInAlertAndShowIt(strWithError);
 
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
+    //                 } catch (e) {
+    //                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                 }
 
-    } catch (e) {
-        console.log(e);
-    }
+    //             }
+    //         }
+    //     }
+
+    //     xhr.open('POST', action);
+    //     xhr.setRequestHeader('Accept', 'application/json');
+    //     xhr.send(formData);
+
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }
 
 function checkEmail(str) {
@@ -350,20 +396,31 @@ function allDataIsValid() {
 document.getElementById('reloadButton').addEventListener('click', () => { location.reload(); });
 
 // NAVIGATION
-let previousTarget = $('.nav-link:first');
-$('.nav-link').on('click', function (e) {
-    e.preventDefault();
+window.addEventListener('load', setHandlersForNavigation);
+function setHandlersForNavigation() {
+    let previousTarget = document.querySelector('.nav-link.active');
 
-    let $target = $(e.target);
+    let arrayOfNavLinks = document.querySelectorAll('.nav-link');
+    arrayOfNavLinks.forEach((elem, index) => {
+        elem.addEventListener('click', (e) => {
+            e.preventDefault();
 
-    $(previousTarget.attr('href')).hide();
-    $target.addClass('active');
-    previousTarget.removeClass('active');
+            let target = e.target;
 
-    let idOfBlockToShow = $target.attr('href');
-    $(idOfBlockToShow).css('display', 'flex');
-    previousTarget = $target;
-});
+            let idBlockToHide = previousTarget.getAttribute('href');
+            document.querySelector(idBlockToHide).style.display = 'none';
+
+            target.classList.add('active');
+            previousTarget.classList.remove('active');
+
+            let idOfBlockToShow = target.getAttribute('href');
+            document.querySelector(idOfBlockToShow).style.display = 'flex';
+            previousTarget = target;
+        });
+    })
+}
+
+
 
 // edit group subjects
 
@@ -392,37 +449,45 @@ function sendAjaxTutorSelect(e) {
 
     let action = subjectsPerGroupForm.getAttribute('action');
 
-    let xhr = new XMLHttpRequest();
+    sendAJAX('POST', action, formData)
+        .then(data => {
+            putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+        })
+        .catch(data => {
+            defaultAjaxErrorHandler(data);
+        });
 
-    try {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status == 200) {
-                    putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
-                } else {
-                    try {
-                        let arrayJSON = JSON.parse(xhr.responseText);
-                        let errors = arrayJSON.errors;
+    // let xhr = new XMLHttpRequest();
 
-                        let strWithError = '';
-                        for (let error in errors) {
-                            strWithError += errors[error][0] + '\n';
-                        }
-                        putTextInAlertAndShowIt(strWithError);
+    // try {
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4) {
+    //             if (xhr.status == 200) {
+    //                 putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+    //             } else {
+    //                 try {
+    //                     let arrayJSON = JSON.parse(xhr.responseText);
+    //                     let errors = arrayJSON.errors;
 
-                    } catch (e) {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                    }
-                }
-            }
-        }
+    //                     let strWithError = '';
+    //                     for (let error in errors) {
+    //                         strWithError += errors[error][0] + '\n';
+    //                     }
+    //                     putTextInAlertAndShowIt(strWithError);
 
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
-    } catch (e) {
-        console.log(e);
-    }
+    //                 } catch (e) {
+    //                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    //     xhr.open('POST', action);
+    //     xhr.setRequestHeader('Accept', 'application/json');
+    //     xhr.send(formData);
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }
 
 // delete subject
@@ -453,40 +518,50 @@ function handleDeleteSubjectButton(e) {
 
     let action = subjectsPerGroupForm.getAttribute('data-actionToDelete');
 
-    let xhr = new XMLHttpRequest();
+    sendAJAX('POST', action, formData)
+        .then(data => {
+            deleteSubject(itemData);
+            subjectItem.remove();
+            putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+        })
+        .catch(data => {
+            defaultAjaxErrorHandler(data);
+        });
 
-    try {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status == 200) {
-                    deleteSubject(itemData);
-                    subjectItem.remove();
-                    putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
-                } else {
-                    try {
-                        let arrayJSON = JSON.parse(xhr.responseText);
-                        let errors = arrayJSON.errors;
+    // let xhr = new XMLHttpRequest();
 
-                        let strWithError = '';
-                        for (let error in errors) {
-                            strWithError += errors[error][0] + '\n';
-                        }
-                        putTextInAlertAndShowIt(strWithError);
+    // try {
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4) {
+    //             if (xhr.status == 200) {
+    //                 deleteSubject(itemData);
+    //                 subjectItem.remove();
+    //                 putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+    //             } else {
+    //                 try {
+    //                     let arrayJSON = JSON.parse(xhr.responseText);
+    //                     let errors = arrayJSON.errors;
 
-                    } catch (e) {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                    }
-                }
-            }
-        }
+    //                     let strWithError = '';
+    //                     for (let error in errors) {
+    //                         strWithError += errors[error][0] + '\n';
+    //                     }
+    //                     putTextInAlertAndShowIt(strWithError);
+
+    //                 } catch (e) {
+    //                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                 }
+    //             }
+    //         }
+    //     }
 
 
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
-    } catch (e) {
-        console.log(e);
-    }
+    //     xhr.open('POST', action);
+    //     xhr.setRequestHeader('Accept', 'application/json');
+    //     xhr.send(formData);
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }
 
 function deleteSubject(dataObj) {
@@ -528,41 +603,51 @@ function handleAddSubjectButton(e) {
     formData.append('_token', document.getElementById('allSubjectsToken').value);
     let action = allSubjectsForm.getAttribute('action');
 
-    let xhr = new XMLHttpRequest();
-    try {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status == 200) {
-                    let arrayJSON = JSON.parse(xhr.responseText);
-                    itemData.arrayOfTutors = arrayJSON;
-                    addSubject(itemData);
-                    subjectItem.remove();
-                } else {
+    sendAJAX('POST', action, formData)
+        .then(data => {
+            itemData.arrayOfTutors = data;
+            addSubject(itemData);
+            subjectItem.remove();
+        })
+        .catch(data => {
+            defaultAjaxErrorHandler(data);
+        });
 
-                    try {
-                        let arrayJSON = JSON.parse(xhr.responseText);
-                        let errors = arrayJSON.errors;
+    // let xhr = new XMLHttpRequest();
+    // try {
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4) {
+    //             if (xhr.status == 200) {
+    //                 let arrayJSON = JSON.parse(xhr.responseText);
+    //                 itemData.arrayOfTutors = arrayJSON;
+    //                 addSubject(itemData);
+    //                 subjectItem.remove();
+    //             } else {
 
-                        let strWithError = '';
-                        for (let error in errors) {
-                            strWithError += errors[error][0] + '\n';
-                        }
-                        putTextInAlertAndShowIt(strWithError);
+    //                 try {
+    //                     let arrayJSON = JSON.parse(xhr.responseText);
+    //                     let errors = arrayJSON.errors;
 
-                    } catch (e) {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                    }
-                }
-            }
-        }
+    //                     let strWithError = '';
+    //                     for (let error in errors) {
+    //                         strWithError += errors[error][0] + '\n';
+    //                     }
+    //                     putTextInAlertAndShowIt(strWithError);
+
+    //                 } catch (e) {
+    //                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                 }
+    //             }
+    //         }
+    //     }
 
 
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
-    } catch (e) {
-        console.log(e);
-    }
+    //     xhr.open('POST', action);
+    //     xhr.setRequestHeader('Accept', 'application/json');
+    //     xhr.send(formData);
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }
 
 function addSubject(dataObj) {
@@ -626,38 +711,47 @@ document.forms['accounts'].addEventListener('submit', function (e) {
     } else {
         let formData = new FormData(this);
         let action = this.getAttribute('action');
-        let xhr = new XMLHttpRequest();
 
-        try {
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    if (xhr.status == 200) {
-                        putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
-                    } else {
-                        try {
-                            let arrayJSON = JSON.parse(xhr.responseText);
-                            let errors = arrayJSON.errors;
+        sendAJAX('POST', action, formData)
+            .then(data => {
+                putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+            })
+            .catch(data => {
+                defaultAjaxErrorHandler(data);
+            });
 
-                            let strWithError = '';
-                            for (let error in errors) {
-                                strWithError += errors[error][0] + '\n';
-                            }
-                            putTextInAlertAndShowIt(strWithError);
+        // let xhr = new XMLHttpRequest();
 
-                        } catch (e) {
-                            putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                        }
-                    }
-                }
-            }
+        // try {
+        //     xhr.onreadystatechange = function () {
+        //         if (xhr.readyState === 4) {
+        //             if (xhr.status == 200) {
+        //                 putTextInSuccessAlertAndShowIt('Данные успешно обновлены');
+        //             } else {
+        //                 try {
+        //                     let arrayJSON = JSON.parse(xhr.responseText);
+        //                     let errors = arrayJSON.errors;
 
-            xhr.open('POST', action);
-            xhr.setRequestHeader('Accept', 'application/json');
-            xhr.send(formData);
+        //                     let strWithError = '';
+        //                     for (let error in errors) {
+        //                         strWithError += errors[error][0] + '\n';
+        //                     }
+        //                     putTextInAlertAndShowIt(strWithError);
 
-        } catch (e) {
-            console.log(e);
-        }
+        //                 } catch (e) {
+        //                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+        //                 }
+        //             }
+        //         }
+        //     }
+
+        //     xhr.open('POST', action);
+        //     xhr.setRequestHeader('Accept', 'application/json');
+        //     xhr.send(formData);
+
+        // } catch (e) {
+        //     console.log(e);
+        // }
     }
 
 

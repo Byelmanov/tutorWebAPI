@@ -1,5 +1,7 @@
 'use strict';
 
+import { sendAJAX, defaultAjaxErrorHandler, redirectIfAjaxSuccess } from './xhr.js';
+
 function checkPassword(str) {
     if (str.length < 8 || str == "" || str == null || str == undefined) {
         return false;
@@ -80,33 +82,46 @@ form.addEventListener('submit', function (e) {
 function sendAjaxSetNewPassword() {
     let formData = new FormData(form);
     let action = form.getAttribute('action');
-    let xhr = new XMLHttpRequest();
 
     try {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status == 422) {
-                    putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                    throw new Error(xhr.status + ": " + xhr.statusText);
-                } else if (xhr.status == 200) {
-                    let linkToRedirect = JSON.parse(xhr.responseText).redirect;
-                    if (linkToRedirect) {
-                        window.location.href = linkToRedirect;
-                    } else {
-                        putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                        throw new Error('cant find link');
-                    }
-                } else {
-                    putTextInAlertAndShowIt('Упс, что-то пошло не так(');
-                }
-            }
-        }
-
-        xhr.open('POST', action);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(formData);
-
+        sendAJAX('POST', action, formData)
+            .then(data => {
+                redirectIfAjaxSuccess(data);
+            })
+            .catch(data => {
+                defaultAjaxErrorHandler(data);
+            });
     } catch (e) {
-        console.log(e);
+        console.error(e);
     }
+
+    // let xhr = new XMLHttpRequest();
+
+    // try {
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4) {
+    //             if (xhr.status == 422) {
+    //                 putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                 throw new Error(xhr.status + ": " + xhr.statusText);
+    //             } else if (xhr.status == 200) {
+    //                 let linkToRedirect = JSON.parse(xhr.responseText).redirect;
+    //                 if (linkToRedirect) {
+    //                     window.location.href = linkToRedirect;
+    //                 } else {
+    //                     putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //                     throw new Error('cant find link');
+    //                 }
+    //             } else {
+    //                 putTextInAlertAndShowIt('Упс, что-то пошло не так(');
+    //             }
+    //         }
+    //     }
+
+    //     xhr.open('POST', action);
+    //     xhr.setRequestHeader('Accept', 'application/json');
+    //     xhr.send(formData);
+
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }
